@@ -2,7 +2,7 @@
 
 @section("content")
 
-<h1 class="text-4xl text-black mb-6">{{ $title }}</h1>
+<h1 class="text-4xl text-black mb-10">{{ $title }}</h1>
 
 <form action="/admin/dosen/{{ $dosen->id }}" method="post">
   @method("delete")
@@ -50,4 +50,21 @@
   </div>
 </form>
 
+@endsection
+
+@section("script")
+<script>
+  const previewImg = () => {
+    const image = document.querySelector(".img-input")
+    const imgPreview = document.querySelector(".img-preview")
+        
+    imgPreview.style.display = 'block'
+    const oFReader = new FileReader()
+      oFReader.readAsDataURL(image.files[0])
+
+      oFReader.onload = function(oFREvent) {
+          imgPreview.src = oFREvent.target.result
+      }
+    }
+</script>
 @endsection

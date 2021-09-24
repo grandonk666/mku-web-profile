@@ -22,11 +22,13 @@ Route::get('/', function ()
     return view('welcome');
 });
 
+Route::get("/admin/post/createSlug", [AdminPostController::class, "createSlug"]);
+
 Route::group(["prefix" => "admin"], function ()
 {
     Route::get('/', function ()
     {
-        return redirect("/admin/struktur");
+        return redirect("/admin/post");
     });
 
     Route::resource('/dosen', AdminDosenController::class);

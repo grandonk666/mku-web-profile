@@ -2,7 +2,7 @@
 
 @section("content")
 
-<h1 class="text-4xl text-black mb-6">{{ $title }}</h1>
+<h1 class="text-4xl text-black mb-10">{{ $title }}</h1>
 
 <form method="POST" action="/admin/matakuliah" class="p-10 bg-white rounded shadow-xl w-2/3">
   @csrf

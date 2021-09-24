@@ -4,8 +4,8 @@
 
 <h1 class="text-4xl text-black mb-10">{{ $title }}</h1>
 
-<a href="/admin/dosen/create" class="bg-blue-700 text-white font-semibold py-2 px-3 rounded-br-md rounded-bl-md rounded-tr-md shadow hover:shadow-lg hover:bg-blue-600">
-  <i class="fas fa-plus mr-3"></i> Tambah Data Dosen
+<a href="/admin/post/create" class="bg-blue-700 text-white font-semibold py-2 px-3 rounded-br-md rounded-bl-md rounded-tr-md shadow hover:shadow-lg hover:bg-blue-600">
+  <i class="fas fa-plus mr-3"></i> Tambah Post
 </a>
 
 @if (session()->has("success"))
@@ -17,42 +17,34 @@
 <table class="w-4/5 bg-white mt-4 text-sm">
   <thead class="bg-gray-800 text-white">
     <tr>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Foto</th>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Nama</th>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Jabatan</th>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">NIP</td>
+      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Sampul</th>
+      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>
+      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Kategori</th>
+      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Tanggal</td>
     </tr>
   </thead>
   <tbody class="text-gray-700">
-    @foreach ($listDosen as $dosen)
-    <tr onclick="location.href='/admin/dosen/{{ $dosen->id }}/edit'" class="border border-gray-300 hover:bg-gray-200 cursor-pointer">
-      @if ($dosen->foto)
-      <td class="w-1/4 text-left py-3 pl-3 pr-28">
-        <div class="aspect-w-3 aspect-h-4">
-          <img src="{{ asset("storage/".$dosen->foto) }}" alt="{{ $dosen->nama }}" class="w-20 h-24 object-center object-cover" />
+    @foreach ($posts as $post)
+    <tr onclick="location.href='/admin/post/{{ $post->id }}/edit'" class="border border-gray-300 hover:bg-gray-200 cursor-pointer">
+      @if ($post->sampul)
+      <td class="w-1/4 text-left p-3">
+        <div class="aspect-w-16 aspect-h-9">
+          <img src="{{ asset("storage/".$post->sampul) }}" alt="{{ $post->judul }}" class="w-full object-center object-cover" />
         </div>
       </td>
       @else
-      <td class="w-1/4 text-left py-3 pl-3 pr-28">
-        <div class="aspect-w-3 aspect-h-4">
-          <img src="{{ asset("storage/foto-dosen/foto-default.jpg") }}" alt="{{ $dosen->nama }}" class="object-center object-cover" />
-        </div>
+      <td class="w-1/4 text-left p-3">
+        <div class="aspect-w-16 aspect-h-9">
+          <img src="{{ asset("storage/sampul-post/sampul-default.jpg") }}" alt="{{ $post->judul }}" class="w-full object-center object-cover" />
+        </div>    
       </td>
       @endif
-      <td class="w-1/4 text-left py-3 px-4">{{ $dosen->nama }}</td>
+      <td class="w-1/4 text-left py-3 px-4">{{ $post->judul }}</td>
       <td class="w-1/4 text-left py-3 px-4 capitalize">
-        @if ($dosen->struktur)
-          {{ $dosen->struktur->jabatan }}
-        @else
-          Dosen Reguler
-        @endif
+        {{ $post->kategori->nama }}
       </td>
       <td class="w-1/4 text-left py-3 px-4 tracking-wide">
-        @if ($dosen->nip)
-          {{ $dosen->nip }}
-        @else
-          Kosong
-        @endif
+        {{ $post->created_at->format('d, M Y') }}
       </td>
     </tr>
     @endforeach

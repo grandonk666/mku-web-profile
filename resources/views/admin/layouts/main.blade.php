@@ -8,7 +8,8 @@
     <meta name="description" content="">
 
     <!-- Tailwind -->
-    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    {{-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset("css/app.css") }}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
         .font-family-merri { font-family: Merriweather; }
@@ -18,9 +19,13 @@
 
     <aside class="relative bg-gray-700 h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-4 border-b border-gray-500">
-            <a href="index.html" class="text-white text-2xl font-semibold uppercase hover:text-gray-300">Admin</a>
+            <a href="/admin" class="text-white text-2xl font-semibold uppercase hover:text-gray-300">Admin</a>
         </div>
         <nav class="text-white text-sm font-semibold pt-3">
+            <a href="/admin/post" class="flex items-center py-4 pl-3 hover:bg-gray-300 hover:text-gray-800 {{ strpos(Route::currentRouteName(), "post") > -1 ? "bg-white text-gray-800" : "text-white" }}">
+                <i class="fas fa-newspaper mr-3"></i>
+                Berita & Pengumuman
+            </a>
             <a href="/admin/struktur" class="flex items-center py-4 pl-3 hover:bg-gray-300 hover:text-gray-800 {{ strpos(Route::currentRouteName(), "struktur") > -1 ? "bg-white text-gray-800" : "text-white" }}">
                 <i class="fas fa-sitemap mr-3"></i>
                 Struktur Organisasi
@@ -63,6 +68,10 @@
 
             <!-- Dropdown Nav -->
             <nav class="navbar text-sm hidden flex-col pt-4">
+                <a href="/admin/post" class="flex items-center text-white py-2 pl-4 hover:bg-gray-200 hover:text-gray-800">
+                    <i class="fas fa-newspaper mr-3"></i>
+                    Berita & Pengumuman
+                </a>
                 <a href="/admin/struktur" class="flex items-center text-white py-2 pl-4 hover:bg-gray-200 hover:text-gray-800">
                     <i class="fas fa-sitemap mr-3"></i>
                     Struktur Organisasi
@@ -106,24 +115,16 @@
         const dropdown = document.querySelector(".account-dropdown")
         dropdown.classList.toggle("hidden")
       }
+
       const togleNavbar = () => {
         const flex = document.querySelector(".navbar")
         flex.classList.toggle("hidden")
         flex.classList.toggle("flex")
       }
-      const previewImg = () => {
-        const image = document.querySelector("#foto")
-        const imgPreview = document.querySelector(".img-preview")
-        
-        imgPreview.style.display = 'block'
-        const oFReader = new FileReader()
-        oFReader.readAsDataURL(image.files[0])
-
-        oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result
-        }
-      }
     </script>
+
+    @yield("script")
+    
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </body>

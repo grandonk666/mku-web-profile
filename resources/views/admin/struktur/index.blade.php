@@ -2,7 +2,7 @@
 
 @section("content")
 
-<h1 class="text-4xl text-black mb-6">{{ $title }}</h1>
+<h1 class="text-4xl text-black mb-10">{{ $title }}</h1>
 
 <a href="/admin/struktur/create" class="bg-blue-700 text-white font-semibold py-2 px-3 rounded-br-md rounded-bl-md rounded-tr-md shadow hover:shadow-lg hover:bg-blue-600">
   <i class="fas fa-plus mr-3"></i> Tambah Jabatan

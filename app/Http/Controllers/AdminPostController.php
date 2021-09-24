@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminPostController extends Controller
 {
@@ -16,7 +18,7 @@ class AdminPostController extends Controller
     {
         $posts = Post::with("kategori")->get();
         return view("admin.post.index", [
-            "title" => "Data Berita & Pengumuman",
+            "title" => "Data Post Berita & Pengumuman",
             "posts" => $posts
         ]);
     }
@@ -28,7 +30,10 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.post.create", [
+            "title" => "Tambah Post",
+            "listKategori" => Kategori::all()
+        ]);
     }
 
     /**
@@ -85,5 +90,11 @@ class AdminPostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function createSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Post::class, 'slug', $request->judul);
+        return response()->json(["slug" => $slug]);
     }
 }

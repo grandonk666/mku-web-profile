@@ -2,7 +2,7 @@
 
 @section("content")
 
-<h1 class="text-4xl text-black mb-6">{{ $title }}</h1>
+<h1 class="text-4xl text-black mb-10">{{ $title }}</h1>
 
 <form action="/admin/matakuliah/{{ $matakuliah->id }}" method="post">
   @method("delete")
