@@ -17,7 +17,7 @@ class AdminDosenController extends Controller
     {
         $listDosen = Dosen::with(["matakuliah", "struktur"])->get();
         return view("admin.dosen.index", [
-            "title" => "Data Matakuliah",
+            "title" => "Data Dosen",
             "listDosen" => $listDosen
         ]);
     }
@@ -126,6 +126,11 @@ class AdminDosenController extends Controller
      */
     public function destroy(Dosen $dosen)
     {
+        if ($dosen->foto)
+        {
+            Storage::delete($dosen->foto);
+        }
+
         Dosen::destroy($dosen->id);
         return redirect("/admin/dosen")->with("success", "Data Dosen Berhasil Dihapus");
     }

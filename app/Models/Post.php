@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $fillable = ["judul", "slug", "ketegori_id", "excerpt", "body", "sampul"];
+    protected $guarded = [];
 
     public function kategori()
     {

@@ -10,9 +10,14 @@
     <!-- Tailwind -->
     {{-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset("css/app.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/trix.css") }}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
         .font-family-merri { font-family: Merriweather; }
+
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-family-merri flex">
@@ -107,8 +112,9 @@
         
     </div>
 
-    <!-- AlpineJS -->
-    {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
+    <!-- CKEditor -->
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script> --}}
+
 
     <script>
       const togleDropdown = () => {

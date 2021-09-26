@@ -35,4 +35,6 @@ Route::group(["prefix" => "admin"], function ()
     Route::resource('/matakuliah', AdminMatakuliahController::class);
     Route::resource('/struktur', AdminStrukturController::class);
     Route::resource('/post', AdminPostController::class);
+
+    Route::post("/post/upload", [AdminPostController::class, "upload"])->name("attachment-upload");
 });

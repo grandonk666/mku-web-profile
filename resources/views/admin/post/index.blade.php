@@ -14,42 +14,56 @@
 </div>
 @endif
 
-<table class="w-4/5 bg-white mt-4 text-sm">
-  <thead class="bg-gray-800 text-white">
-    <tr>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Sampul</th>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Kategori</th>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Tanggal</td>
-    </tr>
-  </thead>
-  <tbody class="text-gray-700">
-    @foreach ($posts as $post)
-    <tr onclick="location.href='/admin/post/{{ $post->id }}/edit'" class="border border-gray-300 hover:bg-gray-200 cursor-pointer">
-      @if ($post->sampul)
-      <td class="w-1/4 text-left p-3">
-        <div class="aspect-w-16 aspect-h-9">
-          <img src="{{ asset("storage/".$post->sampul) }}" alt="{{ $post->judul }}" class="w-full object-center object-cover" />
-        </div>
-      </td>
-      @else
-      <td class="w-1/4 text-left p-3">
-        <div class="aspect-w-16 aspect-h-9">
-          <img src="{{ asset("storage/sampul-post/sampul-default.jpg") }}" alt="{{ $post->judul }}" class="w-full object-center object-cover" />
-        </div>    
-      </td>
-      @endif
-      <td class="w-1/4 text-left py-3 px-4">{{ $post->judul }}</td>
-      <td class="w-1/4 text-left py-3 px-4 capitalize">
-        {{ $post->kategori->nama }}
-      </td>
-      <td class="w-1/4 text-left py-3 px-4 tracking-wide">
-        {{ $post->created_at->format('d, M Y') }}
-      </td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
+<div class="shadow overflow-hidden border-b border-gray-200 rounded-md w-4/5 mt-4">
+  <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-300">
+      <tr>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+          Sampul
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+          Judul
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+          Kategori
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+          Tanggal
+        </th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+      @foreach ($posts as $post)
+      <tr onclick="location.href='/admin/post/{{ $post->id }}/edit'" class="cursor-pointer hover:bg-gray-100">
+        @if ($post->sampul)
+        <td class="px-6 py-4 whitespace-nowrap">
+          <div class="aspect-w-16 aspect-h-9">
+            <img src="{{ asset("storage/".$post->sampul) }}" alt="{{ $post->judul }}" class="w-full object-center object-cover" />
+          </div>
+        </td>
+        @else
+        <td class="px-6 py-4 whitespace-nowrap">
+          <div class="aspect-w-16 aspect-h-9">
+            <img src="{{ asset("storage/sampul-post/sampul-default.jpg") }}" alt="{{ $post->judul }}" class="w-full object-center object-cover" />
+          </div>    
+        </td>
+        @endif
+        <td class="px-6 py-4 whitespace-nowrap">
+          <div class="text-sm text-gray-900">{{ $post->judul }}</div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+            {{ $post->kategori->nama }}
+          </span>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+          {{ $post->created_at->format('d, M Y') }}
+        </td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
 
 @endsection
 {{-- <p>

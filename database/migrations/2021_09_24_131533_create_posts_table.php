@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->foreignId("kategori_id");
             $table->string("judul");
             $table->string("slug")->unique();
-            $table->string("excerpt");
+            $table->text("excerpt");
             $table->string("sampul")->nullable();
             $table->text("body");
             $table->timestamps();

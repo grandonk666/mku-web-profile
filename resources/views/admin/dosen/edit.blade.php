@@ -35,12 +35,22 @@
   <div class="mb-6">
     <label class="block text-sm text-gray-700" for="foto">Foto</label>
     <input type="hidden" name="oldFoto" value="{{ $dosen->foto }}">
+
     @if ($dosen->foto)
-      <img src="{{ asset("storage/". $dosen->foto) }}" class="img-preview w-32 h-36 mb-2 object-center object-cover">
+    <div class="w-24 mb-1">
+      <div class="aspect-h-4 aspect-w-3 img-container">
+        <img src="{{ asset("storage/". $dosen->foto) }}" class="img-preview mb-2 object-center object-cover">
+      </div>
+    </div>
     @else
-      <img class="img-preview w-32 h-36 mb-2 hidden object-center object-cover">
+    <div class="w-24 mb-1">
+      <div class="aspect-h-4 aspect-w-3 hidden img-container">
+        <img class="img-preview border border-gray-700 mb-2 object-center object-cover">
+      </div>
+    </div>
     @endif
-    <input onchange="previewImg()" class="w-full px-0 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("foto") border-red-500 @enderror" id="foto" name="foto" type="file">
+
+    <input onchange="previewImg()" class="img-input w-full px-0 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("foto") border-red-500 @enderror" id="foto" name="foto" type="file">
     @error("foto")
       <span class="text-xs font-bold text-red-500" >{{ $message }}</span>
     @enderror
@@ -53,18 +63,7 @@
 @endsection
 
 @section("script")
-<script>
-  const previewImg = () => {
-    const image = document.querySelector(".img-input")
-    const imgPreview = document.querySelector(".img-preview")
-        
-    imgPreview.style.display = 'block'
-    const oFReader = new FileReader()
-      oFReader.readAsDataURL(image.files[0])
 
-      oFReader.onload = function(oFREvent) {
-          imgPreview.src = oFREvent.target.result
-      }
-    }
-</script>
+<script src="{{ asset("js/imagePreview.js") }}"></script>
+
 @endsection

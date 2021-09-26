@@ -14,50 +14,65 @@
 </div>
 @endif
 
-<table class="w-4/5 bg-white mt-4 text-sm">
-  <thead class="bg-gray-800 text-white">
-    <tr>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Foto</th>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Nama</th>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Jabatan</th>
-      <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">NIP</td>
-    </tr>
-  </thead>
-  <tbody class="text-gray-700">
-    @foreach ($listDosen as $dosen)
-    <tr onclick="location.href='/admin/dosen/{{ $dosen->id }}/edit'" class="border border-gray-300 hover:bg-gray-200 cursor-pointer">
-      @if ($dosen->foto)
-      <td class="w-1/4 text-left py-3 pl-3 pr-28">
-        <div class="aspect-w-3 aspect-h-4">
-          <img src="{{ asset("storage/".$dosen->foto) }}" alt="{{ $dosen->nama }}" class="w-20 h-24 object-center object-cover" />
-        </div>
-      </td>
-      @else
-      <td class="w-1/4 text-left py-3 pl-3 pr-28">
-        <div class="aspect-w-3 aspect-h-4">
-          <img src="{{ asset("storage/foto-dosen/foto-default.jpg") }}" alt="{{ $dosen->nama }}" class="object-center object-cover" />
-        </div>
-      </td>
-      @endif
-      <td class="w-1/4 text-left py-3 px-4">{{ $dosen->nama }}</td>
-      <td class="w-1/4 text-left py-3 px-4 capitalize">
-        @if ($dosen->struktur)
-          {{ $dosen->struktur->jabatan }}
-        @else
-          Dosen Reguler
-        @endif
-      </td>
-      <td class="w-1/4 text-left py-3 px-4 tracking-wide">
-        @if ($dosen->nip)
-          {{ $dosen->nip }}
-        @else
-          Kosong
-        @endif
-      </td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
+<div class="shadow overflow-hidden border-b border-gray-200 rounded-md w-4/5 mt-4">
+  <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-300">
+      <tr>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+          Nama
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+          Jabatan
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+          NIP
+        </th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+      @foreach ($listDosen as $dosen)
+      <tr onclick="location.href='/admin/dosen/{{ $dosen->id }}/edit'" class="cursor-pointer hover:bg-gray-100">
+        <td class="px-6 py-4 whitespace-nowrap">
+          <div class="flex items-center">
+            <div class="flex-shrink-0 h-10 w-10">
+              @if ($dosen->foto)
+              <img class="h-10 w-10 rounded-full object-cover"
+              src="{{ asset("storage/". $dosen->foto) }}"
+              alt="{{ $dosen->nama }}">
+              @else
+              <img class="h-10 w-10 rounded-full object-cover"
+              src="{{ asset("storage/foto-dosen/foto-default.jpg") }}"
+              alt="{{ $dosen->nama }}">
+              @endif
+            </div>
+            <div class="ml-4">
+              <div class="text-sm font-medium text-gray-900">
+                {{ $dosen->nama }}
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <div class="text-sm text-gray-900">
+            @if ($dosen->struktur)
+              {{ $dosen->struktur->jabatan }}
+            @else
+              Dosen Reguler
+            @endif
+          </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+          @if ($dosen->nip)
+            {{ $dosen->nip }}
+          @else
+            Kosong
+          @endif
+        </td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
 
 @endsection
 {{-- <p>
