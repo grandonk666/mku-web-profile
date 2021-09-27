@@ -2,19 +2,7 @@
 
 @section("content")
 
-<h1 class="text-4xl text-black mb-10">{{ $title }}</h1>
-
-<form action="/admin/post/{{ $post->id }}" method="post">
-  @method("delete")
-  @csrf
-
-  <button onclick="return confirm("Anda yakin ingin menghapus data ini ?")" class="bg-red-500 text-white font-semibold py-2 px-3 rounded-br-md rounded-bl-md rounded-tr-md shadow hover:shadow-lg hover:bg-red-400">
-    <i class="fas fa-trash mr-3"></i> Hapus Post
-  </button>
-
-</form>
-
-<form method="POST" action="/admin/post/{{ $post->id }}" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl w-5/6 mt-4">
+<form method="POST" action="{{ route("admin.post.update", $post) }}" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-md w-full mb-4">
   @method("put")
   @csrf
   <div class="mb-4">
@@ -34,6 +22,7 @@
   <div class="mb-4">
     <label class="block text-sm text-gray-700" for="kategori_id">Kategori</label>
     <select class="w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("kategori_id") border-red-500 @enderror" name="kategori_id" id="kategori_id">
+      <option value=""> -- Pilih Kategori -- </option>
       @foreach ($listKategori as $kategori)
         @if (old("kategori_id", $post->kategori->id) == $kategori->id)
           <option value="{{ $kategori->id }}" selected>{{ $kategori->nama }}</option>
@@ -77,14 +66,22 @@
         <span class="text-xs font-bold text-red-500" >{{ $message }}</span>
     @enderror
   </div>
-  <div>
-      <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 hover:bg-blue-500 rounded" type="submit">Simpan Perubahan</button>
-  </div>
+  <div class="flex gap-3">
+    <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 hover:bg-blue-500 rounded" type="submit">Simpan Perubahan</button>
+
+    <a href="{{ route("admin.post.index") }}" class="px-4 py-1 text-white font-light tracking-wider bg-gray-700 hover:bg-gray-600 rounded">Batal</a>
+</div>
 </form>
 
-{{-- <div>
-  {{ $post->trixRichText->first()->content }}
-</div> --}}
+<form action="{{ route("admin.post.destroy", $post) }}" method="post">
+  @method("delete")
+  @csrf
+
+  <button onclick="return confirm('Anda Yakin Ingin Menghapus ?')" class="bg-red-500 text-white font-semibold py-2 px-3 rounded-br-md rounded-bl-md rounded-tr-md shadow hover:shadow-lg hover:bg-red-400">
+    <i class="fas fa-trash mr-3"></i> Hapus Post
+  </button>
+
+</form>
 
 @endsection
 

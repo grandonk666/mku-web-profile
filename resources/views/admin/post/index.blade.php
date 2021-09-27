@@ -2,19 +2,17 @@
 
 @section("content")
 
-<h1 class="text-4xl text-black mb-10">{{ $title }}</h1>
-
-<a href="/admin/post/create" class="bg-blue-700 text-white font-semibold py-2 px-3 rounded-br-md rounded-bl-md rounded-tr-md shadow hover:shadow-lg hover:bg-blue-600">
+<a href="{{ route("admin.post.create") }}" class="bg-blue-700 text-white font-semibold py-2 px-3 rounded-br-md rounded-bl-md rounded-tr-md shadow hover:shadow-lg hover:bg-blue-600">
   <i class="fas fa-plus mr-3"></i> Tambah Post
 </a>
 
 @if (session()->has("success"))
-<div class="w-4/5 bg-green-200 py-3 px-3 text-green-900 mt-6 rounded">
+<div class="w-full bg-green-200 py-3 px-3 text-green-900 mt-6 rounded">
   {{ session("success") }}
 </div>
 @endif
 
-<div class="shadow overflow-hidden border-b border-gray-200 rounded-md w-4/5 mt-4">
+<div class="shadow-md overflow-hidden border-b border-gray-200 rounded-md w-full mt-4">
   <table class="min-w-full divide-y divide-gray-200">
     <thead class="bg-gray-300">
       <tr>
@@ -34,7 +32,7 @@
     </thead>
     <tbody class="bg-white divide-y divide-gray-200">
       @foreach ($posts as $post)
-      <tr onclick="location.href='/admin/post/{{ $post->id }}/edit'" class="cursor-pointer hover:bg-gray-100">
+      <tr onclick="location.href='{{ route("admin.post.edit", $post) }}'" class="cursor-pointer hover:bg-gray-100">
         @if ($post->sampul)
         <td class="px-6 py-4 whitespace-nowrap">
           <div class="aspect-w-16 aspect-h-9">

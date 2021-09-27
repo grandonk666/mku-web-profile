@@ -2,9 +2,7 @@
 
 @section("content")
 
-<h1 class="text-4xl text-black mb-10">{{ $title }}</h1>
-
-<form method="POST" action="/admin/post" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl w-5/6">
+<form method="POST" action="{{ route("admin.post.store") }}" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-md w-full">
   @csrf
   <div class="mb-4">
       <label class="block text-sm text-gray-700" for="judul">Judul</label>
@@ -23,6 +21,7 @@
   <div class="mb-4">
     <label class="block text-sm text-gray-700" for="kategori_id">Kategori</label>
     <select class="w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("kategori_id") border-red-500 @enderror" name="kategori_id" id="kategori_id">
+      <option value=""> -- Pilih Kategori -- </option>
       @foreach ($listKategori as $kategori)
         @if (old("kategori_id") == $kategori->id)
           <option value="{{ $kategori->id }}" selected>{{ $kategori->nama }}</option>
@@ -51,13 +50,17 @@
   <div class="mb-6">
     <label class="block text-sm text-gray-700" for="body">Body</label>
     <input id="body" type="hidden" name="body" value="{{ old("body") }}" />
-    <trix-editor input="body"></trix-editor>
+    <div class="p-1 border-2 rounded @error("body") border-red-500 @enderror"">
+      <trix-editor input="body"></trix-editor>
+    </div>
     @error("body")
         <span class="text-xs font-bold text-red-500" >{{ $message }}</span>
     @enderror
   </div>
-  <div>
-      <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 hover:bg-blue-500 rounded" type="submit">Tambah Data</button>
+  <div class="flex gap-3">
+    <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 hover:bg-blue-500 rounded" type="submit">Tambah Data</button>
+
+    <a href="{{ route("admin.post.index") }}" class="px-4 py-1 text-white font-light tracking-wider bg-gray-700 hover:bg-gray-600 rounded">Batal</a>
   </div>
 </form>
 

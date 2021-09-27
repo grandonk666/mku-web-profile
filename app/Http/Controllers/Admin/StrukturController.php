@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Dosen;
 use App\Models\StrukturOrganisasi;
 use Illuminate\Http\Request;
 
-class AdminStrukturController extends Controller
+class StrukturController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,7 +32,10 @@ class AdminStrukturController extends Controller
     {
         return view("admin.struktur.create", [
             "title" => "Tambah Jabatan",
-            "listDosen" => Dosen::all()
+            "listDosen" => Dosen::all()->filter(function ($dosen)
+            {
+                return !$dosen->struktur;
+            })
         ]);
     }
 
@@ -54,17 +58,6 @@ class AdminStrukturController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\StrukturOrganisasi  $strukturOrganisasi
-     * @return \Illuminate\Http\Response
-     */
-    public function show(StrukturOrganisasi $strukturOrganisasi)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\StrukturOrganisasi  $strukturOrganisasi
@@ -75,7 +68,10 @@ class AdminStrukturController extends Controller
         return view("admin.struktur.edit", [
             "title" => "Data struktur",
             "struktur" => $struktur,
-            "listDosen" => Dosen::all()
+            "listDosen" => Dosen::all()->filter(function ($dosen) use ($struktur)
+            {
+                return !$dosen->struktur || $dosen->struktur == $struktur;
+            })
         ]);
     }
 

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Dosen;
 use App\Models\Matakuliah;
 use Illuminate\Http\Request;
 
-class AdminMatakuliahController extends Controller
+class MatakuliahController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -52,17 +53,6 @@ class AdminMatakuliahController extends Controller
         Matakuliah::create($validatedData);
 
         return redirect("/admin/matakuliah")->with("success", "Data Matakuliah Berhasil Ditambahkan");
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Matakuliah  $matakuliah
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Matakuliah $matakuliah)
-    {
-        //
     }
 
     /**

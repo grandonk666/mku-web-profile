@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Kategori;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -9,7 +10,7 @@ use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
-class AdminPostController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.

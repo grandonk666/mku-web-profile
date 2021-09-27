@@ -2,9 +2,9 @@
 
 @section("content")
 
-<h1 class="text-4xl text-black mb-10">{{ $title }}</h1>
+ 
 
-<form method="POST" action="/admin/dosen" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl w-2/3">
+<form method="POST" action="{{ route("admin.dosen.store") }}" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-md w-full">
   @csrf
   <div class="mb-4">
       <label class="block text-sm text-gray-700" for="nama">Nama</label>
@@ -33,8 +33,10 @@
         <span class="text-xs font-bold text-red-500" >{{ $message }}</span>
       @enderror
   </div>
-  <div>
-      <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 hover:bg-blue-500 rounded" type="submit">Tambah Data</button>
+  <div class="flex gap-3">
+      <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 hover:bg-blue-500 rounded outline-none" type="submit">Tambah Data</button>
+
+      <a href="{{ route("admin.dosen.index") }}" class="px-4 py-1 text-white font-light tracking-wider bg-gray-700 hover:bg-gray-600 rounded">Batal</a>
   </div>
 </form>
 

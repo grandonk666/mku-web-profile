@@ -2,19 +2,9 @@
 
 @section("content")
 
-<h1 class="text-4xl text-black mb-10">{{ $title }}</h1>
+ 
 
-<form action="/admin/dosen/{{ $dosen->id }}" method="post">
-  @method("delete")
-  @csrf
-
-  <button onclick="return confirm("Anda yakin ingin menghapus data ini ?")" class="bg-red-500 text-white font-semibold py-2 px-3 rounded-br-md rounded-bl-md rounded-tr-md shadow hover:shadow-lg hover:bg-red-400">
-    <i class="fas fa-trash mr-3"></i> Hapus Data Dosen
-  </button>
-
-</form>
-
-<form method="POST" action="/admin/dosen/{{ $dosen->id }}" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-xl w-2/3 mt-4">
+<form method="POST" action="{{ route("admin.dosen.update", $dosen) }}" enctype="multipart/form-data" class="p-10 bg-white rounded shadow-md w-full mb-4">
   @method("put")
   @csrf
   
@@ -55,9 +45,21 @@
       <span class="text-xs font-bold text-red-500" >{{ $message }}</span>
     @enderror
   </div>
-  <div>
+  <div class="flex gap-3">
       <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 hover:bg-blue-500 rounded" type="submit">Simpan Perubahan</button>
+
+      <a href="{{ route("admin.dosen.index") }}" class="px-4 py-1 text-white font-light tracking-wider bg-gray-700 hover:bg-gray-600 rounded">Batal</a>
   </div>
+</form>
+
+<form action="{{ route("admin.dosen.destroy", $dosen) }}" method="post">
+  @method("delete")
+  @csrf
+
+  <button onclick="return confirm('Anda Yakin Ingin Menghapus ?')" class="bg-red-500 text-white font-semibold py-2 px-3 rounded-br-md rounded-bl-md rounded-tr-md shadow hover:shadow-lg hover:bg-red-400">
+    <i class="fas fa-trash mr-3"></i> Hapus Data Dosen
+  </button>
+
 </form>
 
 @endsection

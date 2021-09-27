@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Dosen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class AdminDosenController extends Controller
+class DosenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -59,17 +60,6 @@ class AdminDosenController extends Controller
         Dosen::create($validatedData);
 
         return redirect("/admin/dosen")->with("success", "Data Dosen Berhasil Ditambahkan");
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Dosen  $dosen
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Dosen $dosen)
-    {
-        //
     }
 
     /**
@@ -126,11 +116,6 @@ class AdminDosenController extends Controller
      */
     public function destroy(Dosen $dosen)
     {
-        if ($dosen->foto)
-        {
-            Storage::delete($dosen->foto);
-        }
-
         Dosen::destroy($dosen->id);
         return redirect("/admin/dosen")->with("success", "Data Dosen Berhasil Dihapus");
     }
