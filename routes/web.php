@@ -15,12 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function ()
 {
-    return view('welcome');
+    return view('home', [
+        "title" => "MKU"
+    ]);
 });
+
+Route::get('/login', [App\Http\Controllers\AuthController::class, "login"])->name("login")->middleware("guest");
+
+Route::post('/login', [App\Http\Controllers\AuthController::class, "authenticate"])->name("authenticate")->middleware("guest");
+
+Route::get('/logout', [App\Http\Controllers\AuthController::class, "logout"])->name("logout")->middleware("auth");
 
 Route::get("/admin/post/createSlug", [App\Http\Controllers\Admin\PostController::class, "createSlug"]);
 
-Route::group(["prefix" => "admin", "as" => "admin."], function ()
+Route::group(["prefix" => "admin", "as" => "admin.", "middleware" => "auth"], function ()
 {
     Route::get('/', function ()
     {
