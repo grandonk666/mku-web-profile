@@ -17,47 +17,26 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 font-family-merri">
+<body class="bg-white font-family-merri">
 
+  @include("layouts.header")
 
-    <header>
-      <nav class="w-full h-16 bg-gray-600 fixed flex justify-between items-center z-10">
-        <img src="{{ asset("nav-logo.svg") }}" alt="Logo" class="h-full" />
-        <ul class="flex justify-between text-white font-bold uppercase text-sm pr-12 w-1/2">
-          <li>
-            <a href="#" class="hover:text-gray-200">Profil</a>
-          </li>
-          <li>
-            <a href="#" class="hover:text-gray-200">Struktur Organisasi</a>
-          </li>
-          <li>
-            <a href="#" class="hover:text-gray-200">Daftar Dosen</a>
-          </li>
-          <li>
-            <a href="#" class="hover:text-gray-200">Matakuliah</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+  <div class="w-full">
+    @yield("content")
+  </div>
 
-    <div class="w-full">
-      @yield("content")
-    </div>
+  @include("layouts.footer")
 
-    <footer class="w-full  bg-gray-300">
-      <div class="container mx-auto flex justify-between py-8">
-        <div>
-          <img src="{{ asset("logo.svg") }}" alt="Logo" class="w-72">
-        </div>
-        <div>
-          <h3 class="text-3xl font-bold text-black">Navigasi</h3>
-        </div>
-      </div>
-    </footer>
+  <script>
+      const togleNavbar = () => {
+        const flex = document.querySelector(".mobile-menu")
+        flex.classList.toggle("hidden")
+      };
+  </script>
 
-    @yield("script")
+  @yield("script")
     
     <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </body>
 </html>

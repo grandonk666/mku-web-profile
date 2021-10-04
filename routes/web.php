@@ -13,12 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function ()
-{
-    return view('home', [
-        "title" => "MKU"
-    ]);
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, "index"])->name("home");
+Route::get('/profil', [App\Http\Controllers\HomeController::class, "profil"])->name("profil");
+Route::get('/struktur', [App\Http\Controllers\HomeController::class, "struktur"])->name("struktur");
 
 Route::get('/login', [App\Http\Controllers\AuthController::class, "login"])->name("login")->middleware("guest");
 

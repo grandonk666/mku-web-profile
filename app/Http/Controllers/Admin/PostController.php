@@ -19,8 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        // dd(basename("http://localhost/storage/88lufrVKKNVpuNKHXB2FplPWCw5ApKdANHsIpTmm.png"));
-        $posts = Post::with("kategori")->get();
+        $posts = Post::with("kategori")->orderByDesc('created_at')->get();
         return view("admin.post.index", [
             "title" => "Data Post Berita & Pengumuman",
             "posts" => $posts
@@ -49,7 +48,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            "judul" => "required",
+            "judul" => "required|max:50",
             "slug" => "required|unique:posts",
             "kategori_id" => "required",
             "body" => "required",
@@ -104,7 +103,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $rules = [
-            "judul" => "required",
+            "judul" => "required|max:50",
             "kategori_id" => "required",
             "body" => "required",
             "sampul" => "image|file|max:1024"

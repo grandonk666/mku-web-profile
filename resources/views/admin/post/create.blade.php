@@ -6,7 +6,7 @@
   @csrf
   <div class="mb-4">
       <label class="block text-sm text-gray-700" for="judul">Judul</label>
-      <input class="w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("judul") border-red-500 @enderror" id="judul" name="judul" type="text" placeholder="Judul" aria-label="judul" value="{{ old("judul") }}">
+      <input class="w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("judul") border-red-500 @enderror" id="judul" name="judul" type="text" placeholder="Judul" maxlength="50" aria-label="judul" value="{{ old("judul") }}">
       @error("judul")
         <span class="text-xs font-bold text-red-500" >{{ $message }}</span>
       @enderror

@@ -19,7 +19,7 @@
         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
           Sampul
         </th>
-        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+        <th scope="col" class="w-1/3 px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
           Judul
         </th>
         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
@@ -46,7 +46,7 @@
           </div>    
         </td>
         @endif
-        <td class="px-6 py-4 whitespace-nowrap">
+        <td class="w-1/3 px-6 py-4">
           <div class="text-sm text-gray-900">{{ $post->judul }}</div>
         </td>
         <td class="px-6 py-4 whitespace-nowrap">
