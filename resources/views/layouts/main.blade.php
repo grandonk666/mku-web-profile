@@ -17,7 +17,7 @@
         }
     </style>
 </head>
-<body class="bg-white font-family-merri">
+<body class="bg-gray-100 font-family-merri">
 
   @include("layouts.header")
 

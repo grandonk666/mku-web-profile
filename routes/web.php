@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, "index"])->name("home");
 Route::get('/profil', [App\Http\Controllers\HomeController::class, "profil"])->name("profil");
 Route::get('/struktur', [App\Http\Controllers\HomeController::class, "struktur"])->name("struktur");
+Route::get('/dosen', [App\Http\Controllers\HomeController::class, "dosen"])->name("dosen");
+Route::get('/matakuliah', [App\Http\Controllers\HomeController::class, "matakuliah"])->name("matakuliah");
+Route::get('/posts', [App\Http\Controllers\PostController::class, "index"])->name("posts.index");
+Route::get('/posts/{post:slug}', [App\Http\Controllers\PostController::class, "show"])->name("posts.show");
 
 Route::get('/login', [App\Http\Controllers\AuthController::class, "login"])->name("login")->middleware("guest");
 
@@ -37,5 +41,6 @@ Route::group(["prefix" => "admin", "as" => "admin.", "middleware" => "auth"], fu
     Route::resource('/struktur', App\Http\Controllers\Admin\StrukturController::class)->except("show");
     Route::resource('/post', App\Http\Controllers\Admin\PostController::class);
 
-    // Route::post("/post/upload", [AdminPostController::class, "upload"])->name("attachment-upload");
+    Route::post("/post/upload", [App\Http\Controllers\Admin\PostController::class, "upload"])->name("attachment-upload");
+    Route::post("/post/remove", [App\Http\Controllers\Admin\PostController::class, "remove"])->name("attachment-remove");
 });

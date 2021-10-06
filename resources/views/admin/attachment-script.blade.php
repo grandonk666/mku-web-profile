@@ -7,6 +7,10 @@
           uploadFileAttachment(event.attachment)
       }
   })
+  
+  addEventListener("trix-attachment-remove", function(event) {
+      deleteAttachment(event);
+  })
 
   function uploadFileAttachment(attachment) {
       uploadFile(attachment.file, setProgress, setAttributes)
@@ -21,11 +25,14 @@
   }
 
   function uploadFile(file, progressCallback, successCallback) {
+      const token = "{{ csrf_token() }}"
+      const uploadEndpoint = '{{ route("admin.attachment-upload") }}'
       var formData = createFormData(file);
       var xhr = new XMLHttpRequest();
        
-      xhr.open("POST", "{{ route("attachment-upload") }}", true);
-      xhr.setRequestHeader( 'X-CSRF-TOKEN', "{{ csrf_token() }}" );
+      xhr.open("POST", uploadEndpoint, true);
+      xhr.setRequestHeader( 'X-CSRF-TOKEN', token );
+      xhr.setRequestHeader("Accept", "application/json");
 
       xhr.upload.addEventListener("progress", function(event) {
           var progress = event.loaded / event.total * 100
@@ -33,9 +40,10 @@
       })
 
       xhr.addEventListener("load", function(event) {
+          const data = JSON.parse(xhr.responseText);
           var attributes = {
-              url: xhr.responseText,
-              href: xhr.responseText + "?content-disposition=attachment"
+              url: data.url,
+              href: data.url
           }
           successCallback(attributes)
       })
@@ -50,16 +58,39 @@
       return data
   }
 
-  function getMeta(metaName) {
-      const metas = document.getElementsByTagName('meta');
-     
-      for (let i = 0; i < metas.length; i++) {
-        if (metas[i].getAttribute('name') === metaName) {
-          return metas[i].getAttribute('content');
+  function deleteAttachment(event) {
+    const token = "{{ csrf_token() }}"
+    const deleteEndpoint = '{{ route("admin.attachment-remove") }}'
+        console.log(event.attachment);
+        let attachment = event.attachment;
+
+        let url = attachment.attachment.attributes.values.url.split('/');
+        console.log(url)
+        // console.log(`${url[1]}/${url[2]}`);
+        let previewURL = `${url[4]}/${url[5]}`;
+
+        if (previewURL && deleteEndpoint) {
+            let form = new FormData; 
+            form.append('image', previewURL);
+
+            xhr = new XMLHttpRequest;
+            xhr.open('POST', deleteEndpoint, true);
+            xhr.setRequestHeader('X-CSRF-Token', token);
+
+            xhr.upload.onprogress = function(event) {
+                var progress = event.loaded / event.total * 101;
+                return attachment.setUploadProgress(progress);
+            };
+
+            xhr.onload = function() {
+                if (this.status >= 201 && this.status < 300) {
+                    var data = JSON.parse(this.responseText);
+                    return '';
+                }
+            };
+
+            return xhr.send(form);
         }
-      }
-     
-      return '';
     }
 })();
 </script>

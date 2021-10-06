@@ -30,10 +30,10 @@
         <a href="{{ route("struktur") }}" class="hover:text-gray-200">Struktur Organisasi</a>
       </li>
       <li>
-        <a href="#" class="hover:text-gray-200">Daftar Dosen</a>
+        <a href="{{ route("dosen") }}" class="hover:text-gray-200">Daftar Dosen</a>
       </li>
       <li>
-        <a href="#" class="hover:text-gray-200">Matakuliah</a>
+        <a href="{{ route("matakuliah") }}" class="hover:text-gray-200">Matakuliah</a>
       </li>
     </ul>
 
@@ -48,10 +48,10 @@
     <a href="{{ route("struktur") }}" class="flex items-center py-4 px-8 hover:bg-gray-400">
       <i class="fas fa-sitemap mr-3"></i> Struktur Organisasi
     </a>
-    <a href="#" class="flex items-center py-4 px-8 hover:bg-gray-400">
+    <a href="{{ route("dosen") }}" class="flex items-center py-4 px-8 hover:bg-gray-400">
       <i class="fas fa-user-tie mr-3"></i> Daftar Dosen
     </a>
-    <a href="#" class="flex items-center py-4 px-8 hover:bg-gray-400">
+    <a href="{{ route("matakuliah") }}" class="flex items-center py-4 px-8 hover:bg-gray-400">
       <i class="fas fa-book mr-3"></i> Matakuliah
     </a>
   </div>

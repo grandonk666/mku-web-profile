@@ -1,5 +1,5 @@
-<footer class="w-full  bg-gray-200">
-  <div class="border-b border-gray-300">
+<footer class="w-full  bg-gray-300">
+  <div class="border-b border-gray-400">
     <div class="container mx-auto flex flex-col lg:flex-row justify-between gap-8 py-8">
       <div class="px-4">
         <div class="h-20 py-2 flex items-center gap-3">
@@ -15,10 +15,10 @@
         </address>
         <div class="flex items-center gap-3">
           <a class="block h-10" href="https://instagram.com" target="_blank">
-            <img src="ig.svg" alt="instagram" class="h-full">
+            <img src="{{ asset("ig.svg") }}" alt="instagram" class="h-full">
           </a>
           <a class="block h-10" href="https://facebook.com" target="_blank">
-            <img src="fb.svg" alt="facebook" class="h-full">
+            <img src="{{ asset("fb.svg") }}" alt="facebook" class="h-full">
           </a>
         </div>
       </div>

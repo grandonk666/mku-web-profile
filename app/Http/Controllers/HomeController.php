@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dosen;
+use App\Models\Matakuliah;
 use App\Models\Post;
 use App\Models\StrukturOrganisasi;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::with("kategori")->orderByDesc('created_at')->limit(3)->get();
+        $posts = Post::with("kategori")->orderByDesc('created_at')->take(3)->get();
         return view('index', [
             "title" => "Home",
             "posts" => $posts
@@ -35,6 +35,26 @@ class HomeController extends Controller
             "title" => "Struktur Organisasi",
             "koordinator" => $koordinator,
             "listStruktur" => $struktur
+        ]);
+    }
+
+    public function dosen()
+    {
+        $listDosen = Dosen::all();
+
+        return view('dosen', [
+            "title" => "Data Dosen",
+            "listDosen" => $listDosen
+        ]);
+    }
+
+    public function matakuliah()
+    {
+        $listMatakuliah = Matakuliah::all();
+
+        return view('matakuliah', [
+            "title" => "Matakuliah",
+            "listMatakuliah" => $listMatakuliah
         ]);
     }
 }

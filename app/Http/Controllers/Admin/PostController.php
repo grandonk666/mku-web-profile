@@ -55,7 +55,7 @@ class PostController extends Controller
             "sampul" => "image|file|max:1024"
         ]);
 
-        $validatedData["excerpt"] = Str::limit(strip_tags($request->body), 200, '...');
+        $validatedData["excerpt"] = Str::limit(strip_tags($request->body), 170, '...');
 
         if ($request->file("sampul"))
         {
@@ -178,8 +178,24 @@ class PostController extends Controller
             $attachment = $request->file('file')->store("attachment");
             $path = asset("storage/" . $attachment);
 
-            echo $path;
-            exit;
+            return response()->json([
+                'url' => $path
+            ], 200);
+        }
+    }
+
+    public function remove(Request $request)
+    {
+        if ($request->has('file'))
+        {
+            $file = $request->file("file");
+            $exists = Storage::exists($file);
+            if ($exists)
+            {
+                Storage::delete($file);
+
+                return response()->json('Deleted', 200);
+            }
         }
     }
 }

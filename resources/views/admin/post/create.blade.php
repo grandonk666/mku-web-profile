@@ -49,9 +49,9 @@
   </div>
   <div class="mb-6">
     <label class="block text-sm text-gray-700" for="body">Body</label>
-    <input id="body" type="hidden" name="body" value="{{ old("body") }}" />
-    <div class="p-1 border-2 rounded @error("body") border-red-500 @enderror"">
-      <trix-editor input="body"></trix-editor>
+    <div class="p-1 border-2 rounded prose prose-sm max-w-none @error("body") border-red-500 @enderror">
+      <input id="body" type="hidden" name="body" value="{{ old("body") }}" />
+      <trix-editor id="trix" input="body"></trix-editor>
     </div>
     @error("body")
         <span class="text-xs font-bold text-red-500" >{{ $message }}</span>
@@ -74,11 +74,21 @@
 
 <script>
 
-  addEventListener("trix-file-accept", function(event) {
+  document.addEventListener("trix-file-accept", function(event) {
       event.preventDefault()
+  });
+
+
+  document.addEventListener("trix-action-invoke", function(event) {
+    console.log(event.actionName)
   })
+
+  const trixEl = document.querySelector("trix-editor");
+  console.log(trixEl.editor);
   
 </script>
+
+  {{-- @include("admin.attachment-script"); --}}
 
 @endsection
 
