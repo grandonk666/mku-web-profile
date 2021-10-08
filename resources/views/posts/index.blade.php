@@ -16,14 +16,63 @@
 </div>
 
 <main class="container mx-auto min-h-screen py-12 px-4">
-  <div class="mb-8">
-    <span class="block w-40 h-1.5 bg-gray-500 rounded-full mb-2"></span>
-    <h2 class="text-gray-900 font-bold text-3xl">Berita & Pengumuman</h2>
+  <div class="w-full flex justify-between flex-wrap items-center mb-8">
+    <div class="mb-4">
+      <span class="block w-40 h-1.5 bg-gray-500 rounded-full mb-2"></span>
+      <h2 class="text-gray-900 font-bold text-3xl">Berita & Pengumuman</h2>
+    </div>
+
+    <div class="w-full md:w-1/2 flex items-center justify-between gap-4">
+      <form action="{{ route("posts.index") }}"
+        class="flex items-center flex-1 bg-white rounded-md border border-gray-500">
+        @if (request("kategori"))
+        <input type="hidden" name="kategori" value="{{ request("kategori") }}">
+        @endif
+        <div class="w-full">
+          <input type="text" name="search" value="{{ request("search") }}"
+            class="w-full px-4 py-2 text-gray-900 rounded-md focus:outline-none"
+            placeholder="Cari">
+        </div>
+        <div>
+          <button type="submit"
+            class="flex items-center justify-center w-10 h-10 text-gray-100 rounded-md bg-gray-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+              </path>
+            </svg>
+          </button>
+        </div>
+      </form>
+
+      <button onclick="togleDropdown()"
+        class="relative px-4 py-1 bg-white rounded-md border border-gray-500">
+        <span class="text-lg">Kategori</span>
+        <i class="fas fa-angle-down ml-2"></i>
+        <div
+          class="dropdown-menu hidden left-0 top-8 absolute w-32 bg-white rounded-md shadow-md py-1">
+          <a href="{{ route("posts.index", ["kategori" => "berita"]) }}"
+            class="block py-2 px-2 hover:bg-gray-700 hover:text-white {{ request('kategori') == 'berita' ? 'bg-gray-700 text-white' : '' }}">
+            Berita
+          </a>
+          <a href="{{ route("posts.index", ["kategori" => "pengumuman"]) }}"
+            class="block py-2 px-2 hover:bg-gray-700 hover:text-white {{ request('kategori') == 'pengumuman' ? 'bg-gray-700 text-white' : '' }}">
+            Pengumuman
+          </a>
+          <a href="{{ route("posts.index") }}"
+            class="block py-2 px-2 hover:bg-gray-700 hover:text-white">
+            Tampilkan Semua
+          </a>
+        </div>
+      </button>
+    </div>
   </div>
 
-  <div class="flex justify-center items-stretch flex-wrap gap-10">
+  <div class="flex justify-center items-stretch flex-wrap gap-10 mb-4">
     @foreach ($posts as $post)
-    <div class="flex flex-col rounded shadow-xl max-w-sm">
+    <div class="flex flex-col rounded shadow-md max-w-sm">
       <div class="flex-shrink-0">
         @if ($post->sampul)
         <img class="h-48 w-full object-cover"
@@ -82,6 +131,7 @@
     </div>
     @endforeach
   </div>
+  {{ $posts->links() }}
 
 </main>
 

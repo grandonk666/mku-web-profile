@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with("kategori")->latest()->get();
+        $posts = Post::with("kategori")->latest()->filter(request(["search", "kategori"]))->paginate(6)->withQueryString();
         return view("posts.index", [
             "title" => "Berita & Pengumuman",
             "posts" => $posts

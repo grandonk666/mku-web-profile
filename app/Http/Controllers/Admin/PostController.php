@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Post::with("kategori")->latest()->filter(request(["search", "kategori"]))->paginate(3)->withQueryString();
+        $posts = Post::with("kategori")->latest()->filter(request(["search", "kategori"]))->paginate(5)->withQueryString();
 
         return view("admin.post.index", [
             "title" => "Data Post Berita & Pengumuman",

@@ -23,7 +23,8 @@
 
   <div class="flex justify-between px-6 items-center flex-wrap gap-10">
     @foreach ($listMatakuliah as $matakuliah)
-    <div class="w-[45%] px-4 pt-3 pb-2 bg-white rounded shadow-md relative">
+    <div
+      class="w-full md:w-[45%] px-4 pt-3 pb-2 bg-white rounded shadow-md relative">
       <span
         class="w-16 h-16 rounded-full absolute right-6 -top-8 bg-white flex justify-center items-center border-8 border-gray-100 text-2xl text-gray-700">
         <i class="fas fa-book"></i>
