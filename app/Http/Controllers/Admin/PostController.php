@@ -19,7 +19,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with("kategori")->orderByDesc('created_at')->get();
+
+        $posts = Post::with("kategori")->latest()->filter(request(["search", "kategori"]))->paginate(3)->withQueryString();
+
         return view("admin.post.index", [
             "title" => "Data Post Berita & Pengumuman",
             "posts" => $posts
@@ -115,6 +117,8 @@ class PostController extends Controller
         }
 
         $validatedData = $request->validate($rules);
+
+        $validatedData["excerpt"] = Str::limit(strip_tags($request->body), 170, '...');
 
         if ($request->file("sampul"))
         {

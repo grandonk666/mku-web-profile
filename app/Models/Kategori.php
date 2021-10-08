@@ -9,7 +9,7 @@ class Kategori extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["nama"];
+    protected $fillable = ["nama", "slug"];
 
     public function post()
     {

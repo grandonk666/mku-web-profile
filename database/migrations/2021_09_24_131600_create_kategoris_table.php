@@ -17,6 +17,7 @@ class CreateKategorisTable extends Migration
         {
             $table->id();
             $table->string("nama");
+            $table->string("slug")->unique();
             $table->timestamps();
         });
     }

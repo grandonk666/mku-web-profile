@@ -108,9 +108,11 @@ class DatabaseSeeder extends Seeder
 
         Kategori::create([
             "nama" => "Berita",
+            "slug" => "berita"
         ]);
         Kategori::create([
             "nama" => "Pengumuman",
+            "slug" => "pengumuman"
         ]);
 
         Post::create([

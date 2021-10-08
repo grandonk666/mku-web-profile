@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::with("kategori")->orderByDesc('created_at')->take(3)->get();
+        $posts = Post::with("kategori")->latest()->take(3)->get();
         return view('index', [
             "title" => "Home",
             "posts" => $posts

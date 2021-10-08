@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with("kategori")->orderByDesc('created_at')->get();
+        $posts = Post::with("kategori")->latest()->get();
         return view("posts.index", [
             "title" => "Berita & Pengumuman",
             "posts" => $posts
@@ -18,7 +18,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        $latestPosts = Post::with("kategori")->orderByDesc('created_at')->get()->filter(function ($latest) use ($post)
+        $latestPosts = Post::with("kategori")->latest()->get()->filter(function ($latest) use ($post)
         {
             return $latest->id != $post->id;
         })->take(3);
