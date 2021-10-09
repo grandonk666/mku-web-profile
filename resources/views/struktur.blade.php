@@ -21,7 +21,7 @@
     <h2 class="text-gray-900 font-bold text-3xl">Struktur Organisasi</h2>
   </div>
 
-  <div class="w-4/5 md:w-1/3 mx-auto p-3 bg-white rounded shadow-md mb-8">
+  <div class="w-11/12 md:w-1/3 mx-auto p-3 bg-white rounded shadow-md mb-8">
     <div class="aspect-h-10 aspect-w-9 rounded overflow-hidden mb-4">
       @if ($koordinator->dosen->foto)
       <img src="{{ asset("storage/".$koordinator->dosen->foto) }}"
@@ -40,7 +40,7 @@
   </div>
   <div class="flex justify-center items-center flex-wrap gap-8">
     @foreach ($listStruktur as $struktur)
-    <div class="w-4/5 md:w-[28%] p-3 bg-white rounded shadow-md">
+    <div class="w-11/12 md:w-[28%] p-3 bg-white rounded shadow-md">
       <div class="aspect-h-10 aspect-w-9 rounded overflow-hidden mb-4">
         @if ($struktur->dosen->foto)
         <img src="{{ asset("storage/".$struktur->dosen->foto) }}"

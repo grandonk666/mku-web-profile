@@ -13,9 +13,10 @@
 </div>
 @endif
 
-<div class="w-1/2 flex items-center justify-between mt-6 gap-4">
+<div
+  class="w-full md:w-1/2 flex flex-col md:flex-row items-start md:items-center justify-between mt-6 gap-4">
   <form action="{{ route("admin.post.index") }}"
-    class="flex items-center flex-1 bg-white rounded-md">
+    class="w-full flex items-center bg-white rounded-md border border-gray-500">
     @if (request("kategori"))
     <input type="hidden" name="kategori" value="{{ request("kategori") }}">
     @endif
@@ -36,11 +37,12 @@
     </div>
   </form>
 
-  <button class="relative px-4 py-1 group bg-white rounded-md">
+  <button onclick="togleDropdown()"
+    class="relative px-4 py-1 bg-white rounded-md border border-gray-500">
     <span class="text-lg">Kategori</span>
     <i class="fas fa-angle-down ml-2"></i>
     <div
-      class="hidden group-hover:block left-0 top-8 absolute w-40 bg-white rounded-lg shadow-lg py-1">
+      class="dropdown-menu hidden left-0 top-10 absolute w-40 bg-white rounded-lg shadow-lg py-1 border border-gray-500">
       <a href="{{ route("admin.post.index", ["kategori" => "berita"]) }}"
         class="block py-2 hover:bg-gray-700 hover:text-white {{ request('kategori') == 'berita' ? 'bg-gray-700 text-white' : '' }}">
         Berita
@@ -66,11 +68,11 @@
     <thead class="bg-gray-300">
       <tr>
         <th scope="col"
-          class="w-1/5 px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+          class="w-1/5 px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider hidden md:table-cell">
           Sampul
         </th>
         <th scope="col"
-          class="w-1/3 px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+          class="md:w-1/3 px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
           Judul
         </th>
         <th scope="col"
@@ -78,7 +80,7 @@
           Kategori
         </th>
         <th scope="col"
-          class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+          class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider  hidden md:table-cell">
           Tanggal
         </th>
       </tr>
@@ -88,7 +90,7 @@
       <tr onclick="location.href='{{ route("admin.post.edit", $post) }}'"
         class="cursor-pointer hover:bg-gray-100">
         @if ($post->sampul)
-        <td class="w-1/5 px-6 py-4 whitespace-nowrap">
+        <td class="w-1/5 px-6 py-4 whitespace-nowrap hidden md:table-cell">
           <div class="aspect-w-16 aspect-h-9">
             <img src="{{ asset("storage/".$post->sampul) }}"
               alt="{{ $post->judul }}"
@@ -96,7 +98,7 @@
           </div>
         </td>
         @else
-        <td class="w-1/5 px-6 py-4 whitespace-nowrap">
+        <td class="w-1/5 px-6 py-4 whitespace-nowrap hidden md:table-cell">
           <div class="aspect-w-16 aspect-h-9">
             <img src="{{ asset("storage/sampul-post/sampul-default.jpg") }}"
               alt="{{ $post->judul }}"
@@ -104,7 +106,7 @@
           </div>
         </td>
         @endif
-        <td class="w-1/3 px-6 py-4">
+        <td class="md:w-1/3 px-6 py-4">
           <div class="text-sm text-gray-900">{{ $post->judul }}</div>
         </td>
         <td class="px-6 py-4 whitespace-nowrap">
@@ -113,7 +115,8 @@
             {{ $post->kategori->nama }}
           </span>
         </td>
-        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+        <td
+          class="px-6 py-4 whitespace-nowrap text-sm text-gray-500  hidden md:table-cell">
           {{ $post->created_at->format('d, M Y') }}
         </td>
       </tr>

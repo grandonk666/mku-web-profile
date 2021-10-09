@@ -22,9 +22,10 @@
       <h2 class="text-gray-900 font-bold text-3xl">Berita & Pengumuman</h2>
     </div>
 
-    <div class="w-full md:w-1/2 flex items-center justify-between gap-4">
+    <div
+      class="w-full md:w-1/2 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
       <form action="{{ route("posts.index") }}"
-        class="flex items-center flex-1 bg-white rounded-md border border-gray-500">
+        class="w-full flex items-center bg-white rounded-md border border-gray-500">
         @if (request("kategori"))
         <input type="hidden" name="kategori" value="{{ request("kategori") }}">
         @endif
@@ -52,7 +53,7 @@
         <span class="text-lg">Kategori</span>
         <i class="fas fa-angle-down ml-2"></i>
         <div
-          class="dropdown-menu hidden left-0 top-8 absolute w-32 bg-white rounded-md shadow-md py-1">
+          class="dropdown-menu hidden left-0 top-10 absolute w-40 bg-white rounded-md shadow-md py-1 border border-gray-500">
           <a href="{{ route("posts.index", ["kategori" => "berita"]) }}"
             class="block py-2 px-2 hover:bg-gray-700 hover:text-white {{ request('kategori') == 'berita' ? 'bg-gray-700 text-white' : '' }}">
             Berita

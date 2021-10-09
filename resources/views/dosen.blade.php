@@ -23,7 +23,7 @@
 
   <div class="flex justify-center items-stretch flex-wrap gap-10">
     @foreach ($listDosen as $dosen)
-    <div class="w-4/5 md:w-[28%] p-3 bg-white rounded shadow-md">
+    <div class="w-11/12 md:w-[28%] p-3 bg-white rounded shadow-md">
       <div class="aspect-h-10 aspect-w-9 rounded overflow-hidden mb-4">
         @if ($dosen->foto)
         <img src="{{ asset("storage/".$dosen->foto) }}" alt="{{ $dosen->nama }}"

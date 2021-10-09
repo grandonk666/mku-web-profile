@@ -21,7 +21,7 @@
     <h2 class="text-gray-900 font-bold text-3xl">Daftar Matakuliah MKU</h2>
   </div>
 
-  <div class="flex justify-between px-6 items-center flex-wrap gap-10">
+  <div class="flex justify-between md:px-6 items-center flex-wrap gap-10">
     @foreach ($listMatakuliah as $matakuliah)
     <div
       class="w-full md:w-[45%] px-4 pt-3 pb-2 bg-white rounded shadow-md relative">

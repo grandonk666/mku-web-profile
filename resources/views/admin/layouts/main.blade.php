@@ -55,7 +55,7 @@
 
     <script>
         const togleDropdown = () => {
-        const dropdown = document.querySelector(".account-dropdown")
+        const dropdown = document.querySelector(".dropdown-menu")
         dropdown.classList.toggle("hidden")
       }
 

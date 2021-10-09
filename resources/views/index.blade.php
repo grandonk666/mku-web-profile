@@ -7,12 +7,12 @@
   style="background-image: url({{ asset("home-hero.jpg") }})">
   <div
     class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent bg-black/50 flex justify-center items-center flex-col">
-    <h1 class="text-4xl lg:text-6xl font-bold text-white text-center mb-4">Mata
+    <h1 class="text-3xl lg:text-6xl font-bold text-white text-center mb-4">Mata
       Kuliah Umum</h1>
-    <span class="text-4xl lg:text-6xl font-bold text-white text-center mb-8">UPN
+    <span class="text-3xl lg:text-6xl font-bold text-white text-center mb-8">UPN
       “Veteran” Jawa Timur</span>
     <a href="{{ route("matakuliah") }}"
-      class="px-5 py-3 bg-white text-lg font-bold rounded border-2 border-white hover:bg-transparent hover:text-white transition-all">Daftar
+      class="px-5 py-3 bg-white font-bold rounded border-2 border-white hover:bg-transparent hover:text-white transition-all">Daftar
       Matakuliah</a>
   </div>
 </div>
