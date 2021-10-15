@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Dosen;
 use App\Models\Matakuliah;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 
 class MatakuliahController extends Controller
@@ -16,7 +17,7 @@ class MatakuliahController extends Controller
      */
     public function index()
     {
-        $listMatakuliah = Matakuliah::with("dosen")->get();
+        $listMatakuliah = Matakuliah::with("listDosen")->get();
         return view("admin.matakuliah.index", [
             "title" => "Data Matakuliah",
             "listMatakuliah" => $listMatakuliah
@@ -32,7 +33,6 @@ class MatakuliahController extends Controller
     {
         return view("admin.matakuliah.create", [
             "title" => "Tambah Data Matakuliah",
-            "listDosen" => Dosen::all()
         ]);
     }
 
@@ -46,13 +46,13 @@ class MatakuliahController extends Controller
     {
         $validatedData = $request->validate([
             "nama" => "required",
-            "kode" => "required|unique:matakuliahs",
-            "dosen_id" => "required"
+            "slug" => "required|unique:matakuliahs",
+            "detail" => "required"
         ]);
 
         Matakuliah::create($validatedData);
 
-        return redirect("/admin/matakuliah")->with("success", "Data Matakuliah Berhasil Ditambahkan");
+        return redirect()->route('admin.matakuliah.index')->with("success", "Data Matakuliah Berhasil Ditambahkan");
     }
 
     /**
@@ -81,12 +81,12 @@ class MatakuliahController extends Controller
     {
         $rules = [
             "nama" => "required",
-            "dosen_id" => "required"
+            "detail" => "required"
         ];
 
-        if ($request->kode != $matakuliah->kode)
+        if ($request->slug != $matakuliah->slug)
         {
-            $rules["kode"] = "required|unique:matakuliahs";
+            $rules["slug"] = "required|unique:matakuliahs";
         }
 
         $validatedData = $request->validate($rules);
@@ -106,5 +106,11 @@ class MatakuliahController extends Controller
     {
         Matakuliah::destroy($matakuliah->id);
         return redirect("/admin/matakuliah")->with("success", "Data Matakuliah Berhasil Dihapus");
+    }
+
+    public function createSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Matakuliah::class, 'slug', $request->from);
+        return response()->json(["slug" => $slug]);
     }
 }

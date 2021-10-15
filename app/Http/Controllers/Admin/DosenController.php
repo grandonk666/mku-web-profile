@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dosen;
+use App\Models\Matakuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +17,7 @@ class DosenController extends Controller
      */
     public function index()
     {
-        $listDosen = Dosen::with(["matakuliah", "struktur"])->get();
+        $listDosen = Dosen::with(["matakuliah", "struktur"])->orderBy('nama')->get();
         return view("admin.dosen.index", [
             "title" => "Data Dosen",
             "listDosen" => $listDosen
@@ -32,6 +33,7 @@ class DosenController extends Controller
     {
         return view("admin.dosen.create", [
             "title" => "Tambah Data Dosen",
+            "listMatakuliah" => Matakuliah::all()
         ]);
     }
 
@@ -51,6 +53,10 @@ class DosenController extends Controller
         if ($request->nip)
         {
             $validatedData["nip"] = $request->nip;
+        }
+        if ($request->matakuliah_id)
+        {
+            $validatedData["matakuliah_id"] = $request->matakuliah_id;
         }
         if ($request->file("foto"))
         {
@@ -72,7 +78,8 @@ class DosenController extends Controller
     {
         return view("admin.dosen.edit", [
             "title" => "Data Dosen",
-            "dosen" => $dosen
+            "dosen" => $dosen,
+            "listMatakuliah" => Matakuliah::all()
         ]);
     }
 
@@ -93,6 +100,10 @@ class DosenController extends Controller
         if ($request->nip)
         {
             $validatedData["nip"] = $request->nip;
+        }
+        if ($request->matakuliah_id)
+        {
+            $validatedData["matakuliah_id"] = $request->matakuliah_id;
         }
         if ($request->file("foto"))
         {

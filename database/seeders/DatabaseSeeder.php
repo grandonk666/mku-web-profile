@@ -25,9 +25,28 @@ class DatabaseSeeder extends Seeder
             "password" => bcrypt("66666666")
         ]);
 
-        Dosen::factory()->count(10)->create();
+        Matakuliah::create([
+            "nama" => "Bahasa Indonesia",
+            "slug" => "bahasa-indonesia",
+            "detail" => "<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.</div>"
+        ]);
+        Matakuliah::create([
+            "nama" => "Pancasila",
+            "slug" => "pancasila",
+            "detail" => "<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.</div>"
+        ]);
+        Matakuliah::create([
+            "nama" => "Kewarganegaraan",
+            "slug" => "kewarganegaraan",
+            "detail" => "<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.</div>"
+        ]);
+        Matakuliah::create([
+            "nama" => "Bahasa Inggris",
+            "slug" => "bahasa-inggris",
+            "detail" => "<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.</div>"
+        ]);
 
-        Matakuliah::factory()->count(10)->create();
+        Dosen::factory()->count(10)->create();
 
         StrukturOrganisasi::create([
             "jabatan" => "Koordinator",

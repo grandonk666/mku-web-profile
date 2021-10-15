@@ -27,7 +27,6 @@ Route::post('/login', [App\Http\Controllers\AuthController::class, "authenticate
 
 Route::get('/logout', [App\Http\Controllers\AuthController::class, "logout"])->name("logout")->middleware("auth");
 
-Route::get("/admin/post/createSlug", [App\Http\Controllers\Admin\PostController::class, "createSlug"]);
 
 Route::group(["prefix" => "admin", "as" => "admin.", "middleware" => "auth"], function ()
 {
@@ -35,6 +34,9 @@ Route::group(["prefix" => "admin", "as" => "admin.", "middleware" => "auth"], fu
     {
         return redirect("/admin/post");
     })->name("index");
+
+    Route::get("/post/slug", [App\Http\Controllers\Admin\PostController::class, "createSlug"])->name("post.slug");
+    Route::get("/matakuliah/slug", [App\Http\Controllers\Admin\MatakuliahController::class, "createSlug"])->name("matakuliah.slug");
 
     Route::resource('/dosen', App\Http\Controllers\Admin\DosenController::class)->except("show");
     Route::resource('/matakuliah', App\Http\Controllers\Admin\MatakuliahController::class)->except("show");

@@ -1,31 +1,33 @@
 @extends("layouts.main")
 
+@section("meta")
+
+@include("partials.site-meta", [
+  "title" => $title,
+  "image" => asset("posts-hero.jpg"),
+  "keywords" => "mku, berita, pengumuman, upn, jatim",
+  "description" => "Berita dan Pengumuman Matakuliah Umum Universitas Pembangunan Nasional Veteran Jawa Timur"
+])
+
+@endsection
+
 @section("content")
 
-<div
-  class="relative w-full min-h-[70vh] md:min-h-screen flex justify-center items-center bg-cover bg-bottom"
-  style="background-image: url({{ asset("posts-hero.jpg") }})">
-  <div
-    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent bg-black/20 flex justify-center items-center flex-col">
-    <div
-      class="bg-black/80 flex justify-center items-center  w-11/12 lg:w-4/5 py-12">
-      <h1 class="text-4xl lg:text-6xl font-bold text-white text-center">Berita &
-        Pengumuman</h1>
-    </div>
-  </div>
-</div>
+@include("partials.hero-section", [
+  "text" => "Berita & Pengumuman",
+  "image" => asset("posts-hero.jpg")
+])
 
 <main class="container mx-auto min-h-screen py-12 px-4">
   <div class="w-full flex justify-between flex-wrap items-center mb-8">
     <div class="mb-4">
-      <span class="block w-40 h-1.5 bg-gray-500 rounded-full mb-2"></span>
-      <h2 class="text-gray-900 font-bold text-3xl">Berita & Pengumuman</h2>
+      @include("partials.section-title", ["text" => "Berita & Pengumunan"])
     </div>
 
     <div
       class="w-full md:w-1/2 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
       <form action="{{ route("posts.index") }}"
-        class="w-full flex items-center bg-white rounded-md border border-gray-500">
+        class="w-full md:w-2/3 flex items-center bg-white rounded-md border border-gray-500">
         @if (request("kategori"))
         <input type="hidden" name="kategori" value="{{ request("kategori") }}">
         @endif
@@ -72,7 +74,7 @@
   </div>
 
   <div class="flex justify-center items-stretch flex-wrap gap-10 mb-4">
-    @foreach ($posts as $post)
+    @forelse ($posts as $post)
     <div class="flex flex-col rounded shadow-md max-w-sm">
       <div class="flex-shrink-0">
         @if ($post->sampul)
@@ -88,7 +90,8 @@
       <div class="flex-1 bg-white p-6 flex flex-col justify-between">
         <div class="flex-1">
           <p class="text-sm leading-5 font-medium text-blue-600 uppercase">
-            <a href="#" class="hover:underline">
+            <a href="{{ route("posts.index", ["kategori" => $post->kategori->slug]) }}"
+              class="hover:underline">
               {{ $post->kategori->nama }}
             </a>
           </p>
@@ -130,7 +133,9 @@
         </div>
       </div>
     </div>
-    @endforeach
+    @empty
+    <h2 class="text-4xl font-bold text-center">Tidak Ditemukan</h2>
+    @endforelse
   </div>
   {{ $posts->links() }}
 

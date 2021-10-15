@@ -1,32 +1,31 @@
 @extends("layouts.main")
 
+@section("meta")
+
+@include("partials.site-meta", [
+  "title" => $title,
+  "image" => $post->sampul ? asset("storage/".$post->sampul) : asset("storage/sampul-post/sampul-default.jpg"),
+  "keywords" => "mku, upn, jatim, " . $post->kategori->nama,
+  "description" => $post->excerpt,
+  "article" => true
+])
+
+@endsection
+
 @section("content")
 
-<div
-  class="relative w-full min-h-[70vh] md:min-h-screen flex justify-center items-center bg-cover bg-bottom"
-  @if ($post->sampul)
-  style="background-image: url({{ asset("storage/".$post->sampul) }})">
-  @else
-  style="background-image:
-  url({{ asset("storage/sampul-post/sampul-default.jpg") }})">
-  @endif
-  <div
-    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent bg-black/20 flex justify-center items-center flex-col">
-    <div
-      class="bg-black/80 flex justify-center items-center w-11/12 lg:w-4/5 py-12">
-      <h1
-        class="text-4xl lg:text-6xl font-bold text-white text-center leading-loose">
-        {{ $title }}</h1>
-    </div>
-  </div>
-</div>
+@include("partials.hero-section", [
+  "text" => $title,
+  "image" => $post->sampul ? asset("storage/".$post->sampul) : asset("storage/sampul-post/sampul-default.jpg")
+])
 
 <main
   class="container mx-auto min-h-screen py-12 px-4 flex justify-between items-start gap-6 flex-col md:flex-row">
   <div class="w-full md:w-[70%] min-h-screen bg-white rounded shadow-md p-4">
     <div class="w-full border-b-2 border-gray-800 flex items-center py-1 mb-4">
       <p class="leading-5 font-bold text-blue-600 uppercase px-2">
-        <a href="#" class="hover:underline">
+        <a href="{{ route("posts.index", ["kategori" => $post->kategori->slug]) }}"
+          class="hover:underline">
           {{ $post->kategori->nama }}
         </a>
       </p>
@@ -49,11 +48,12 @@
       Berita lain</h3>
     @foreach ($latestPosts as $post)
     <div class="w-full p-4 border-t border-gray-500">
-      <a href="#"
+      <a href="{{ route("posts.show", $post) }}"
         class="text-lg hover:text-blue-500 hover:underline">{{ $post->judul }}</a>
       <div class="w-full flex justify-between items-center py-1 mt-2">
         <p class="leading-5 text-sm font-bold text-blue-600 uppercase">
-          <a href="#" class="hover:underline">
+          <a href="{{ route("posts.index", ["kategori" => $post->kategori->slug]) }}"
+            class="hover:underline">
             {{ $post->kategori->nama }}
           </a>
         </p>

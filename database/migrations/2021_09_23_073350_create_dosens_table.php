@@ -16,6 +16,7 @@ class CreateDosensTable extends Migration
         Schema::create('dosens', function (Blueprint $table)
         {
             $table->id();
+            $table->foreignId("matakuliah_id")->nullable();
             $table->string("nama");
             $table->string("foto")->nullable();
             $table->string("nip")->nullable();

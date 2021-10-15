@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Matakuliah;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MatakuliahFactory extends Factory
@@ -22,10 +23,13 @@ class MatakuliahFactory extends Factory
     public function definition()
     {
         $matkul = ["Bahasa Indonesia", "Agama Islam", "Bahasa Inggris", "Bela Negara", "Pendidikan Pancasila"];
+        $nama = $matkul[mt_rand(0, 4)];
+        $paragraphs = $this->faker->paragraphs(10);
+        $detail = "<div>" . join("</div><div>", $paragraphs) . "</div>";
         return [
-            "nama" => $matkul[mt_rand(0, 4)],
-            "kode" => $this->faker->numerify('G####'),
-            "dosen_id" => mt_rand(1, 10)
+            "nama" => $nama,
+            "detail" => $detail,
+            "slug" => SlugService::createSlug(Matakuliah::class, 'slug', $nama)
         ];
     }
 }

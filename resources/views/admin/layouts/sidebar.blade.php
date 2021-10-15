@@ -1,7 +1,14 @@
 <aside class="relative bg-gray-700 h-screen w-80 hidden md:block shadow-xl">
-    <div class="p-4 border-b border-gray-500">
+    <div class="p-2 border-b border-gray-500">
         <a href="{{ route("admin.index") }}"
-            class="text-white text-2xl font-semibold uppercase hover:text-gray-300">Admin</a>
+            class="h-14 py-2 flex items-center gap-3">
+            <img src="{{ asset("UPN.png") }}" alt="Logo" class="h-full" />
+            <div class="text-white font-bold pt-2">
+                <p class="leading-none">MKU</p>
+                <span class="leading-none text-xs">UPN "Veteran" Jawa
+                    Timur</span>
+            </div>
+        </a>
     </div>
     <nav class="text-white text-sm font-semibold pt-3">
         <a href="{{ route("admin.post.index") }}"

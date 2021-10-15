@@ -1,5 +1,16 @@
 @extends("layouts.main")
 
+@section("meta")
+
+@include("partials.site-meta", [
+  "title" => $title,
+  "image" => asset("home-hero.jpg"),
+  "keywords" => "mku, upn, jatim",
+  "description" => "Matakuliah Umum Universitas Pembangunan Nasional Veteran Jawa Timur"
+])
+
+@endsection
+
 @section("content")
 
 <div
@@ -20,8 +31,7 @@
   <div
     class="w-full flex flex-col md:flex-row justify-between md:items-center mb-8">
     <div class="mb-2">
-      <span class="block w-40 h-1.5 bg-gray-400 rounded-full mb-2"></span>
-      <h2 class="text-gray-900 font-bold text-3xl">Berita & Pengumuman</h2>
+      @include("partials.section-title", ["text" => "Berita & Pengumuman"])
     </div>
     <a href="{{ route("posts.index") }}"
       class="flex items-center text-gray-800 hover:text-gray-500">
@@ -55,7 +65,7 @@
                 {{ $post->judul }}</h3>
             </a>
             <p class="mb-0 mt-1 text-blue-600 text-sm uppercase">
-              <a href="#"
+              <a href="{{ route("posts.index", ["kategori" => $post->kategori->slug]) }}"
                 class="hover:underline">{{ $post->kategori->nama }}</a> - <span
                 class="text-gray-500 italic capitalize lining-nums">{{ $post->created_at->format('d M Y') }}</span>
             </p>
@@ -96,9 +106,8 @@
   </div>
   @endforeach
 
-  <div class="mb-8 mt-12">
-    <span class="block w-40 h-1.5 bg-gray-400 rounded-full mb-2"></span>
-    <h2 class="text-gray-900 font-bold text-3xl">Lokasi</h2>
+  <div class="mb-10 mt-12">
+    @include("partials.section-title", ["text" => "Lokasi"])
   </div>
 
   <div

@@ -1,7 +1,13 @@
 <header class="w-full bg-gray-700 py-5 px-6 md:hidden">
     <div class="flex items-center justify-between">
         <a href="{{ route("admin.index") }}"
-            class="text-white text-2xl font-semibold uppercase hover:text-gray-300">Admin</a>
+            class="h-12 flex justify-center items-center gap-3">
+            <img src="{{ asset("UPN.png") }}" alt="Logo" class="h-full" />
+            <div class="text-white font-bold pt-2">
+                <p class="leading-none">MKU</p>
+                <p class="leading-none text-sm">UPN "Veteran" Jawa Timur</p>
+            </div>
+        </a>
         <button onclick="togleNavbar()"
             class="text-white text-2xl focus:outline-none">
             <i class="fas fa-bars"></i>

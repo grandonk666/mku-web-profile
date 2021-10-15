@@ -4,12 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title }} | Admin MKU</title>
-    <meta name="author" content="David Grzyb">
-    <meta name="description" content="">
+    <meta name="author" content="Rizal Grandonk">
 
-    <!-- Tailwind -->
-    {{-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
+    <title>{{ $title }} | Admin MKU</title>
+    <meta property="og:title" content="{{ $title }} | Admin MKU" />
+    <meta name="twitter:title" content="{{ $title }} | Admin MKU" />
+
+    <meta name="description"
+        content="Admin Panel Matakuliah Umum Universitas Pembangunan Nasional Veteran Jawa Timur">
+    <meta property="og:description"
+        content="Admin Panel Matakuliah Umum Universitas Pembangunan Nasional Veteran Jawa Timur" />
+    <meta name="twitter:description"
+        content="Admin Panel Matakuliah Umum Universitas Pembangunan Nasional Veteran Jawa Timur" />
+
+    <meta name="image" content="{{ asset("home-hero.jpg") }}" />
+    <meta property="og:image" content="{{ asset("home-hero.jpg") }}" />
+    <meta name="twitter:image" content="{{ asset("home-hero.jpg") }}" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@site" />
+    <meta name="twitter:creator" content="@handle" />
+
+    <meta property="og:url" content={{ Request::fullUrl() }} />
+    <meta property="og:site_name" content='MKU UPN "Veteran" Jawa Timur' />
+
+    <meta name="keywords" content="mku, admin, upn, jatim" />
+    <link rel="canonical" href="{{ Request::fullUrl() }}" />
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ asset("icons/apple-touch-icon.png") }}?v=2">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ asset("icons/favicon-32x32.png") }}?v=2">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ asset("icons/favicon-16x16.png") }}?v=2">
+    <link rel="manifest" href="{{ asset("icons/site.webmanifest") }}?v=2">
+    <link rel="mask-icon" href="{{ asset("icons/safari-pinned-tab.svg") }}?v=2"
+        color="#5bbad5">
+    <link rel="shortcut icon" href="{{ asset("icons/favicon.ico") }}?v=2">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config"
+        content="{{ asset("icons/browserconfig.xml") }}?v=2">
+    <meta name="theme-color" content="#ffffff">
+
     <link rel="stylesheet" href="{{ asset("css/app.css") }}">
     <link rel="stylesheet" href="{{ asset("css/trix.css") }}">
     <style>

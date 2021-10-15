@@ -16,9 +16,9 @@ class CreateMatakuliahsTable extends Migration
         Schema::create('matakuliahs', function (Blueprint $table)
         {
             $table->id();
-            $table->foreignId("dosen_id");
             $table->string("nama");
-            $table->string("kode")->unique();
+            $table->text("detail");
+            $table->string("slug")->unique();
             $table->timestamps();
         });
     }

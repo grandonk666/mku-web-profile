@@ -16,7 +16,7 @@
 <div
   class="w-full md:w-1/2 flex flex-col md:flex-row items-start md:items-center justify-between mt-6 gap-4">
   <form action="{{ route("admin.post.index") }}"
-    class="w-full flex items-center bg-white rounded-md border border-gray-500">
+    class="w-full md:w-auto flex items-center bg-white rounded-md border border-gray-500">
     @if (request("kategori"))
     <input type="hidden" name="kategori" value="{{ request("kategori") }}">
     @endif

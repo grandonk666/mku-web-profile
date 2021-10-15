@@ -1,24 +1,26 @@
 @extends("layouts.main")
 
+@section("meta")
+
+@include("partials.site-meta", [
+  "title" => $title,
+  "image" => asset("profil-hero.jpg"),
+  "keywords" => "mku, profil, visi, misi, upn, jatim",
+  "description" => "Profil Visi Dan Misi Matakuliah Umum Universitas Pembangunan Nasional Veteran Jawa Timur"
+])
+
+@endsection
+
 @section("content")
 
-<div
-  class="relative w-full min-h-[70vh] md:min-h-screen flex justify-center items-center bg-cover bg-bottom"
-  style="background-image: url({{ asset("profil-hero.jpg") }})">
-  <div
-    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent bg-black/20 flex justify-center items-center flex-col">
-    <div
-      class="bg-black/80 flex justify-center items-center  w-11/12 lg:w-4/5 py-12">
-      <h1 class="text-4xl lg:text-6xl font-bold text-white text-center">Profil
-        MKU</h1>
-    </div>
-  </div>
-</div>
+@include("partials.hero-section", [
+  "text" => "Profil MKU",
+  "image" => asset("profil-hero.jpg")
+])
 
 <main id="visi-misi" class="container mx-auto min-h-screen py-12 px-4">
   <div class="mb-6">
-    <span class="block w-40 h-1.5 bg-gray-500 rounded-full mb-2"></span>
-    <h2 class="text-gray-900 font-bold text-3xl">Visi</h2>
+    @include("partials.section-title", ["text" => "Visi"])
   </div>
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptatem
@@ -39,8 +41,7 @@
   </p>
 
   <div class="mb-6 mt-12">
-    <span class="block w-40 h-1.5 bg-gray-500 rounded-full mb-2"></span>
-    <h2 class="text-gray-900 font-bold text-3xl">Misi</h2>
+    @include("partials.section-title", ["text" => "Misi"])
   </div>
   <p>
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum

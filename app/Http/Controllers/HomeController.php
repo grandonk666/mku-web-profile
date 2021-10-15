@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         $posts = Post::with("kategori")->latest()->take(3)->get();
         return view('index', [
-            "title" => "Home",
+            "title" => "Matakuliah Umum",
             "posts" => $posts
         ]);
     }

@@ -23,7 +23,8 @@ class DosenFactory extends Factory
     {
         return [
             'nama' => $this->faker->firstName() . " " . $this->faker->lastName(),
-            "nip" => $this->faker->nik()
+            "nip" => $this->faker->nik(),
+            "matakuliah_id" => mt_rand(1, 4)
         ];
     }
 }

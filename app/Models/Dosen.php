@@ -10,11 +10,11 @@ class Dosen extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["nama", "foto", "jabatan", "nip"];
+    protected $fillable = ["nama", "foto", "jabatan", "nip", "matakuliah_id"];
 
     public function matakuliah()
     {
-        return $this->hasMany(Matakuliah::class);
+        return $this->belongsTo(Matakuliah::class);
     }
 
     public function struktur()
@@ -27,14 +27,6 @@ class Dosen extends Model
         parent::boot();
         self::deleting(function ($dosen)
         {
-            if ($dosen->matakuliah)
-            {
-                $dosen->matakuliah->each(function ($matakuliah)
-                {
-                    $matakuliah->delete();
-                });
-            }
-
             if ($dosen->struktur)
             {
                 $dosen->struktur->delete();

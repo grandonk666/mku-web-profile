@@ -9,7 +9,7 @@
   <div class="mb-4">
     <label class="block text-sm text-gray-700" for="judul">Judul</label>
     <input
-      class="w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("
+      class="slug-from w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("
       judul") border-red-500 @enderror" id="judul" name="judul" type="text"
       placeholder="Judul" maxlength="50" aria-label="judul"
       value="{{ old("judul") }}">
@@ -20,7 +20,7 @@
   <div class="mb-4">
     <label class="block text-sm text-gray-700" for="slug">Slug</label>
     <input
-      class="w-full px-5 py-1 text-gray-400 bg-gray-100 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("
+      class="slug-field w-full px-5 py-1 text-gray-400 bg-gray-100 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("
       slug") border-red-500 @enderror" id="slug" name="slug" type="text"
       placeholder="Slug" aria-label="Slug" value="{{ old("slug") }}" readonly>
     @error("slug")
@@ -66,7 +66,7 @@
   </div>
   <div class="mb-6">
     <label class="block text-sm text-gray-700" for="body">Body</label>
-    <div class="p-1 border-2 rounded prose prose-sm max-w-none @error(" body")
+    <div class="p-1 border-2 rounded prose prose-sm max-w-none @error("body")
       border-red-500 @enderror">
       <input id="body" type="hidden" name="body" value="{{ old("body") }}" />
       <trix-editor id="trix" input="body"></trix-editor>
