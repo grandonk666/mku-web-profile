@@ -37,6 +37,11 @@ class Post extends Model
         return $this->belongsTo(Kategori::class);
     }
 
+    public function attachments()
+    {
+        return $this->morphMany(Attachment::class, "attachable");
+    }
+
     public function sluggable(): array
     {
         return [

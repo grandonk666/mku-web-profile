@@ -17,6 +17,11 @@ class Matakuliah extends Model
         return $this->hasMany(Dosen::class);
     }
 
+    public function attachments()
+    {
+        return $this->morphMany(Attachment::class, "attachable");
+    }
+
     public static function boot()
     {
         parent::boot();
