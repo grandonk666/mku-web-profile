@@ -75,5 +75,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Post::factory()->count(20)->create();
+
+        $post = Post::find(1);
+
+        $post->attachments()->create([
+            'filename' => 'attachment/gambar.jpg',
+        ]);
     }
 }
