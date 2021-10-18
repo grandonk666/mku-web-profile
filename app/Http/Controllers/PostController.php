@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -18,8 +17,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        $latestPosts = Post::with("kategori")->latest()->get()->filter(function ($latest) use ($post)
-        {
+        $latestPosts = Post::with("kategori")->latest()->get()->filter(function ($latest) use ($post) {
             return $latest->id != $post->id;
         })->take(3);
 

@@ -17,7 +17,7 @@ class MatakuliahController extends Controller
      */
     public function index()
     {
-        $listMatakuliah = Matakuliah::with("listDosen")->get();
+        $listMatakuliah = Matakuliah::with("listDosen")->orderBy('nama')->get();
         return view("admin.matakuliah.index", [
             "title" => "Data Matakuliah",
             "listMatakuliah" => $listMatakuliah
@@ -50,7 +50,21 @@ class MatakuliahController extends Controller
             "detail" => "required"
         ]);
 
-        Matakuliah::create($validatedData);
+        $matakuliah = Matakuliah::create($validatedData);
+
+        if ($request->attachments) {
+            $attachments = [];
+            if (count($request->attachments) > 1) {
+                foreach ($request->attachments as $attachment) {
+                    array_push($attachments, ["filename" => $attachment]);
+                }
+
+                $matakuliah->attachments()->createMany($attachments);
+            } else {
+                $attachments["filename"] = $request->attachments[0];
+                $matakuliah->attachments()->create($attachments);
+            }
+        }
 
         return redirect()->route('admin.matakuliah.index')->with("success", "Data Matakuliah Berhasil Ditambahkan");
     }
@@ -84,8 +98,7 @@ class MatakuliahController extends Controller
             "detail" => "required"
         ];
 
-        if ($request->slug != $matakuliah->slug)
-        {
+        if ($request->slug != $matakuliah->slug) {
             $rules["slug"] = "required|unique:matakuliahs";
         }
 

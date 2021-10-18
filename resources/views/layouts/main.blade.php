@@ -7,44 +7,22 @@
   <meta name="author" content="Rizal Grandonk">
   @yield("meta")
 
-  <link 
-    rel="apple-touch-icon" sizes="180x180"
-    href="{{ asset("icons/apple-touch-icon.png") }}?v=2"
-  />
-  <link 
-    rel="icon" type="image/png" sizes="32x32"
-    href="{{ asset("icons/favicon-32x32.png") }}?v=2"
-  />
-  <link 
-    rel="icon"
-    type="image/png"
-    sizes="16x16"
-    href="{{ asset("icons/favicon-16x16.png") }}?v=2"
-  />
-  <link 
-    rel="manifest"
-    href="{{ asset("icons/site.webmanifest") }}?v=2"
-  />
-  <link 
-    rel="mask-icon"
-    href="{{ asset("icons/safari-pinned-tab.svg") }}?v=2"
-    color="#5bbad5"
-  />
-  <link 
-    rel="shortcut icon"
-    href="{{ asset("icons/favicon.ico") }}?v=2"
-  />
-  <meta 
-    name="msapplication-TileColor"
-    content="#2b5797" 
-  />
-  <meta
-    name="msapplication-config"
-    content="{{ asset("icons/browserconfig.xml") }}?v=2"
-  />
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="{{ asset('icons/apple-touch-icon.png') }}?v=2" />
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="{{ asset('icons/favicon-32x32.png') }}?v=2" />
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="{{ asset('icons/favicon-16x16.png') }}?v=2" />
+  <link rel="manifest" href="{{ asset('icons/site.webmanifest') }}?v=2" />
+  <link rel="mask-icon" href="{{ asset('icons/safari-pinned-tab.svg') }}?v=2"
+    color="#5bbad5" />
+  <link rel="shortcut icon" href="{{ asset('icons/favicon.ico') }}?v=2" />
+  <meta name="msapplication-TileColor" content="#2b5797" />
+  <meta name="msapplication-config"
+    content="{{ asset('icons/browserconfig.xml') }}?v=2" />
   <meta name="theme-color" content="#ffffff" />
 
-  <link rel="stylesheet" href="{{ asset("css/app.css") }}">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
 
@@ -59,6 +37,34 @@
     trix-toolbar [data-trix-button-group="file-tools"] {
       display: none;
     }
+
+    .attachment--pdf a::before {
+      content: "Buka File";
+    }
+
+    .attachment--pdf a:hover {
+      color: #4656ec
+    }
+
+    .attachment--pdf a {
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin: 0;
+    }
+
+    .attachment--pdf .attachment__name {
+      font-size: 1.2rem;
+    }
+
+    .attachment--pdf .attachment__name:hover {
+      color: #4656ec;
+    }
+
+    .attachment--pdf .attachment__caption {
+      margin: 0;
+    }
+
   </style>
 </head>
 
@@ -80,19 +86,19 @@
 
   <script>
     const togleNavbar = () => {
-        const flex = document.querySelector(".mobile-menu")
-        flex.classList.toggle("hidden")
-      };
-      
-      const togleDropdown = () => {
-        const menu = document.querySelector(".dropdown-menu")
-        menu.classList.toggle("hidden")
-      };
+      const flex = document.querySelector(".mobile-menu")
+      flex.classList.toggle("hidden")
+    };
+
+    const togleDropdown = () => {
+      const menu = document.querySelector(".dropdown-menu")
+      menu.classList.toggle("hidden")
+    };
 
     const preloader = document.querySelector("#preloader")
     if (preloader) {
       window.addEventListener("load", () => {
-      preloader.classList.add("hidden")
+        preloader.classList.add("hidden")
       });
     }
 

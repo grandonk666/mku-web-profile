@@ -2,9 +2,10 @@
 
 @section('content')
 
-  <form method="POST" action="{{ route('admin.matakuliah.store') }}"
+  <form id="form" method="POST" action="{{ route('admin.matakuliah.store') }}"
     class="p-3 md:p-10 bg-white rounded shadow-md w-full">
     @csrf
+
     <div class="mb-4">
       <label class="block text-sm text-gray-700" for="nama">Nama</label>
       <input
@@ -25,31 +26,11 @@
         <span class="text-xs font-bold text-red-500">{{ $message }}</span>
       @enderror
     </div>
-    {{-- <div class="mb-6">
-    <label class="block text-sm text-gray-700" for="dosen_id">Dosen
-      Pengajar</label>
-    <select
-      class="w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 border-gray-200 focus:border-gray-800 @error("
-      dosen_id") border-red-500 @enderror" name="dosen_id" id="dosen_id">
-      <option value=""> -- Pilih Dosen -- </option>
-      @foreach ($listDosen as $dosen)
-      @if (old('dosen_id') == $dosen->id)
-      <option value="{{ $dosen->id }}" selected>{{ $dosen->nama }}</option>
-      @else
-      <option value="{{ $dosen->id }}">{{ $dosen->nama }}</option>
-      @endif
-      @endforeach
-    </select>
-    @error('dosen_id')
-    <span class="text-xs font-bold text-red-500">{{ $message }}</span>
-    @enderror
-  </div> --}}
     <div class="mb-6">
       <label class="block text-sm text-gray-700" for="detail">Detail</label>
       <div
         class="p-1 border-2 rounded prose prose-sm max-w-none @error('detail') border-red-500 @enderror">
-        <input id="detail" type="hidden" name="detail"
-          value="{{ old('detail') }}" />
+        <input id="detail" type="hidden" name="detail" />
         <trix-editor id="trix" input="detail"></trix-editor>
       </div>
       @error('detail')
@@ -73,20 +54,6 @@
   <script src="{{ asset('js/trix.js') }}"></script>
   <script src="{{ asset('js/generateSlug.js') }}"></script>
 
-  <script>
-    document.addEventListener("trix-file-accept", function(event) {
-      event.preventDefault()
-    });
-
-
-    document.addEventListener("trix-action-invoke", function(event) {
-      console.log(event.actionName)
-    })
-
-    const trixEl = document.querySelector("trix-editor");
-    console.log(trixEl.editor);
-  </script>
-
-  {{-- @include("admin.attachment-script"); --}}
+  @include("admin.attachment-script")
 
 @endsection

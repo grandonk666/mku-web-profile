@@ -48,13 +48,13 @@ class HomeController extends Controller
         ]);
     }
 
-    public function matakuliah()
-    {
-        $listMatakuliah = Matakuliah::all();
+    // public function matakuliah()
+    // {
+    //     $listMatakuliah = Matakuliah::all();
 
-        return view('matakuliah', [
-            "title" => "Matakuliah",
-            "listMatakuliah" => $listMatakuliah
-        ]);
-    }
+    //     return view('matakuliah', [
+    //         "title" => "Matakuliah",
+    //         "listMatakuliah" => $listMatakuliah
+    //     ]);
+    // }
 }

@@ -19,7 +19,6 @@ class PostController extends Controller
      */
     public function index()
     {
-
         $posts = Post::with("kategori")->latest()->filter(request(["search", "kategori"]))->paginate(5)->withQueryString();
 
         return view("admin.post.index", [
@@ -59,12 +58,25 @@ class PostController extends Controller
 
         $validatedData["excerpt"] = Str::limit(strip_tags($request->body), 170, '...');
 
-        if ($request->file("sampul"))
-        {
+        if ($request->file("sampul")) {
             $validatedData["sampul"] = $request->file("sampul")->store("sampul-post");
         }
 
-        Post::create($validatedData);
+        $post = Post::create($validatedData);
+
+        if ($request->attachments) {
+            $attachments = [];
+            if (count($request->attachments) > 1) {
+                foreach ($request->attachments as $attachment) {
+                    array_push($attachments, ["filename" => $attachment]);
+                }
+
+                $post->attachments()->createMany($attachments);
+            } else {
+                $attachments["filename"] = $request->attachments[0];
+                $post->attachments()->create($attachments);
+            }
+        }
 
         return redirect("/admin/post")->with("success", "Data Post Berhasil Ditambahkan");
     }
@@ -100,8 +112,7 @@ class PostController extends Controller
             "sampul" => "image|file|max:1024"
         ];
 
-        if ($request->slug != $post->slug)
-        {
+        if ($request->slug != $post->slug) {
             $rules["slug"] = "required|unique:posts";
         }
 
@@ -109,10 +120,8 @@ class PostController extends Controller
 
         $validatedData["excerpt"] = Str::limit(strip_tags($request->body), 170, '...');
 
-        if ($request->file("sampul"))
-        {
-            if ($request->oldSampul)
-            {
+        if ($request->file("sampul")) {
+            if ($request->oldSampul) {
                 Storage::delete($request->oldSampul);
             }
             $validatedData["sampul"] = $request->file("sampul")->store("sampul-post");
@@ -131,8 +140,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if ($post->sampul)
-        {
+        if ($post->sampul) {
             Storage::delete($post->sampul);
         }
 
@@ -144,51 +152,5 @@ class PostController extends Controller
     {
         $slug = SlugService::createSlug(Post::class, 'slug', $request->from);
         return response()->json(["slug" => $slug]);
-    }
-
-    public function upload(Request $request)
-    {
-        if ($request->hasFile('file'))
-        {
-            //get filename with extension
-            // $filenamewithextension = $request->file('file')->getClientOriginalName();
-
-            //get filename without extension
-            // $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
-
-            //get file extension
-            // $extension = $request->file('file')->getClientOriginalExtension();
-
-            //filename to store
-            // $filenametostore = $filename.'_'.time().'.'.$extension;
-
-            //Upload File
-            // $request->file('file')->storeAs('public/uploads', $filenametostore);
-
-            // you can save image path below in database
-            // $path = asset('storage/uploads/'.$filenametostore);
-
-            $attachment = $request->file('file')->store("attachment");
-            $path = asset("storage/" . $attachment);
-
-            return response()->json([
-                'url' => $path
-            ], 200);
-        }
-    }
-
-    public function remove(Request $request)
-    {
-        if ($request->has('file'))
-        {
-            $file = $request->file("file");
-            $exists = Storage::exists($file);
-            if ($exists)
-            {
-                Storage::delete($file);
-
-                return response()->json('Deleted', 200);
-            }
-        }
     }
 }

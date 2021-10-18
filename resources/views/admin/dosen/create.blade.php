@@ -27,7 +27,7 @@
         name="matakuliah_id" id="matakuliah_id">
         <option value=""> -- Pilih Matakuliah -- </option>
         @foreach ($listMatakuliah as $matakuliah)
-          @if ($dosen->matakuliah && old('matakuliah_id') == $matakuliah->id)
+          @if (old('matakuliah_id') == $matakuliah->id)
             <option value="{{ $matakuliah->id }}" selected>
               {{ $matakuliah->nama }}
             </option>
