@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, "index"])->name("home");
 Route::get('/profil', [App\Http\Controllers\HomeController::class, "profil"])->name("profil");
 Route::get('/struktur', [App\Http\Controllers\HomeController::class, "struktur"])->name("struktur");
-Route::get('/dosen', [App\Http\Controllers\HomeController::class, "dosen"])->name("dosen");
+
+Route::get('/dosen', [App\Http\Controllers\DosenController::class, "index"])->name("dosen.index");
+Route::get('/dosen/{matakuliah:slug}', [App\Http\Controllers\DosenController::class, "show"])->name("dosen.show");
 
 Route::get('/post', [App\Http\Controllers\PostController::class, "index"])->name("post.index");
 Route::get('/post/{post:slug}', [App\Http\Controllers\PostController::class, "show"])->name("post.show");

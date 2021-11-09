@@ -10,7 +10,7 @@ class MatakuliahController extends Controller
   {
     $listMatakuliah = Matakuliah::with("listDosen")->orderBy('nama')->get();
     return view("matakuliah.index", [
-      "title" => "Berita & Pengumuman",
+      "title" => "Data Matakuliah",
       "listMatakuliah" => $listMatakuliah
     ]);
   }

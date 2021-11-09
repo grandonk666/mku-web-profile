@@ -26,16 +26,32 @@
     </a>
 
     <ul
-      class="hidden justify-between text-white font-bold uppercase text-sm pr-12 w-3/5 lg:flex">
+      class="hidden justify-between text-white font-bold uppercase text-xs pr-12 w-3/5 lg:flex h-full items-center">
       <li>
-        <a href="{{ route('profil') }}" class="hover:text-gray-200">Profil</a>
+        <a href="{{ route('home') }}" class="hover:text-gray-200">Beranda</a>
+      </li>
+      <li class="relative group h-full flex justify-center items-center">
+        <button class="hover:text-gray-200 uppercase">
+          <span>Profil</span>
+          <i class="fas fa-angle-down ml-1"></i>
+        </button>
+        <div
+          class="hidden group-hover:block -left-6 top-16 absolute w-52 bg-gray-600/90 rounded-lg shadow-lg py-4 z-30">
+          <a href="{{ route('profil') }}"
+            class="block px-4 py-4 hover:bg-gray-700 hover:text-white">Visi &
+            Misi</a>
+          <a href="{{ route('struktur') }}"
+            class="block px-4 py-4 hover:bg-gray-700 hover:text-white">Struktur
+            Organisasi</a>
+        </div>
       </li>
       <li>
-        <a href="{{ route('struktur') }}" class="hover:text-gray-200">Struktur
-          Organisasi</a>
+        <a href="{{ route('post.index') }}" class="hover:text-gray-200">Berita
+          &
+          Pengumuman</a>
       </li>
       <li>
-        <a href="{{ route('dosen') }}" class="hover:text-gray-200">Daftar
+        <a href="{{ route('dosen.index') }}" class="hover:text-gray-200">Data
           Dosen</a>
       </li>
       <li>
@@ -49,17 +65,21 @@
     </button>
   </nav>
   <div class="mobile-menu bg-gray-600 text-white py-2 hidden">
+    <a href="{{ route('post.index') }}"
+      class="flex items-center py-4 px-8 hover:bg-gray-400">
+      <i class="fas fa-newspaper mr-3"></i> Berita & Pengumuman
+    </a>
     <a href="{{ route('profil') }}"
       class="flex items-center py-4 px-8 hover:bg-gray-400">
-      <i class="fas fa-university mr-3"></i> Profil
+      <i class="fas fa-university mr-3"></i> Visi & Misi
     </a>
     <a href="{{ route('struktur') }}"
       class="flex items-center py-4 px-8 hover:bg-gray-400">
       <i class="fas fa-sitemap mr-3"></i> Struktur Organisasi
     </a>
-    <a href="{{ route('dosen') }}"
+    <a href="{{ route('dosen.index') }}"
       class="flex items-center py-4 px-8 hover:bg-gray-400">
-      <i class="fas fa-user-tie mr-3"></i> Daftar Dosen
+      <i class="fas fa-user-tie mr-3"></i> Data Dosen
     </a>
     <a href="{{ route('matakuliah.index') }}"
       class="flex items-center py-4 px-8 hover:bg-gray-400">

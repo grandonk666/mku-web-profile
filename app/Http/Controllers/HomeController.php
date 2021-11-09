@@ -37,24 +37,4 @@ class HomeController extends Controller
             "listStruktur" => $struktur
         ]);
     }
-
-    public function dosen()
-    {
-        $listDosen = Dosen::all();
-
-        return view('dosen', [
-            "title" => "Data Dosen",
-            "listDosen" => $listDosen
-        ]);
-    }
-
-    // public function matakuliah()
-    // {
-    //     $listMatakuliah = Matakuliah::all();
-
-    //     return view('matakuliah', [
-    //         "title" => "Matakuliah",
-    //         "listMatakuliah" => $listMatakuliah
-    //     ]);
-    // }
 }

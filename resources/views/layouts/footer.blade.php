@@ -11,11 +11,11 @@
             <span class="leading-none text-lg">UPN "Veteran" Jawa Timur</span>
           </div>
         </div>
-        <address class="text-gray-600 mb-2">
+        <address class="text-gray-600 mb-2 text-center lg:text-left">
           <p>Jl. Raya Rungkut Madya</p>
           <p>Gunung Anyar, Surabaya</p>
         </address>
-        <div class="flex items-center gap-3">
+        <div class="flex items-center justify-center lg:justify-start gap-3">
           <a class="block h-10" href="https://instagram.com"
             target="_blank">
             <img src="{{ asset('ig.svg') }}" alt="instagram"

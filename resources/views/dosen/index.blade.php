@@ -4,10 +4,10 @@
 
   @include("partials.site-meta", [
   "title" => $title,
-  "image" => asset("matakuliah-hero.jpg"),
-  "keywords" => "mku, matakuliah, upn, jatim",
-  "description" => "Data Matakuliah yang ada di Matakuliah Umum Universitas
-  Pembangunan Nasional Veteran Jawa Timur"
+  "image" => asset("dosen-hero.jpg"),
+  "keywords" => "mku, dosen, upn, jatim",
+  "description" => "Data Dosen Matakuliah Umum Universitas Pembangunan Nasional
+  Veteran Jawa Timur"
   ])
 
 @endsection
@@ -15,22 +15,22 @@
 @section('content')
 
   @include("partials.hero-section", [
-  "text" => "Data Matakuliah",
-  "image" => asset("matakuliah-hero.jpg")
+  "text" => "Data Dosen",
+  "image" => asset("dosen-hero.jpg")
   ])
 
   <main class="container mx-auto min-h-screen py-12 px-4">
     <div class="mb-10">
-      @include("partials.section-title", ["text" => "Daftar Matakuliah MKU"])
+      @include("partials.section-title", ["text" => "Data Dosen MKU"])
     </div>
 
     <div class="flex justify-between md:px-6 items-center flex-wrap gap-10">
       @foreach ($listMatakuliah as $matakuliah)
         @include('partials.matakuliah-card', [
-        'route' => route('matakuliah.show', $matakuliah),
-        'headerText' => 'Matakuliah',
+        'route' => route('dosen.show', $matakuliah),
+        'headerText' => 'Dosen',
         'bodyText' => $matakuliah->nama,
-        'icon' => 'fa-book'
+        'icon' => 'fa-user-tie'
         ])
       @endforeach
     </div>
