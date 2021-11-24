@@ -25,17 +25,29 @@ class Dosen extends Model
     public static function boot()
     {
         parent::boot();
-        self::deleting(function ($dosen)
-        {
-            if ($dosen->struktur)
-            {
+        self::deleting(function ($dosen) {
+            if ($dosen->struktur) {
                 $dosen->struktur->delete();
             }
 
-            if ($dosen->foto)
-            {
+            if ($dosen->foto) {
                 Storage::delete($dosen->foto);
             }
+        });
+    }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where(function ($query) use ($search) {
+                $query->where('nama', 'like', '%' . $search . '%');
+            });
+        });
+
+        $query->when($filters["matakuliah"] ?? false, function ($query, $matakuliah) {
+            return $query->whereHas("matakuliah", function ($query) use ($matakuliah) {
+                $query->where("slug", $matakuliah);
+            });
         });
     }
 }

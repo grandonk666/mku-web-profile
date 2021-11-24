@@ -17,10 +17,13 @@ class DosenController extends Controller
      */
     public function index()
     {
-        $listDosen = Dosen::with(["matakuliah", "struktur"])->orderBy('nama')->get();
+        $listDosen = Dosen::with(["matakuliah", "struktur"])->orderBy('nama')->filter(request(["search", "matakuliah"]))->paginate(5)->withQueryString();
+        $listMatakuliah = Matakuliah::with("listDosen")->orderBy('nama')->get();
+
         return view("admin.dosen.index", [
             "title" => "Data Dosen",
-            "listDosen" => $listDosen
+            "listDosen" => $listDosen,
+            "listMatakuliah" => $listMatakuliah
         ]);
     }
 
@@ -50,16 +53,13 @@ class DosenController extends Controller
             "foto" => "image|file|max:1024"
         ]);
 
-        if ($request->nip)
-        {
+        if ($request->nip) {
             $validatedData["nip"] = $request->nip;
         }
-        if ($request->matakuliah_id)
-        {
+        if ($request->matakuliah_id) {
             $validatedData["matakuliah_id"] = $request->matakuliah_id;
         }
-        if ($request->file("foto"))
-        {
+        if ($request->file("foto")) {
             $validatedData["foto"] = $request->file("foto")->store("foto-dosen");
         }
 
@@ -97,18 +97,14 @@ class DosenController extends Controller
             "foto" => "image|file|max:1024"
         ]);
 
-        if ($request->nip)
-        {
+        if ($request->nip) {
             $validatedData["nip"] = $request->nip;
         }
-        if ($request->matakuliah_id)
-        {
+        if ($request->matakuliah_id) {
             $validatedData["matakuliah_id"] = $request->matakuliah_id;
         }
-        if ($request->file("foto"))
-        {
-            if ($request->oldFoto)
-            {
+        if ($request->file("foto")) {
+            if ($request->oldFoto) {
                 Storage::delete($request->oldFoto);
             }
             $validatedData["foto"] = $request->file("foto")->store("foto-dosen");

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Route::get('/migrate', function () {
+//     echo Artisan::call('migrate:fresh --seed');
+// });
 
 Route::get('/', [App\Http\Controllers\HomeController::class, "index"])->name("home");
 Route::get('/profil', [App\Http\Controllers\HomeController::class, "profil"])->name("profil");

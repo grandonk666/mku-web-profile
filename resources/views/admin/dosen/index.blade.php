@@ -14,7 +14,52 @@
   @endif
 
   <div
-    class="shadow-md overflow-hidden border-b border-gray-200 rounded-md w-full mt-4">
+    class="w-full md:w-1/2 flex flex-col md:flex-row items-start md:items-center justify-between mt-6 gap-4">
+    <form action="{{ route('admin.dosen.index') }}"
+      class="w-full md:w-auto flex items-center bg-white rounded-md border border-gray-500">
+      @if (request('matakuliah'))
+        <input type="hidden" name="matakuliah"
+          value="{{ request('matakuliah') }}">
+      @endif
+      <div class="w-full">
+        <input type="text" name="search" value="{{ request('search') }}"
+          class="w-full px-4 py-2 text-gray-900 rounded-md focus:outline-none"
+          placeholder="Cari">
+      </div>
+      <div>
+        <button type="submit"
+          class="flex items-center justify-center w-10 h-10 text-gray-100 rounded-md bg-gray-500">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </button>
+      </div>
+    </form>
+
+    <button onclick="togleDropdown()"
+      class="relative px-4 py-1 bg-white rounded-md border border-gray-500">
+      <span class="text-lg">Matakuliah</span>
+      <i class="fas fa-angle-down ml-2"></i>
+      <div
+        class="dropdown-menu hidden left-0 top-10 absolute w-40 bg-white rounded-lg shadow-lg py-1 border border-gray-500">
+        @foreach ($listMatakuliah as $matakuliah)
+          <a href="{{ route('admin.dosen.index', ['matakuliah' => $matakuliah->slug]) }}"
+            class="block py-2 hover:bg-gray-700 hover:text-white {{ request('kategori') == $matakuliah->slug ? 'bg-gray-700 text-white' : '' }}">
+            {{ $matakuliah->nama }}
+          </a>
+        @endforeach
+        <a href="{{ route('admin.dosen.index') }}"
+          class="block py-2 hover:bg-gray-700 hover:text-white">
+          Tampilkan Semua
+        </a>
+      </div>
+    </button>
+  </div>
+
+  <div
+    class="shadow-md overflow-hidden border-b border-gray-200 rounded-md w-full my-4">
     <table class="min-w-full divide-y divide-gray-200">
       <thead class="bg-gray-300">
         <tr>
@@ -89,4 +134,5 @@
     </table>
   </div>
 
+  {{ $listDosen->links() }}
 @endsection
