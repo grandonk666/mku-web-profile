@@ -17,7 +17,7 @@ class DosenController extends Controller
      */
     public function index()
     {
-        $listDosen = Dosen::with(["matakuliah", "struktur"])->orderBy('nama')->filter(request(["search", "matakuliah"]))->paginate(5)->withQueryString();
+        $listDosen = Dosen::with(["matakuliah", "struktur"])->orderBy('nama')->filter(request(["search", "matakuliah"]))->paginate(10)->withQueryString();
         $listMatakuliah = Matakuliah::with("listDosen")->orderBy('nama')->get();
 
         return view("admin.dosen.index", [

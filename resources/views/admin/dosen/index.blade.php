@@ -85,34 +85,21 @@
         @foreach ($listDosen as $dosen)
           <tr onclick="location.href='{{ route('admin.dosen.edit', $dosen) }}'"
             class="cursor-pointer hover:bg-gray-100">
-            <td class="px-6 py-4">
-              <div class="flex items-center">
-                <div class="hidden md:block flex-shrink-0 h-10 w-10">
-                  @if ($dosen->foto)
-                    <img class="h-10 w-10 rounded-full object-cover"
-                      src="{{ asset('storage/' . $dosen->foto) }}"
-                      alt="{{ $dosen->nama }}">
-                  @else
-                    <img class="h-10 w-10 rounded-full object-cover"
-                      src="{{ asset('storage/foto-dosen/foto-default.jpg') }}"
-                      alt="{{ $dosen->nama }}">
-                  @endif
-                </div>
-                <div class="md:ml-4">
-                  <div class="text-sm font-medium text-gray-900">
-                    {{ $dosen->nama }}
-                  </div>
-                </div>
-              </div>
+            <td class="px-6 py-4 text-sm text-gray-700">
+              {{ $dosen->nama }}
             </td>
             <td class="px-6 py-4 hidden md:table-cell">
-              <div class="text-sm text-gray-900">
-                @if ($dosen->struktur)
-                  {{ $dosen->struktur->jabatan }}
-                @else
-                  Dosen Reguler
-                @endif
-              </div>
+              <ul class="text-sm text-gray-900 list-none">
+                @forelse ($dosen->struktur  as $jabatan)
+                  <li>
+                    {{ $jabatan->jabatan }}
+                  </li>
+                @empty
+                  <li>
+                    Dosen Reguler
+                  </li>
+                @endforelse
+              </ul>
             </td>
             <td class="px-6 py-4 text-sm text-gray-500">
               @if ($dosen->matakuliah)
@@ -136,3 +123,15 @@
 
   {{ $listDosen->links() }}
 @endsection
+
+{{-- <div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+  <figure
+    data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;Jadwal.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;https://mku.rizalwaskito.xyz/storage/attachment/5B8uBWSOMW4MrYP77fFe7w8QzywLTHodDnsk3Wt5.pdf&quot;,&quot;url&quot;:&quot;https://mku.rizalwaskito.xyz/storage/attachment/5B8uBWSOMW4MrYP77fFe7w8QzywLTHodDnsk3Wt5.pdf&quot;}"
+    data-trix-content-type="application/pdf"
+    class="attachment attachment--file attachment--pdf"><a
+      href="https://mku.rizalwaskito.xyz/storage/attachment/5B8uBWSOMW4MrYP77fFe7w8QzywLTHodDnsk3Wt5.pdf">
+      <figcaption class="attachment__caption"><span
+          class="attachment__name">Jadwal.pdf</span> <span
+          class="attachment__size">16.86 KB</span></figcaption>
+    </a></figure>
+</div> --}}

@@ -27,7 +27,7 @@ class HomeController extends Controller
 
     public function struktur()
     {
-        $koordinator = StrukturOrganisasi::with("dosen")->where("jabatan", "Koordinator")->first();
+        $koordinator = StrukturOrganisasi::with("dosen")->where('jabatan', 'like', '%Ketua%')->first();
         $struktur = StrukturOrganisasi::with("dosen")->get();
         $struktur = $struktur->except([$koordinator->id]);
 
