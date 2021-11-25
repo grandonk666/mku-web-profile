@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
         $agamaIslam = Matakuliah::create([
             "nama" => "Pendidikan Agama Islam",
             "slug" => "pendidikan-agama-islam",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama Islam<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
         $agamaKatolik = Matakuliah::create([
             "nama" => "Pendidikan Agama Katolik",
             "slug" => "pendidikan-agama-katolik",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama Katolik<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
         $agamaHindu = Matakuliah::create([
             "nama" => "Pendidikan Agama Hindu",
             "slug" => "pendidikan-agama-hindu",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama Hindu<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder
         $agamaBudha = Matakuliah::create([
             "nama" => "Pendidikan Agama Budha",
             "slug" => "pendidikan-agama-budha",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama Budha<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -117,7 +117,7 @@ class DatabaseSeeder extends Seeder
         $agamaKristen = Matakuliah::create([
             "nama" => "Pendidikan Agama Kristen",
             "slug" => "pendidikan-agama-kristen",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama Kristen<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -137,7 +137,7 @@ class DatabaseSeeder extends Seeder
         $indonesia = Matakuliah::create([
             "nama" => "Bahasa Indonesia",
             "slug" => "bahasa-indonesia",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Bahasa Indonesia<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;bahasa-indonesia.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/bahasa-indonesia.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/bahasa-indonesia.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -163,7 +163,7 @@ class DatabaseSeeder extends Seeder
         $inggris = Matakuliah::create([
             "nama" => "Bahasa Inggris",
             "slug" => "bahasa-inggris",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Bahasa Inggris<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;bahasa-inggris.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/bahasa-inggris.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/bahasa-inggris.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -191,7 +191,7 @@ class DatabaseSeeder extends Seeder
         $kepemimpinan = Matakuliah::create([
             "nama" => "Kepemimpinan",
             "slug" => "kepemimpinan",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Kepemimpinan<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;kepemimpinan.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/kepemimpinan.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/kepemimpinan.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -219,7 +219,7 @@ class DatabaseSeeder extends Seeder
         $kewirausahaan = Matakuliah::create([
             "nama" => "Kewirausahaan",
             "slug" => "kewirausahaan",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Kewirausahaan<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;kewirausahaan.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/kewirausahaan.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/kewirausahaan.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -247,7 +247,7 @@ class DatabaseSeeder extends Seeder
         $belaNegara = Matakuliah::create([
             "nama" => "Pendidikan Bela Negara",
             "slug" => "pendidikan-bela-negara",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Bela Negara<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-bela-negara.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-bela-negara.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-bela-negara.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -275,7 +275,7 @@ class DatabaseSeeder extends Seeder
         $pancasila = Matakuliah::create([
             "nama" => "Pendidikan Pancasila",
             "slug" => "pendidikan-pancasila",
-            "detail" => '<div>Eos non mollitia asperiores maiores. Sit natus possimus reiciendis accusamus quo. Quis quaerat magni non qui sequi atque cupiditate quis.<br>
+            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Pancasila<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-pancasila.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-pancasila.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-pancasila.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -311,27 +311,27 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $dosen2 = Dosen::create([
-            'nama' => 'Chrystia Aji Putra, S.Kom.MT',
-            'matakuliah_id' => $kewirausahaan->id
+            'nama' => 'Chrystia Aji Putra, S.Kom.MT'
         ]);
+        $dosen2->matakuliah()->attach($kewirausahaan->id);
         $dosen2->struktur()->create(['jabatan' => 'Sekretaris Program MKU']);
 
         $dosen3 = Dosen::create([
-            'nama' => 'Dr. Fazlul Rahman, Lc.MA',
-            'matakuliah_id' => $agamaIslam->id
+            'nama' => 'Dr. Fazlul Rahman, Lc.MA'
         ]);
+        $dosen2->matakuliah()->attach($agamaIslam->id);
         $dosen3->struktur()->create(['jabatan' => 'Koordinator MK Agama']);
 
         $dosen4 = Dosen::create([
-            'nama' => 'Drs. Kusnarto, M.Si',
-            'matakuliah_id' => $indonesia->id
+            'nama' => 'Drs. Kusnarto, M.Si'
         ]);
+        $dosen2->matakuliah()->attach($indonesia->id);
         $dosen4->struktur()->create(['jabatan' => 'Koordinator MK Bahasa Indonesia']);
 
         $dosen5 = Dosen::create([
-            'nama' => 'Dr. Wulan Retno Wiganti, M.Pd',
-            'matakuliah_id' => $inggris->id
+            'nama' => 'Dr. Wulan Retno Wiganti, M.Pd'
         ]);
+        $dosen2->matakuliah()->attach($inggris->id);
         $dosen5->struktur()->create(['jabatan' => 'Koordinator MK Bahasa Inggris']);
 
         $dosen6 = Dosen::create([
@@ -340,21 +340,21 @@ class DatabaseSeeder extends Seeder
         $dosen6->struktur()->create(['jabatan' => 'Koordinator MK Kewarganegaraan']);
 
         $dosen7 = Dosen::create([
-            'nama' => 'Ir. Sigit Dwi Nugroho, M.Pkn',
-            'matakuliah_id' => $pancasila->id
+            'nama' => 'Ir. Sigit Dwi Nugroho, M.Pkn'
         ]);
+        $dosen2->matakuliah()->attach($pancasila->id);
         $dosen7->struktur()->create(['jabatan' => 'Koordinator MK Pancasila']);
 
         $dosen8 = Dosen::create([
-            'nama' => 'Dra. Sri Wibawani, M.Si',
-            'matakuliah_id' => $belaNegara->id
+            'nama' => 'Dra. Sri Wibawani, M.Si'
         ]);
+        $dosen2->matakuliah()->attach($belaNegara->id);
         $dosen8->struktur()->create(['jabatan' => 'Koordinator MK Bela Negara']);
 
         $dosen9 = Dosen::create([
-            'nama' => 'Dr. Ertien Rining Nawangsari, M.Si',
-            'matakuliah_id' => $kepemimpinan->id
+            'nama' => 'Dr. Ertien Rining Nawangsari, M.Si'
         ]);
+        $dosen2->matakuliah()->attach($kepemimpinan->id);
         $dosen9->struktur()->create(['jabatan' => 'Koordinator MK Kepemimpinan']);
     }
 }

@@ -14,7 +14,7 @@ class Dosen extends Model
 
     public function matakuliah()
     {
-        return $this->belongsTo(Matakuliah::class);
+        return $this->belongsToMany(Matakuliah::class);
     }
 
     public function struktur()

@@ -30,14 +30,15 @@
       <div class="px-4 text-center">
         <h3 class="text-2xl font-bold mb-2 text-black">Navigasi</h3>
         <ul class="text-gray-600 lg:text-right flex flex-col gap-1">
-          <li><a href="{{ route('profil') }}/#visi-misi"
-              class="hover:text-gray-800">Visi & Misi</a></li>
+          <li><a href="{{ route('profil') }}" class="hover:text-gray-800">Visi
+              & Misi</a></li>
           <li><a href="{{ route('post.index', ['kategori' => 'berita']) }}"
               class="hover:text-gray-800">Berita</a></li>
           <li><a
               href="{{ route('post.index', ['kategori' => 'pengumuman']) }}"
               class="hover:text-gray-800">Pengumuman</a></li>
-          {{-- <li><a href="#" class="hover:text-gray-800">Kontak</a></li> --}}
+          <li><a href="{{ route('admin.index') }}"
+              class="hover:text-gray-800">Admin</a></li>
         </ul>
       </div>
     </div>

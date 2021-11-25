@@ -15,7 +15,7 @@ class Matakuliah extends Model
 
     public function listDosen()
     {
-        return $this->hasMany(Dosen::class);
+        return $this->belongsToMany(Dosen::class);
     }
 
     public function attachments()

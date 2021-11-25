@@ -102,11 +102,15 @@
               </ul>
             </td>
             <td class="px-6 py-4 text-sm text-gray-500">
-              @if ($dosen->matakuliah)
-                {{ $dosen->matakuliah->nama }}
-              @else
-                Kosong
-              @endif
+              @forelse ($dosen->matakuliah  as $matakuliah)
+                <li class="py-1">
+                  {{ $matakuliah->nama }}
+                </li>
+              @empty
+                <li>
+                  Kosong
+                </li>
+              @endforelse
             </td>
             <td class="px-6 py-4 text-sm text-gray-500 hidden md:table-cell">
               @if ($dosen->nip)
