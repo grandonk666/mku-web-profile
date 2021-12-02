@@ -28,7 +28,8 @@
       @forelse ($listDosen as $dosen)
         @include("partials.foto-dosen", [
         "dosen" => $dosen,
-        "class" => "w-11/12 md:w-[18%]"
+        "class" => "w-11/12 md:w-[18%]",
+        'keterangan' => $dosen->keterangan
         ])
       @empty
         <h2 class="text-4xl font-bold">Belum Ada Dosen Pengajar</h2>

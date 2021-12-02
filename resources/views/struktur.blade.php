@@ -27,14 +27,14 @@
     @include("partials.foto-dosen", [
     "dosen" => $koordinator->dosen,
     "class" => "w-11/12 md:w-[30%] mx-auto",
-    "jabatan" => $koordinator->jabatan
+    "keterangan" => $koordinator->jabatan
     ])
     <div class="flex items-stretch flex-wrap justify-between">
       @foreach ($listStruktur as $struktur)
         @include("partials.foto-dosen", [
         "dosen" => $struktur->dosen,
         "class" => "w-11/12 md:w-[24%]",
-        "jabatan" => $struktur->jabatan
+        "keterangan" => $struktur->jabatan
         ])
       @endforeach
     </div>

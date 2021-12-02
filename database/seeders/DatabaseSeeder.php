@@ -38,10 +38,10 @@ class DatabaseSeeder extends Seeder
 
 
 
-        $agamaIslam = Matakuliah::create([
-            "nama" => "Pendidikan Agama Islam",
-            "slug" => "pendidikan-agama-islam",
-            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama Islam<br>
+        $agama = Matakuliah::create([
+            "nama" => "Pendidikan Agama",
+            "slug" => "pendidikan-agama",
+            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama<br>
             <figure
               data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
               data-trix-content-type="application/pdf"
@@ -53,85 +53,55 @@ class DatabaseSeeder extends Seeder
               </a></figure>
           </div>'
         ]);
-        $agamaIslam->listDosen()->createMany([
-            ['nama' => 'A. Muammar Alawi, S.Pd.I, M.Pd.I'],
-            ['nama' => 'Drs. Imam Ghozali, M.M'],
-            ['nama' => 'Saifuddin Zuhri. M.Si, Drs'],
-            ['nama' => 'Rohmatul Faizah, S.Pd.I, M.Pd.I'],
-            ['nama' => 'Taufikurrahman, S.Pd, M.Pd'],
-            ['nama' => 'Erwin K, S.Th.I, M.Pd'],
-            ['nama' => 'Cholid Fadil, S.Sos.I, M.Pd.I'],
-        ]);
-
-        $agamaKatolik = Matakuliah::create([
-            "nama" => "Pendidikan Agama Katolik",
-            "slug" => "pendidikan-agama-katolik",
-            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama Katolik<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/pendidikan-agama.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">pendidikan-agama.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
-        ]);
-        $agamaKatolik->listDosen()->create(['nama' => 'Drs. Sony Wiliams Ss, M.Hum']);
-
-        $agamaHindu = Matakuliah::create([
-            "nama" => "Pendidikan Agama Hindu",
-            "slug" => "pendidikan-agama-hindu",
-            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama Hindu<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/pendidikan-agama.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">pendidikan-agama.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
-        ]);
-        $agamaHindu->listDosen()->create(['nama' => 'Niluh P K, Se, S.Pdh, M.Pdh']);
-
-        $agamaBudha = Matakuliah::create([
-            "nama" => "Pendidikan Agama Budha",
-            "slug" => "pendidikan-agama-budha",
-            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama Budha<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/pendidikan-agama.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">pendidikan-agama.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
-        ]);
-        $agamaBudha->listDosen()->create(['nama' => 'Suranto, S. Ag, M. A']);
-
-        $agamaKristen = Matakuliah::create([
-            "nama" => "Pendidikan Agama Kristen",
-            "slug" => "pendidikan-agama-kristen",
-            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama Kristen<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/pendidikan-agama.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">pendidikan-agama.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
-        ]);
-        $agamaKristen->listDosen()->createMany([
-            ['nama' => 'Pdt. Abraham Lalong L, Ma'],
-            ['nama' => 'Andreas Jonathan, Ph.D'],
+        $agama->listDosen()->createMany([
+            [
+                'nama' => 'A. Muammar Alawi, S.Pd.I, M.Pd.I',
+                'keterangan' => 'Agama Islam'
+            ],
+            [
+                'nama' => 'Drs. Imam Ghozali, M.M',
+                'keterangan' => 'Agama Islam'
+            ],
+            [
+                'nama' => 'Saifuddin Zuhri. M.Si, Drs',
+                'keterangan' => 'Agama Islam'
+            ],
+            [
+                'nama' => 'Rohmatul Faizah, S.Pd.I, M.Pd.I',
+                'keterangan' => 'Agama Islam'
+            ],
+            [
+                'nama' => 'Taufikurrahman, S.Pd, M.Pd',
+                'keterangan' => 'Agama Islam'
+            ],
+            [
+                'nama' => 'Erwin K, S.Th.I, M.Pd',
+                'keterangan' => 'Agama Islam'
+            ],
+            [
+                'nama' => 'Cholid Fadil, S.Sos.I, M.Pd.I',
+                'keterangan' => 'Agama Islam'
+            ],
+            [
+                'nama' => 'Drs. Sony Wiliams Ss, M.Hum',
+                'keterangan' => 'Agama Katolik'
+            ],
+            [
+                'nama' => 'Niluh P K, Se, S.Pdh, M.Pdh',
+                'keterangan' => 'Agama Hindu'
+            ],
+            [
+                'nama' => 'Suranto, S. Ag, M. A',
+                'keterangan' => 'Agama Budha'
+            ],
+            [
+                'nama' => 'Pdt. Abraham Lalong L, Ma',
+                'keterangan' => 'Agama Kristen'
+            ],
+            [
+                'nama' => 'Andreas Jonathan, Ph.D',
+                'keterangan' => 'Agama Kristen'
+            ],
         ]);
 
         $indonesia = Matakuliah::create([
@@ -317,9 +287,10 @@ class DatabaseSeeder extends Seeder
         $dosen2->struktur()->create(['jabatan' => 'Sekretaris Program MKU']);
 
         $dosen3 = Dosen::create([
-            'nama' => 'Dr. Fazlul Rahman, Lc.MA'
+            'nama' => 'Dr. Fazlul Rahman, Lc.MA',
+            'keterangan' => 'Agama Islam'
         ]);
-        $dosen2->matakuliah()->attach($agamaIslam->id);
+        $dosen3->matakuliah()->attach($agama->id);
         $dosen3->struktur()->create(['jabatan' => 'Koordinator MK Agama']);
 
         $dosen4 = Dosen::create([
@@ -331,7 +302,7 @@ class DatabaseSeeder extends Seeder
         $dosen5 = Dosen::create([
             'nama' => 'Dr. Wulan Retno Wiganti, M.Pd'
         ]);
-        $dosen2->matakuliah()->attach($inggris->id);
+        $dosen5->matakuliah()->attach($inggris->id);
         $dosen5->struktur()->create(['jabatan' => 'Koordinator MK Bahasa Inggris']);
 
         $dosen6 = Dosen::create([
@@ -342,19 +313,19 @@ class DatabaseSeeder extends Seeder
         $dosen7 = Dosen::create([
             'nama' => 'Ir. Sigit Dwi Nugroho, M.Pkn'
         ]);
-        $dosen2->matakuliah()->attach($pancasila->id);
+        $dosen7->matakuliah()->attach($pancasila->id);
         $dosen7->struktur()->create(['jabatan' => 'Koordinator MK Pancasila']);
 
         $dosen8 = Dosen::create([
             'nama' => 'Dra. Sri Wibawani, M.Si'
         ]);
-        $dosen2->matakuliah()->attach($belaNegara->id);
+        $dosen8->matakuliah()->attach($belaNegara->id);
         $dosen8->struktur()->create(['jabatan' => 'Koordinator MK Bela Negara']);
 
         $dosen9 = Dosen::create([
             'nama' => 'Dr. Ertien Rining Nawangsari, M.Si'
         ]);
-        $dosen2->matakuliah()->attach($kepemimpinan->id);
+        $dosen9->matakuliah()->attach($kepemimpinan->id);
         $dosen9->struktur()->create(['jabatan' => 'Koordinator MK Kepemimpinan']);
     }
 }

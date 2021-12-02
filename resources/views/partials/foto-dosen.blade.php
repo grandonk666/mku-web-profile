@@ -12,8 +12,8 @@
   </div>
   <div class="px-2">
     <p class="text-sm font-bold">{{ $dosen->nama }}</p>
-    @isset($jabatan)
-      <span class="text-sm text-gray-700"> - {{ $jabatan }}</span>
-    @endisset
+    @if ($keterangan)
+      <span class="text-sm text-gray-700"> - {{ $keterangan }}</span>
+    @endif
   </div>
 </div>
