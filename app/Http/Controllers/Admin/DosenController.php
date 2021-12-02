@@ -48,6 +48,7 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validatedData = $request->validate([
             "nama" => "required",
             "foto" => "image|file|max:1024"
@@ -56,14 +57,14 @@ class DosenController extends Controller
         if ($request->nip) {
             $validatedData["nip"] = $request->nip;
         }
-        if ($request->matakuliah_id) {
-            $validatedData["matakuliah_id"] = $request->matakuliah_id;
-        }
         if ($request->file("foto")) {
             $validatedData["foto"] = $request->file("foto")->store("foto-dosen");
         }
 
-        Dosen::create($validatedData);
+        $dosen = Dosen::create($validatedData);
+        if ($request->matakuliah_id) {
+            $dosen->matakuliah()->attach($request->matakuliah_id);
+        }
 
         return redirect("/admin/dosen")->with("success", "Data Dosen Berhasil Ditambahkan");
     }
@@ -76,10 +77,13 @@ class DosenController extends Controller
      */
     public function edit(Dosen $dosen)
     {
+        $listMatakuliah = Matakuliah::all();
+        $dosenMatakuliahIds = array_column($dosen->matakuliah->toArray(), 'id');
         return view("admin.dosen.edit", [
             "title" => "Data Dosen",
             "dosen" => $dosen,
-            "listMatakuliah" => Matakuliah::all()
+            'dosenMatakuliahIds' => $dosenMatakuliahIds,
+            "listMatakuliah" => $listMatakuliah
         ]);
     }
 
@@ -100,9 +104,6 @@ class DosenController extends Controller
         if ($request->nip) {
             $validatedData["nip"] = $request->nip;
         }
-        if ($request->matakuliah_id) {
-            $validatedData["matakuliah_id"] = $request->matakuliah_id;
-        }
         if ($request->file("foto")) {
             if ($request->oldFoto) {
                 Storage::delete($request->oldFoto);
@@ -111,6 +112,10 @@ class DosenController extends Controller
         }
 
         Dosen::where("id", $dosen->id)->update($validatedData);
+
+        if ($request->matakuliah_id) {
+            $dosen->matakuliah()->sync($request->matakuliah_id);
+        }
 
         return redirect("/admin/dosen")->with("success", "Data Dosen Berhasil Diperbarui");
     }

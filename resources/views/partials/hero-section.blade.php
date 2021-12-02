@@ -1,5 +1,5 @@
 <div
-  class="relative w-full min-h-[70vh] md:min-h-screen flex justify-center items-center bg-cover bg-bottom"
+  class="relative w-full min-h-[70vh] md:min-h-screen flex justify-center items-center bg-cover bg-center"
   style="background-image: url({{ $image }})">
   <div
     class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent bg-black/20 flex justify-center items-center flex-col">

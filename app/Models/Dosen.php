@@ -10,7 +10,7 @@ class Dosen extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["nama", "foto", "jabatan", "nip", "matakuliah_id"];
+    protected $fillable = ["nama", "foto", "nip"];
 
     public function matakuliah()
     {
@@ -26,7 +26,7 @@ class Dosen extends Model
     {
         parent::boot();
         self::deleting(function ($dosen) {
-            if ($dosen->struktur) {
+            if ($dosen->struktur->count()) {
                 $dosen->struktur->delete();
             }
 

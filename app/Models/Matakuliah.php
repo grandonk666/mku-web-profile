@@ -28,8 +28,8 @@ class Matakuliah extends Model
         parent::boot();
         self::deleting(function ($matakuliah) {
             if ($matakuliah->listDosen) {
-                $matakuliah->listDosen->each(function ($dosen) {
-                    $dosen->update(["matakuliah_id" => null]);
+                $matakuliah->listDosen->each(function ($dosen) use ($matakuliah) {
+                    $dosen->matakuliah()->detach($matakuliah->id);
                 });
             }
 

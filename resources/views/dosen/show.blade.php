@@ -19,16 +19,16 @@
   "image" => asset("dosen-hero.jpg")
   ])
 
-  <main class="container mx-auto min-h-screen py-12 px-4">
+  <main class="container mx-auto min-h-screen py-12 px-2">
     <div class="mb-10">
       @include("partials.section-title", ["text" => $title])
     </div>
 
-    <div class="flex justify-center items-stretch flex-wrap gap-10">
+    <div class="flex items-stretch flex-wrap justify-between">
       @forelse ($listDosen as $dosen)
         @include("partials.foto-dosen", [
         "dosen" => $dosen,
-        "width" => "w-11/12 md:w-[28%]"
+        "class" => "w-11/12 md:w-[18%]"
         ])
       @empty
         <h2 class="text-4xl font-bold">Belum Ada Dosen Pengajar</h2>

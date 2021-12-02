@@ -10,7 +10,7 @@
     <div class="mb-4">
       <label class="block text-sm text-gray-700" for="judul">Judul</label>
       <input
-        class="slug-from w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 focus:border-gray-800 @error('judul') border-red-500 @enderror"
+        class="slug-from w-full px-5 py-1 text-gray-800 bg-gray-100 rounded outline-none border-2 focus:border-gray-800 @error('judul') border-red-500 @enderror"
         id="judul" name="judul" type="text" placeholder="Judul" maxlength="50"
         aria-label="judul" value="{{ old('judul') }}">
       @error('judul')
@@ -33,7 +33,7 @@
       <label class="block text-sm text-gray-700"
         for="kategori_id">Kategori</label>
       <select
-        class="w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 focus:border-gray-800 @error('kategori_id') border-red-500 @enderror"
+        class="w-full px-5 py-1 text-gray-800 bg-gray-100 rounded outline-none border-2 focus:border-gray-800 @error('kategori_id') border-red-500 @enderror"
         name="kategori_id" id="kategori_id">
         <option value=""> -- Pilih Kategori -- </option>
         @foreach ($listKategori as $kategori)
@@ -60,7 +60,7 @@
       </div>
 
       <input onchange="previewImg()"
-        class="img-input w-full px-0 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 focus:border-gray-800 @error('sampul') border-red-500 @enderror"
+        class="img-input w-full px-0 py-1 text-gray-800 bg-gray-100 rounded outline-none border-2 focus:border-gray-800 @error('sampul') border-red-500 @enderror"
         id="sampul" name="sampul" type="file">
       @error('sampul')
         <span class="text-xs font-bold text-red-500">{{ $message }}</span>

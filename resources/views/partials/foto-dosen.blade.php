@@ -1,4 +1,4 @@
-<div class="{{ $width }} mx-auto p-3 bg-white rounded shadow-md mb-8">
+<div class="{{ $class }} p-2 bg-white rounded shadow-md mb-8">
   <div class="aspect-h-10 aspect-w-9 rounded overflow-hidden mb-4">
     @if ($dosen->foto)
       <img src="{{ asset('storage/' . $dosen->foto) }}"
@@ -11,7 +11,7 @@
     @endif
   </div>
   <div class="px-2">
-    <p class="font-bold">{{ $dosen->nama }}</p>
+    <p class="text-sm font-bold">{{ $dosen->nama }}</p>
     @isset($jabatan)
       <span class="text-sm text-gray-700"> - {{ $jabatan }}</span>
     @endisset

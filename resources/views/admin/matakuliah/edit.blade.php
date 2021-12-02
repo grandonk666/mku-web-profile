@@ -11,7 +11,7 @@
     <div class="mb-4">
       <label class="block text-sm text-gray-700" for="nama">Nama</label>
       <input
-        class="slug-from w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 focus:border-gray-800
+        class="slug-from w-full px-5 py-1 text-gray-800 bg-gray-100 rounded outline-none border-2 focus:border-gray-800
         @error('nama') border-red-500 @enderror"
         id="nama" name="nama" type="text" placeholder="Nama Matakuliah"
         aria-label="nama" value="{{ old('nama', $matakuliah->nama) }}">
@@ -22,7 +22,7 @@
     <div class="mb-4">
       <label class="block text-sm text-gray-700" for="slug">Slug</label>
       <input
-        class="slug-field w-full px-5 py-1 text-gray-800 bg-gray-200 rounded outline-none border-2 focus:border-gray-800 @error('slug') border-red-500 @enderror"
+        class="slug-field w-full px-5 py-1 text-gray-800 bg-gray-100 rounded outline-none border-2 focus:border-gray-800 @error('slug') border-red-500 @enderror"
         id="slug" name="slug" type="text" placeholder="Slug" aria-label="slug"
         readonly value="{{ old('slug', $matakuliah->slug) }}">
       @error('slug')
