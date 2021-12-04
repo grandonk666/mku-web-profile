@@ -49,10 +49,10 @@
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/trix.css') }}">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
 
-    .font-family-merri {
-      font-family: Merriweather;
+    .font-family-roboto {
+      font-family: 'Roboto Slab', serif;
     }
 
     /* trix-toolbar [data-trix-button-group="file-tools"] {
@@ -62,7 +62,7 @@
   </style>
 </head>
 
-<body class="bg-gray-100 font-family-merri flex">
+<body class="bg-gray-100 font-family-roboto flex">
 
   @include("admin.layouts.sidebar")
 
@@ -86,30 +86,27 @@
 
   </div>
 
-  <!-- CKEditor -->
-  {{-- <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script> --}}
-
+  <!-- Font Awesome -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+    integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs="
+    crossorigin="anonymous">
+  </script>
 
   <script>
     const togleDropdown = () => {
       const dropdown = document.querySelector(".dropdown-menu")
       dropdown.classList.toggle("hidden")
-    }
+    };
 
     const togleNavbar = () => {
       const flex = document.querySelector(".navbar")
       flex.classList.toggle("hidden")
       flex.classList.toggle("flex")
-    }
+    };
   </script>
 
   @yield("script")
-
-  <!-- Font Awesome -->
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-    integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs="
-    crossorigin="anonymous"></script>
 </body>
 
 </html>

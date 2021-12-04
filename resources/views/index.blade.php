@@ -86,7 +86,7 @@
 
               <div class="w-full mt-4 text-center md:text-left">
                 <a class="text-blue-400 hover:text-blue-900 text-sm transition duration-150 ease-in-out group"
-                  href="{{ route('post.show', $post) }}">Read more
+                  href="{{ route('post.show', $post) }}">Lanjut baca
                   <svg
                     class="group-hover:hidden inline-block ml-1 w-2 h-2 stroke-2 stroke-current"
                     viewBox="0 0 10 10" fill="none" aria-hidden="true">

@@ -26,7 +26,7 @@
     </a>
 
     <ul
-      class="hidden justify-between text-white font-bold uppercase text-xs pr-12 w-3/5 lg:flex h-full items-center">
+      class="hidden justify-between text-white uppercase text-sm pr-12 w-3/5 lg:flex h-full items-center">
       <li>
         <a href="{{ route('home') }}" class="hover:text-gray-200">Beranda</a>
       </li>

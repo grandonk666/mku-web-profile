@@ -1,7 +1,7 @@
 <header class="w-full items-center bg-white py-4 px-6 hidden md:flex">
   <div class="relative group ml-auto">
     <button class="realtive z-10 overflow-hidden focus:outline-none px-2">
-      <span class="text-lg">{{ auth()->user()->name }}</span>
+      <span class="text-lg uppercase">{{ auth()->user()->name }}</span>
       <i class="fas fa-angle-down ml-2"></i>
     </button>
     <div

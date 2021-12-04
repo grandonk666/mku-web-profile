@@ -7,6 +7,7 @@ use App\Models\Kategori;
 use App\Models\Matakuliah;
 use App\Models\Post;
 use App\Models\StrukturOrganisasi;
+use Illuminate\Support\Str;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -20,10 +21,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::create([
-            "name" => "Grandonk",
-            "email" => "grandonk.cm@gmail.com",
-            "password" => bcrypt("66666666")
+            'is_admin' => true,
+            "name" => "Admin",
+            "email" => "admin@gmail.com",
+            "password" => bcrypt("admin"),
+            'remember_token' => Str::random(10),
         ]);
+        User::factory()->count(5)->create();
 
         Kategori::create([
             "nama" => "Berita",

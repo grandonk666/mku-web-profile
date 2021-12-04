@@ -24,14 +24,14 @@
 
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
 
     html {
       scroll-behavior: smooth;
     }
 
-    .font-family-merri {
-      font-family: Merriweather;
+    .font-family-roboto {
+      font-family: 'Roboto Slab', serif;
     }
 
     trix-toolbar [data-trix-button-group="file-tools"] {
@@ -48,7 +48,7 @@
 
     .attachment--pdf a {
       text-decoration: none;
-      font-size: 1.3rem;
+      font-size: 1rem;
       font-weight: 300;
       margin: 0;
     }
@@ -68,7 +68,7 @@
   </style>
 </head>
 
-<body class="bg-gray-100 font-family-merri">
+<body class="bg-gray-100 font-family-roboto">
   @include("layouts.preloader")
 
   @include("layouts.header")
