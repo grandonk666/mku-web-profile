@@ -21,7 +21,7 @@
     <div class="mb-4">
       <label class="block text-sm text-gray-700" for="slug">Slug</label>
       <input
-        class="slug-filed w-full px-5 py-1 text-gray-400 bg-gray-100 rounded outline-none border-2 focus:border-gray-800 @error('slug') border-red-500 @enderror"
+        class="slug-field w-full px-5 py-1 text-gray-400 bg-gray-100 rounded outline-none border-2 focus:border-gray-800 @error('slug') border-red-500 @enderror"
         id="slug" name="slug" type="text" placeholder="Slug" aria-label="Slug"
         value="{{ old('slug', $post->slug) }}" readonly>
       @error('slug')

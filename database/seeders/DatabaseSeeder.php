@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Dosen;
+use App\Models\Gallery;
 use App\Models\Kategori;
 use App\Models\Matakuliah;
 use App\Models\Post;
@@ -39,6 +40,31 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Post::factory()->count(20)->create();
+
+        Gallery::create([
+            'image' => 'gallery/gedung1.jpg',
+            'caption' => 'Gedung Kuliah Bersama, tempat belajar mengajar MKU'
+        ]);
+        Gallery::create([
+            'image' => 'gallery/gedung2.jpg',
+            'caption' => 'Gedung Kuliah Bersama'
+        ]);
+        Gallery::create([
+            'image' => 'gallery/gedung3.jpg',
+            'caption' => 'Gedung Kuliah Bersama'
+        ]);
+        Gallery::create([
+            'image' => 'gallery/gedung4.jpg',
+            'caption' => 'Gedung Kuliah Bersama'
+        ]);
+        Gallery::create([
+            'image' => 'gallery/kelas.jpg',
+            'caption' => 'Ruang kelas gedung GKB'
+        ]);
+        Gallery::create([
+            'image' => 'gallery/tas.jpg',
+            'caption' => 'Ruang kelas gedung GKB'
+        ]);
 
 
 
@@ -107,6 +133,7 @@ class DatabaseSeeder extends Seeder
                 'keterangan' => 'Agama Kristen'
             ],
         ]);
+        $agama->attachments()->create(['filename' => 'attachment/pendidikan-agama.pdf']);
 
         $indonesia = Matakuliah::create([
             "nama" => "Bahasa Indonesia",
@@ -133,6 +160,7 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Dra. Peni Cahya Cartika, M.Si'],
             ['nama' => 'Dr. Eko Hardianto, M.Pd'],
         ]);
+        $indonesia->attachments()->create(['filename' => 'attachment/bahasa-indonesia.pdf']);
 
         $inggris = Matakuliah::create([
             "nama" => "Bahasa Inggris",
@@ -161,6 +189,7 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Dr.Drs. Sukirmiyadi, M.Pd'],
             ['nama' => 'Hendra Sudarso S.Pd, M.Pd'],
         ]);
+        $inggris->attachments()->create(['filename' => 'attachment/bahasa-inggris.pdf']);
 
         $kepemimpinan = Matakuliah::create([
             "nama" => "Kepemimpinan",
@@ -189,6 +218,7 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Ir. Bambang Wahyudi, M.S'],
             ['nama' => 'Praja Firdaus Nuryananda, S.Hub.Int, M.Hub.Int'],
         ]);
+        $kepemimpinan->attachments()->create(['filename' => 'attachment/kepemimpinan.pdf']);
 
         $kewirausahaan = Matakuliah::create([
             "nama" => "Kewirausahaan",
@@ -217,6 +247,7 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Dr.Ir. Pawana Nur Indah, M.Si'],
             ['nama' => 'Dr. Nur Aini Fauziyah, S.Pd, M.Si'],
         ]);
+        $kewirausahaan->attachments()->create(['filename' => 'attachment/kewirausahaan.pdf']);
 
         $belaNegara = Matakuliah::create([
             "nama" => "Pendidikan Bela Negara",
@@ -245,6 +276,7 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Dhian Satria Y K, S.Kom, M.Kom'],
             ['nama' => 'Dr. Fazlul Rahman, Lc, Ma.Hum'],
         ]);
+        $belaNegara->attachments()->create(['filename' => 'attachment/pendidikan-bela-negara.pdf']);
 
         $pancasila = Matakuliah::create([
             "nama" => "Pendidikan Pancasila",
@@ -273,6 +305,7 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Ir. Purwadi, M.P'],
             ['nama' => 'Ir. Eko Priyanto, M.P'],
         ]);
+        $pancasila->attachments()->create(['filename' => 'attachment/pendidikan-pancasila.pdf']);
 
 
 

@@ -37,9 +37,10 @@
         </button>
         <div
           class="hidden group-hover:block -left-6 top-16 absolute w-52 bg-gray-600/90 rounded-lg shadow-lg py-4 z-30">
-          <a href="{{ route('profil') }}"
-            class="block px-4 py-4 hover:bg-gray-700 hover:text-white">Visi &
-            Misi</a>
+          <a href="{{ route('gallery') }}"
+            class="block px-4 py-4 hover:bg-gray-700 hover:text-white">
+            Gallery Foto
+          </a>
           <a href="{{ route('struktur') }}"
             class="block px-4 py-4 hover:bg-gray-700 hover:text-white">Struktur
             Organisasi</a>
@@ -69,10 +70,6 @@
       class="flex items-center py-4 px-8 hover:bg-gray-400">
       <i class="fas fa-newspaper mr-3"></i> Berita & Pengumuman
     </a>
-    <a href="{{ route('profil') }}"
-      class="flex items-center py-4 px-8 hover:bg-gray-400">
-      <i class="fas fa-university mr-3"></i> Visi & Misi
-    </a>
     <a href="{{ route('struktur') }}"
       class="flex items-center py-4 px-8 hover:bg-gray-400">
       <i class="fas fa-sitemap mr-3"></i> Struktur Organisasi
@@ -84,6 +81,10 @@
     <a href="{{ route('matakuliah.index') }}"
       class="flex items-center py-4 px-8 hover:bg-gray-400">
       <i class="fas fa-book mr-3"></i> Matakuliah
+    </a>
+    <a href="{{ route('gallery') }}"
+      class="flex items-center py-4 px-8 hover:bg-gray-400">
+      <i class="fas fa-images mr-3"></i> Gallery Foto
     </a>
   </div>
 </header>

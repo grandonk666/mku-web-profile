@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dosen;
+use App\Models\Gallery;
 use App\Models\Matakuliah;
 use App\Models\Post;
 use App\Models\StrukturOrganisasi;
@@ -18,13 +19,6 @@ class HomeController extends Controller
         ]);
     }
 
-    public function profil()
-    {
-        return view('profil', [
-            "title" => "Profil",
-        ]);
-    }
-
     public function struktur()
     {
         $koordinator = StrukturOrganisasi::with("dosen")->where('jabatan', 'like', '%Ketua%')->first();
@@ -35,6 +29,21 @@ class HomeController extends Controller
             "title" => "Struktur Organisasi",
             "koordinator" => $koordinator,
             "listStruktur" => $struktur
+        ]);
+    }
+
+    public function gallery()
+    {
+        $dataGalleries = Gallery::latest()->get();
+        // $galleries = [];
+        // foreach ($dataGalleries as $index => $gallery) {
+
+        // }
+
+
+        return view('gallery', [
+            "title" => "Gallery Foto",
+            'galleries' => $dataGalleries
         ]);
     }
 }

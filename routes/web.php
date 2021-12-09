@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [App\Http\Controllers\HomeController::class, "index"])->name("home");
-Route::get('/profil', [App\Http\Controllers\HomeController::class, "profil"])->name("profil");
 Route::get('/struktur', [App\Http\Controllers\HomeController::class, "struktur"])->name("struktur");
+Route::get('/gallery', [App\Http\Controllers\HomeController::class, "gallery"])->name("gallery");
 
 Route::get('/dosen', [App\Http\Controllers\DosenController::class, "index"])->name("dosen.index");
 Route::get('/dosen/{matakuliah:slug}', [App\Http\Controllers\DosenController::class, "show"])->name("dosen.show");
@@ -49,6 +49,7 @@ Route::group(["prefix" => "admin", "as" => "admin.", "middleware" => "auth"], fu
     Route::resource('/dosen', App\Http\Controllers\Admin\DosenController::class)->except("show");
     Route::resource('/matakuliah', App\Http\Controllers\Admin\MatakuliahController::class)->except("show");
     Route::resource('/struktur', App\Http\Controllers\Admin\StrukturController::class)->except("show");
+    Route::resource('/gallery', App\Http\Controllers\Admin\GalleryController::class)->except("show");
     Route::resource('/post', App\Http\Controllers\Admin\PostController::class);
 
     Route::post("/attachment/add", [App\Http\Controllers\Admin\AttachmentController::class, "add_attachment"])->name("attachment.add");

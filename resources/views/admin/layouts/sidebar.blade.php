@@ -43,5 +43,10 @@
       <i class="fas fa-book mr-3"></i>
       Data Matakuliah
     </a>
+    <a href="{{ route('admin.gallery.index') }}"
+      class="flex items-center py-3 pl-6 hover:bg-gray-300 hover:text-gray-800 {{ Request::routeIs('admin.gallery*') ? 'bg-white text-gray-800' : 'text-white' }}">
+      <i class="fas fa-images mr-3"></i>
+      Gallery Foto
+    </a>
   </nav>
 </aside>

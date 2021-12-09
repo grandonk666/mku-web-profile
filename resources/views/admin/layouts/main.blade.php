@@ -55,9 +55,9 @@
       font-family: 'Roboto Slab', serif;
     }
 
-    /* trix-toolbar [data-trix-button-group="file-tools"] {
-            display: none;
-        } */
+    trix-toolbar [data-trix-button-group="history-tools"] {
+      display: none;
+    }
 
   </style>
 </head>

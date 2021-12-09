@@ -36,6 +36,11 @@
       <i class="fas fa-book mr-3"></i>
       Data Matakuliah
     </a>
+    <a href="{{ route('admin.gallery.index') }}"
+      class="flex items-center text-white py-2 pl-4 hover:bg-gray-200 hover:text-gray-800">
+      <i class="fas fa-images mr-3"></i>
+      Gallery Foto
+    </a>
     <a href="{{ route('home') }}"
       class="flex items-center text-white py-2 pl-4 hover:bg-gray-200 hover:text-gray-800">
       <i class="fas fa-home mr-3"></i>

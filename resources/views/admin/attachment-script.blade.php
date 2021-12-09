@@ -26,7 +26,7 @@
 
     function uploadFile(file, progressCallback, successCallback) {
       const token = "{{ csrf_token() }}"
-      const uploadEndpoint = '{{ route('admin.attachment.add') }}'
+      const uploadEndpoint = "{{ route('admin.attachment.add') }}"
       var formData = createFormData(file);
       var xhr = new XMLHttpRequest();
 

@@ -16,7 +16,19 @@ class AttachmentController extends Controller
             return response("file does not exists", 400);
         }
 
-        $attachment = $request->file('file')->store("attachment");
+        //get filename with extension
+        $filenamewithextension = $request->file('file')->getClientOriginalName();
+
+        //get filename without extension
+        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+        //get file extension
+        $extension = $request->file('file')->getClientOriginalExtension();
+
+        //filename to store
+        $filenametostore = $filename . '_' . time() . '.' . $extension;
+
+        $attachment = $request->file('file')->storeAs("attachment", $filenametostore);
 
         if ($request->model_type) {
             if ($request->model_type == 'post') {
