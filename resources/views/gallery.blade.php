@@ -24,14 +24,14 @@
       @include("partials.section-title", ["text" => "Gallery Foto MKU"])
     </div>
 
-    <div class="grid grid-cols-2 lg:grid-cols-3 auto-rows-[240px] gap-5">
+    <div class="grid grid-cols-2 lg:grid-cols-3 auto-rows-[240px] gap-4">
       @foreach ($galleries as $gallery)
         <div
           onclick="openModal(true, '{{ asset('storage/' . $gallery->image) }}', '{{ $gallery->caption }}');"
-          class="group block w-full h-full transition-all duration-500 transform hover:scale-105 bg-cover bg-top @if ($loop->index % 3 == 0) lg:row-span-2 @endif"
+          class="cursor-pointer group block w-full h-full transition-all duration-500 transform hover:scale-95 bg-cover bg-top @if ($loop->index % 3 == 0) lg:row-span-2 @endif"
           style="background-image: url({{ asset('storage/' . $gallery->image) }})">
           <div
-            class="w-full h-full flex justify-center items-center bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-500">
+            class="w-full h-full flex justify-center items-center bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-500 px-4">
             <p class="text-white text-lg text-center">
               {{ $gallery->caption }}
             </p>

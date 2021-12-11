@@ -20,8 +20,17 @@
   ])
 
   <main class="container mx-auto min-h-screen py-12 px-4">
-    <div class="mb-10">
-      @include("partials.section-title", ["text" => "Struktur Organisasi"])
+    <div class="mb-8">
+      @include("partials.section-title", ["text" => "Bagan Organisasi Pengelola
+      MKU"])
+    </div>
+    <div
+      class="mb-10 w-full rounded-md overflow-hidden shadow-md p-1 md:p-4 bg-white">
+      <img class="w-full h-auto" src="{{ asset('bagan-mku.svg') }}" alt="">
+    </div>
+
+    <div class="mb-8">
+      @include("partials.section-title", ["text" => "Dosen Pengelola MKU"])
     </div>
 
     @include("partials.foto-dosen", [
