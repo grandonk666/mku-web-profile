@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dosen;
+use App\Models\FileSupport;
 use App\Models\Gallery;
-use App\Models\Matakuliah;
 use App\Models\Post;
 use App\Models\StrukturOrganisasi;
 
@@ -44,6 +43,16 @@ class HomeController extends Controller
         return view('gallery', [
             "title" => "Gallery Foto",
             'galleries' => $dataGalleries
+        ]);
+    }
+
+    public function download()
+    {
+        $files = FileSupport::all();
+
+        return view('download', [
+            "title" => "Download File",
+            'files' => $files
         ]);
     }
 }

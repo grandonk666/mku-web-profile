@@ -48,18 +48,32 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $rules = [
             "judul" => "required|max:50",
             "slug" => "required|unique:posts",
             "kategori_id" => "required",
             "body" => "required",
-            "sampul" => "image|file|max:1024"
-        ]);
+            "sampul" => "image|file|max:1024",
+            "file_support" => "mimes:pdf|max:1024"
+        ];
+
+        if ($request->file("file_support")) {
+            $rules['file_name'] = "required";
+        }
+
+        $validatedData = $request->validate($rules);
 
         $validatedData["excerpt"] = Str::limit(strip_tags($request->body), 170, '...');
 
         if ($request->file("sampul")) {
             $validatedData["sampul"] = $request->file("sampul")->store("sampul-post");
+        }
+
+        if (isset($validatedData["file_support"])) {
+            unset($validatedData["file_support"]);
+        }
+        if (isset($validatedData["file_name"])) {
+            unset($validatedData["file_name"]);
         }
 
         $post = Post::create($validatedData);
@@ -76,6 +90,16 @@ class PostController extends Controller
                 $attachments["filename"] = $request->attachments[0];
                 $post->attachments()->create($attachments);
             }
+        }
+
+        if ($request->file("file_support")) {
+            $filenamewithextension = $request->file('file_support')->getClientOriginalName();
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+            $extension = $request->file('file_support')->getClientOriginalExtension();
+            $filenametostore = $filename . 'date' . time() . '.' . $extension;
+            $path = $request->file('file_support')->storeAs("file-support", $filenametostore);
+
+            $post->file_support()->create(['path' => $path, 'filename' => $request->file_name]);
         }
 
         return redirect("/admin/post")->with("success", "Data Post Berhasil Ditambahkan");
@@ -109,11 +133,16 @@ class PostController extends Controller
             "judul" => "required|max:50",
             "kategori_id" => "required",
             "body" => "required",
-            "sampul" => "image|file|max:1024"
+            "sampul" => "image|file|max:1024",
+            "file_support" => "mimes:pdf|max:1024"
         ];
 
         if ($request->slug != $post->slug) {
             $rules["slug"] = "required|unique:posts";
+        }
+
+        if ($request->file("file_support") || $post->file_support) {
+            $rules['file_name'] = "required";
         }
 
         $validatedData = $request->validate($rules);
@@ -125,6 +154,31 @@ class PostController extends Controller
                 Storage::delete($request->oldSampul);
             }
             $validatedData["sampul"] = $request->file("sampul")->store("sampul-post");
+        }
+
+        if (isset($validatedData["file_support"])) {
+            unset($validatedData["file_support"]);
+        }
+        if (isset($validatedData["file_name"])) {
+            unset($validatedData["file_name"]);
+        }
+
+        if ($request->file("file_support")) {
+            Storage::delete($post->file_support->filename);
+            $post->file_support->delete();
+
+            $filenamewithextension = $request->file('file_support')->getClientOriginalName();
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+            $extension = $request->file('file_support')->getClientOriginalExtension();
+            $filenametostore = $filename . 'date' . time() . '.' . $extension;
+            $path = $request->file('file_support')->storeAs("file-support", $filenametostore);
+
+            $post->file_support()->create(['path' => $path, 'filename' => $request->file_name]);
+        }
+
+        if ($request->file_name && $post->file_support) {
+            $post->file_support->filename = $request->file_name;
+            $post->file_support->save();
         }
 
         Post::where("id", $post->id)->update($validatedData);

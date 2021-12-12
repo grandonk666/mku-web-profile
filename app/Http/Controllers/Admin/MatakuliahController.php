@@ -7,6 +7,7 @@ use App\Models\Dosen;
 use App\Models\Matakuliah;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MatakuliahController extends Controller
 {
@@ -44,11 +45,25 @@ class MatakuliahController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $rules = [
             "nama" => "required",
             "slug" => "required|unique:matakuliahs",
-            "detail" => "required"
-        ]);
+            "detail" => "required",
+            "file_support" => "mimes:pdf|max:1024"
+        ];
+
+        if ($request->file("file_support")) {
+            $rules['file_name'] = "required";
+        }
+
+        $validatedData = $request->validate($rules);
+
+        if (isset($validatedData["file_support"])) {
+            unset($validatedData["file_support"]);
+        }
+        if (isset($validatedData["file_name"])) {
+            unset($validatedData["file_name"]);
+        }
 
         $matakuliah = Matakuliah::create($validatedData);
 
@@ -64,6 +79,16 @@ class MatakuliahController extends Controller
                 $attachments["filename"] = $request->attachments[0];
                 $matakuliah->attachments()->create($attachments);
             }
+        }
+
+        if ($request->file("file_support")) {
+            $filenamewithextension = $request->file('file_support')->getClientOriginalName();
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+            $extension = $request->file('file_support')->getClientOriginalExtension();
+            $filenametostore = $filename . 'date' . time() . '.' . $extension;
+            $path = $request->file('file_support')->storeAs("file-support", $filenametostore);
+
+            $matakuliah->file_support()->create(['path' => $path, 'filename' => $request->file_name]);
         }
 
         return redirect()->route('admin.matakuliah.index')->with("success", "Data Matakuliah Berhasil Ditambahkan");
@@ -95,14 +120,44 @@ class MatakuliahController extends Controller
     {
         $rules = [
             "nama" => "required",
-            "detail" => "required"
+            "detail" => "required",
+            "file_support" => "mimes:pdf|max:1024"
         ];
 
         if ($request->slug != $matakuliah->slug) {
             $rules["slug"] = "required|unique:matakuliahs";
         }
 
+        if ($request->file("file_support") || $matakuliah->file_support) {
+            $rules['file_name'] = "required";
+        }
+
         $validatedData = $request->validate($rules);
+
+        if (isset($validatedData["file_support"])) {
+            unset($validatedData["file_support"]);
+        }
+        if (isset($validatedData["file_name"])) {
+            unset($validatedData["file_name"]);
+        }
+
+        if ($request->file("file_support")) {
+            Storage::delete($matakuliah->file_support->filename);
+            $matakuliah->file_support->delete();
+
+            $filenamewithextension = $request->file('file_support')->getClientOriginalName();
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+            $extension = $request->file('file_support')->getClientOriginalExtension();
+            $filenametostore = $filename . 'date' . time() . '.' . $extension;
+            $path = $request->file('file_support')->storeAs("file-support", $filenametostore);
+
+            $matakuliah->file_support()->create(['path' => $path, 'filename' => $request->file_name]);
+        }
+
+        if ($request->file_name && $matakuliah->file_support) {
+            $matakuliah->file_support->filename = $request->file_name;
+            $matakuliah->file_support->save();
+        }
 
         Matakuliah::where("id", $matakuliah->id)->update($validatedData);
 

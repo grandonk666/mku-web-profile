@@ -23,6 +23,11 @@ class Matakuliah extends Model
         return $this->morphMany(Attachment::class, "attachable");
     }
 
+    public function file_support()
+    {
+        return $this->morphOne(FileSupport::class, "supportable");
+    }
+
     public static function boot()
     {
         parent::boot();

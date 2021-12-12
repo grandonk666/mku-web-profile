@@ -71,17 +71,7 @@ class DatabaseSeeder extends Seeder
         $agama = Matakuliah::create([
             "nama" => "Pendidikan Agama",
             "slug" => "pendidikan-agama",
-            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Agama<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-agama.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-agama.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/pendidikan-agama.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">pendidikan-agama.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
+            "detail" => '<div>Jadwal matakuliah Pendidikan Agama</div>'
         ]);
         $agama->listDosen()->createMany([
             [
@@ -133,22 +123,15 @@ class DatabaseSeeder extends Seeder
                 'keterangan' => 'Agama Kristen'
             ],
         ]);
-        $agama->attachments()->create(['filename' => 'attachment/pendidikan-agama.pdf']);
+        $agama->file_support()->create([
+            'path' => 'file-support/pendidikan-agama.pdf',
+            'filename' => 'Jadwal matakuliah Pendidikan Agama'
+        ]);
 
         $indonesia = Matakuliah::create([
             "nama" => "Bahasa Indonesia",
             "slug" => "bahasa-indonesia",
-            "detail" => '<div>Berikut ini jadwal matakuliah Bahasa Indonesia<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;bahasa-indonesia.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/bahasa-indonesia.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/bahasa-indonesia.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/bahasa-indonesia.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">bahasa-indonesia.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
+            "detail" => '<div>Jadwal matakuliah Bahasa Indonesia</div>'
         ]);
         $indonesia->listDosen()->createMany([
             ['nama' => 'Adelia S, S.Hum, M.Hum'],
@@ -160,22 +143,15 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Dra. Peni Cahya Cartika, M.Si'],
             ['nama' => 'Dr. Eko Hardianto, M.Pd'],
         ]);
-        $indonesia->attachments()->create(['filename' => 'attachment/bahasa-indonesia.pdf']);
+        $indonesia->file_support()->create([
+            'path' => 'file-support/bahasa-indonesia.pdf',
+            'filename' => 'Jadwal matakuliah Bahasa Indonesia'
+        ]);
 
         $inggris = Matakuliah::create([
             "nama" => "Bahasa Inggris",
             "slug" => "bahasa-inggris",
-            "detail" => '<div>Berikut ini jadwal matakuliah Bahasa Inggris<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;bahasa-inggris.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/bahasa-inggris.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/bahasa-inggris.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/bahasa-inggris.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">bahasa-inggris.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
+            "detail" => '<div>Jadwal matakuliah Bahasa Inggris</div>'
         ]);
         $inggris->listDosen()->createMany([
             ['nama' => 'Dr. Rosida, S.Tp, M.P'],
@@ -189,22 +165,15 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Dr.Drs. Sukirmiyadi, M.Pd'],
             ['nama' => 'Hendra Sudarso S.Pd, M.Pd'],
         ]);
-        $inggris->attachments()->create(['filename' => 'attachment/bahasa-inggris.pdf']);
+        $inggris->file_support()->create([
+            'path' => 'file-support/bahasa-inggris.pdf',
+            'filename' => 'Jadwal matakuliah Bahasa Inggris'
+        ]);
 
         $kepemimpinan = Matakuliah::create([
             "nama" => "Kepemimpinan",
             "slug" => "kepemimpinan",
-            "detail" => '<div>Berikut ini jadwal matakuliah Kepemimpinan<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;kepemimpinan.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/kepemimpinan.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/kepemimpinan.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/kepemimpinan.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">kepemimpinan.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
+            "detail" => '<div>Jadwal matakuliah Kepemimpinan</div>'
         ]);
         $kepemimpinan->listDosen()->createMany([
             ['nama' => 'Ario Bimo Utomo, S.Ip, M.I.R'],
@@ -218,22 +187,15 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Ir. Bambang Wahyudi, M.S'],
             ['nama' => 'Praja Firdaus Nuryananda, S.Hub.Int, M.Hub.Int'],
         ]);
-        $kepemimpinan->attachments()->create(['filename' => 'attachment/kepemimpinan.pdf']);
+        $kepemimpinan->file_support()->create([
+            'path' => 'file-support/kepemimpinan.pdf',
+            'filename' => 'Jadwal matakuliah Kepemimpinan'
+        ]);
 
         $kewirausahaan = Matakuliah::create([
             "nama" => "Kewirausahaan",
             "slug" => "kewirausahaan",
-            "detail" => '<div>Berikut ini jadwal matakuliah Kewirausahaan<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;kewirausahaan.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/kewirausahaan.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/kewirausahaan.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/kewirausahaan.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">kewirausahaan.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
+            "detail" => '<div>Jadwal matakuliah Kewirausahaan</div>'
         ]);
         $kewirausahaan->listDosen()->createMany([
             ['nama' => 'Adibah N.Y, St, Bbe, Msc'],
@@ -247,22 +209,15 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Dr.Ir. Pawana Nur Indah, M.Si'],
             ['nama' => 'Dr. Nur Aini Fauziyah, S.Pd, M.Si'],
         ]);
-        $kewirausahaan->attachments()->create(['filename' => 'attachment/kewirausahaan.pdf']);
+        $kewirausahaan->file_support()->create([
+            'path' => 'file-support/kewirausahaan.pdf',
+            'filename' => 'Jadwal matakuliah Kewirausahaan'
+        ]);
 
         $belaNegara = Matakuliah::create([
             "nama" => "Pendidikan Bela Negara",
             "slug" => "pendidikan-bela-negara",
-            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Bela Negara<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-bela-negara.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-bela-negara.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-bela-negara.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/pendidikan-bela-negara.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">pendidikan-bela-negara.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
+            "detail" => '<div>Jadwal matakuliah Pendidikan Bela Negara</div>'
         ]);
         $belaNegara->listDosen()->createMany([
             ['nama' => 'A. Muammar Alawi, S.Pd.I, M.Pd.I'],
@@ -276,22 +231,15 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Dhian Satria Y K, S.Kom, M.Kom'],
             ['nama' => 'Dr. Fazlul Rahman, Lc, Ma.Hum'],
         ]);
-        $belaNegara->attachments()->create(['filename' => 'attachment/pendidikan-bela-negara.pdf']);
+        $belaNegara->file_support()->create([
+            'path' => 'file-support/pendidikan-bela-negara.pdf',
+            'filename' => 'Jadwal matakuliah Pendidikan Bela Negara'
+        ]);
 
         $pancasila = Matakuliah::create([
             "nama" => "Pendidikan Pancasila",
             "slug" => "pendidikan-pancasila",
-            "detail" => '<div>Berikut ini jadwal matakuliah Pendidikan Pancasila<br>
-            <figure
-              data-trix-attachment="{&quot;contentType&quot;:&quot;application/pdf&quot;,&quot;filename&quot;:&quot;pendidikan-pancasila.pdf&quot;,&quot;filesize&quot;:17267,&quot;href&quot;:&quot;' . asset("storage/attachment/pendidikan-pancasila.pdf") . '&quot;,&quot;url&quot;:&quot;' . asset("storage/attachment/pendidikan-pancasila.pdf") . '&quot;}"
-              data-trix-content-type="application/pdf"
-              class="attachment attachment--file attachment--pdf"><a
-                href="' . asset("storage/attachment/pendidikan-pancasila.pdf") . '">
-                <figcaption class="attachment__caption"><span
-                    class="attachment__name">pendidikan-pancasila.pdf</span> <span
-                    class="attachment__size">16.86 KB</span></figcaption>
-              </a></figure>
-          </div>'
+            "detail" => '<div>Jadwal matakuliah Pendidikan Pancasila</div>'
         ]);
         $pancasila->listDosen()->createMany([
             ['nama' => 'Ir. Mutasim Billah, M.S'],
@@ -305,7 +253,10 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Ir. Purwadi, M.P'],
             ['nama' => 'Ir. Eko Priyanto, M.P'],
         ]);
-        $pancasila->attachments()->create(['filename' => 'attachment/pendidikan-pancasila.pdf']);
+        $pancasila->file_support()->create([
+            'path' => 'file-support/pendidikan-pancasila.pdf',
+            'filename' => 'Jadwal matakuliah Pendidikan Pancasila'
+        ]);
 
 
 

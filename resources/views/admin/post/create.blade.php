@@ -67,7 +67,7 @@
       @enderror
     </div>
 
-    <div class="mb-6">
+    <div class="mb-4">
       <label class="block text-sm text-gray-700" for="body">Body</label>
       <div
         class="p-1 border-2 rounded prose prose-sm max-w-none @error('body')
@@ -78,6 +78,30 @@
       @error('body')
         <span class="text-xs font-bold text-red-500">{{ $message }}</span>
       @enderror
+    </div>
+
+    <span class="block text-gray-700">File Pendukung (Boleh
+      Kosong)</span>
+    <div class="mb-6 flex w-full gap-3 justify-between items-center pl-2">
+      <div class="w-2/3">
+        <label class="block text-sm text-gray-700" for="file_name">Nama</label>
+        <input
+          class="slug-from w-full px-5 py-1 text-gray-800 bg-gray-100 rounded outline-none border-2 focus:border-gray-800 @error('file_name') border-red-500 @enderror"
+          id="file_name" name="file_name" type="text" placeholder="Nama File"
+          maxlength="50" aria-label="file_name" value="{{ old('file_name') }}">
+        @error('file_name')
+          <span class="text-xs font-bold text-red-500">{{ $message }}</span>
+        @enderror
+      </div>
+      <div class="w-1/3">
+        <label class="block text-sm text-gray-700" for="file_support">File</label>
+        <input
+          class="pdf-input w-full px-0 text-gray-800 bg-gray-100 rounded outline-none border-2 focus:border-gray-800 @error('file_support') border-red-500 @enderror"
+          id="file_support" name="file_support" type="file">
+        @error('file_support')
+          <span class="text-xs font-bold text-red-500">{{ $message }}</span>
+        @enderror
+      </div>
     </div>
 
     <div class="flex gap-3">
@@ -99,12 +123,6 @@
   <script src="{{ asset('js/generateSlug.js') }}"></script>
 
   @include("admin.attachment-script")
-
-  <script>
-    // document.addEventListener("trix-file-accept", function(event) {
-    //     event.preventDefault()
-    // });
-  </script>
 
 @endsection
 

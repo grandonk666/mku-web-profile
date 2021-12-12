@@ -48,6 +48,7 @@
         <span class="text-xs font-bold text-red-500">{{ $message }}</span>
       @enderror
     </div>
+
     <div class="mb-4">
       <label class="block text-sm text-gray-700" for="sampul">Sampul</label>
       <input type="hidden" name="oldSampul" value="{{ $post->sampul }}">
@@ -75,7 +76,8 @@
       <span class="text-xs font-bold text-red-500">{{ $message }}</span>
     @enderror
   </div>
-  <div class="mb-6">
+
+  <div class="mb-4">
     <label class="block text-sm text-gray-700" for="body">Body</label>
     <div
       class="p-1 border-2 rounded prose prose-sm max-w-none @error('body')
@@ -88,6 +90,38 @@
       <span class="text-xs font-bold text-red-500">{{ $message }}</span>
     @enderror
   </div>
+
+  <span class="block text-gray-700">File Pendukung (Boleh
+    Kosong)</span>
+  <div class="mb-6 flex w-full gap-3 justify-between items-stretch pl-2">
+    <div class="w-2/3">
+      <label class="block text-sm text-gray-700" for="file_name">Nama</label>
+      <input
+        class="slug-from w-full px-5 py-1 text-gray-800 bg-gray-100 rounded outline-none border-2 focus:border-gray-800 @error('file_name') border-red-500 @enderror"
+        id="file_name" name="file_name" type="text" placeholder="Nama File"
+        maxlength="50" aria-label="file_name"
+        value="{{ old('file_name', $post->file_support->filename ?? '') }}">
+      @error('file_name')
+        <span class="text-xs font-bold text-red-500">{{ $message }}</span>
+      @enderror
+    </div>
+    <div class="w-1/3">
+      <label class="block text-sm text-gray-700" for="file_support">File</label>
+      @if ($post->file_support)
+        <a class="pdf-preview block px-3 py-1 bg-green-500 text-white rounded text-xs mb-1"
+          href="{{ asset('storage/' . $post->file_support->path) }}">
+          {{ $post->file_support->path }}
+        </a>
+      @endif
+      <input
+        class="pdf-input w-full px-0 text-gray-800 bg-gray-100 rounded outline-none border-2 focus:border-gray-800 @error('file_support') border-red-500 @enderror"
+        id="file_support" name="file_support" type="file">
+      @error('file_support')
+        <span class="text-xs font-bold text-red-500">{{ $message }}</span>
+      @enderror
+    </div>
+  </div>
+
   <div class="flex gap-3">
     <button
       class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 hover:bg-blue-500 rounded"
@@ -123,9 +157,13 @@
 ])
 
 <script>
-  // document.addEventListener("trix-file-accept", function(event) {
-  //     event.preventDefault()
-  // })
+  const pdfPreview = document.querySelector('.pdf-preview')
+  if (pdfPreview) {
+    const fileName = pdfPreview.innerText.split('/')[1]
+    const extension = fileName.split('.')[1];
+    const originalName = fileName.split('date')[0];
+    pdfPreview.innerText = `${originalName}.${extension}`
+  }
 </script>
 
 @endsection

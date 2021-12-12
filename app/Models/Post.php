@@ -23,6 +23,10 @@ class Post extends Model
                     $attachment->delete();
                 });
             }
+            if ($post->file_support) {
+                Storage::delete($post->file_support->filename);
+                $post->file_support->delete();
+            }
         });
     }
 
@@ -50,6 +54,11 @@ class Post extends Model
     public function attachments()
     {
         return $this->morphMany(Attachment::class, "attachable");
+    }
+
+    public function file_support()
+    {
+        return $this->morphOne(FileSupport::class, "supportable");
     }
 
     public function sluggable(): array

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, "index"])->name("home");
 Route::get('/struktur', [App\Http\Controllers\HomeController::class, "struktur"])->name("struktur");
 Route::get('/gallery', [App\Http\Controllers\HomeController::class, "gallery"])->name("gallery");
+Route::get('/download', [App\Http\Controllers\HomeController::class, "download"])->name("download");
 
 Route::get('/dosen', [App\Http\Controllers\DosenController::class, "index"])->name("dosen.index");
 Route::get('/dosen/{matakuliah:slug}', [App\Http\Controllers\DosenController::class, "show"])->name("dosen.show");
