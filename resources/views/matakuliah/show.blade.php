@@ -42,20 +42,34 @@
         </article>
       </div>
     </div>
-    <div
-      class="w-full md:w-[30%] bg-white rounded shadow-md overflow-hidden sticky top-20">
-      <a href="{{ route('matakuliah.index') }}"
-        class="block text-center text-2xl font-bold text-white px-6 py-4 bg-gray-500">
-        Matakuliah lain
-      </a>
-      @foreach ($listMatakuliah as $matakuliah)
-        <div class="w-full p-4 border-t border-gray-500">
-          <a href="{{ route('matakuliah.show', $matakuliah) }}"
-            class="text-lg hover:text-blue-500 hover:underline">
-            {{ $matakuliah->nama }}
+    <div class="w-full md:w-[30%] sticky top-20">
+      @if ($matakuliah->file_support)
+      <div class="bg-white rounded shadow-md overflow-hidden mb-6">
+        <span class="block text-center text-2xl font-bold text-white px-6 py-4 bg-gray-500">
+          File Lampiran
+        </span>
+        <div class="w-full px-4 py-6 border-t border-gray-500">
+          <a href="{{ asset('storage/'. $matakuliah->file_support->path) }}"
+            class="text-lg text-red-100 rounded px-3 py-2 inline-flex justify-center items-center bg-red-600 hover:bg-red-500 transition-all">
+            <i class="fas fa-file-alt mr-4 text-3xl"></i> <span>{{ $matakuliah->file_support->filename }}</span>
           </a>
         </div>
-      @endforeach
+      </div>
+      @endif
+      <div class="bg-white rounded shadow-md overflow-hidden">
+        <a href="{{ route('matakuliah.index') }}"
+          class="block text-center text-2xl font-bold text-white px-6 py-4 bg-gray-500">
+          Matakuliah lain
+        </a>
+        @foreach ($listMatakuliah as $matakuliah)
+          <div class="w-full p-4 border-t border-gray-500">
+            <a href="{{ route('matakuliah.show', $matakuliah) }}"
+              class="text-lg hover:text-blue-500 hover:underline">
+              {{ $matakuliah->nama }}
+            </a>
+          </div>
+        @endforeach
+      </div>
     </div>
   </main>
 

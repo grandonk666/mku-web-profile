@@ -77,7 +77,7 @@
 
     <div class="flex justify-between items-stretch flex-wrap gap-10 mb-6">
       @forelse ($posts as $post)
-        <div class="flex flex-col rounded shadow-md max-w-md">
+        <div class="flex flex-col rounded shadow-md w-[30%]">
           <div class="flex-shrink-0">
             @if ($post->sampul)
               <img class="h-48 w-full object-cover"
