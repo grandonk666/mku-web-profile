@@ -1,7 +1,7 @@
 <footer class="w-full  bg-gray-300">
   <div class="border-b border-gray-400">
     <div
-      class="container mx-auto flex flex-col lg:flex-row justify-between gap-8 py-8">
+      class="container mx-auto flex flex-col lg:flex-row justify-between gap-8 py-8 px-4 md:px-10">
       <div class="px-4">
         <div class="h-20 py-2 flex items-center gap-3">
           <img src="{{ asset('UPN.png') }}" alt="Logo"

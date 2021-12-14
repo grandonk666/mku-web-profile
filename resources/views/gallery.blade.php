@@ -19,7 +19,7 @@
   "image" => asset("posts-hero.jpg")
   ])
 
-  <main class="container mx-auto min-h-screen py-12 px-4 relative">
+  <main class="container mx-auto min-h-screen py-12 px-4 md:px-10 relative">
     <div class="mb-10">
       @include("partials.section-title", ["text" => "Gallery Foto MKU"])
     </div>

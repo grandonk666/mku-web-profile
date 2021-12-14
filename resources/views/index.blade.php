@@ -28,7 +28,7 @@
         Matakuliah</a>
     </div>
   </div>
-  <main class="container mx-auto min-h-screen py-12 px-4">
+  <main class="container mx-auto min-h-screen py-12 px-4 md:px-10 md:px-10">
     <div
       class="w-full flex flex-col md:flex-row justify-between md:items-center mb-8">
       <div class="mb-2">

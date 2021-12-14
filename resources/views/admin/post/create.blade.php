@@ -80,7 +80,7 @@
       @enderror
     </div>
 
-    <span class="block text-gray-700">File Pendukung (Boleh
+    <span class="block text-gray-700">File Lampiran (Boleh
       Kosong)</span>
     <div class="mb-6 flex w-full gap-3 justify-between items-center pl-2">
       <div class="w-2/3">

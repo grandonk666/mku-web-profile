@@ -19,7 +19,7 @@
   "image" => asset("matakuliah-hero.jpg")
   ])
 
-  <main class="container mx-auto min-h-screen py-12 px-4">
+  <main class="container mx-auto min-h-screen py-12 px-4 md:px-10">
     <div class="mb-10">
       @include("partials.section-title", ["text" => "Daftar Matakuliah MKU"])
     </div>

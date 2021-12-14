@@ -19,7 +19,7 @@
   "image" => asset("posts-hero.jpg")
   ])
 
-  <main class="container mx-auto min-h-screen py-12 px-4">
+  <main class="container mx-auto min-h-screen py-12 px-4 md:px-10">
     <div class="w-full flex justify-between flex-wrap items-center mb-8">
       <div class="mb-4">
         @include("partials.section-title", ["text" => "Berita & Pengumunan"])
@@ -75,9 +75,9 @@
       </div>
     </div>
 
-    <div class="flex justify-center items-stretch flex-wrap gap-10 mb-4">
+    <div class="flex justify-between items-stretch flex-wrap gap-10 mb-6">
       @forelse ($posts as $post)
-        <div class="flex flex-col rounded shadow-md max-w-sm">
+        <div class="flex flex-col rounded shadow-md max-w-md">
           <div class="flex-shrink-0">
             @if ($post->sampul)
               <img class="h-48 w-full object-cover"

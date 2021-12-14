@@ -46,10 +46,22 @@
             Organisasi</a>
         </div>
       </li>
-      <li>
-        <a href="{{ route('post.index') }}" class="hover:text-gray-200">Berita
-          &
-          Pengumuman</a>
+      <li class="relative group h-full flex justify-center items-center">
+        <button class="hover:text-gray-200 uppercase">
+          <span>Info</span>
+          <i class="fas fa-angle-down ml-1"></i>
+        </button>
+        <div
+          class="hidden group-hover:block -left-6 top-16 absolute w-52 bg-gray-600/90 rounded-lg shadow-lg py-4 z-30">
+          <a href="{{ route('post.index') }}"
+            class="block px-4 py-4 hover:bg-gray-700 hover:text-white">
+            Berita & Pengumuman
+          </a>
+          <a href="{{ route('download') }}"
+            class="block px-4 py-4 hover:bg-gray-700 hover:text-white">
+            Download File
+          </a>
+        </div>
       </li>
       <li>
         <a href="{{ route('dosen.index') }}" class="hover:text-gray-200">Data
@@ -85,6 +97,10 @@
     <a href="{{ route('gallery') }}"
       class="flex items-center py-4 px-8 hover:bg-gray-400">
       <i class="fas fa-images mr-3"></i> Gallery Foto
+    </a>
+    <a href="{{ route('download') }}"
+      class="flex items-center py-4 px-8 hover:bg-gray-400">
+      <i class="fas fa-file-alt mr-3"></i> Download File
     </a>
   </div>
 </header>
