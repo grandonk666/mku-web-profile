@@ -79,28 +79,39 @@ class DatabaseSeeder extends Seeder
                 'keterangan' => 'Agama Islam'
             ],
             [
+                'nama' => 'Drs. Zawawi, M.Pd',
+                'keterangan' => 'Agama Islam',
+                'nip' => '370069600601'
+            ],
+            [
                 'nama' => 'Drs. Imam Ghozali, M.M',
-                'keterangan' => 'Agama Islam'
+                'keterangan' => 'Agama Islam',
+                'nip' => '19650910199331001'
             ],
             [
                 'nama' => 'Saifuddin Zuhri. M.Si, Drs',
-                'keterangan' => 'Agama Islam'
+                'keterangan' => 'Agama Islam',
+                'nip' => '370069400351'
             ],
             [
                 'nama' => 'Rohmatul Faizah, S.Pd.I, M.Pd.I',
-                'keterangan' => 'Agama Islam'
+                'keterangan' => 'Agama Islam',
+                'nip' => '17219940221007'
             ],
             [
                 'nama' => 'Taufikurrahman, S.Pd, M.Pd',
-                'keterangan' => 'Agama Islam'
+                'keterangan' => 'Agama Islam',
+                'nip' => '20119930410246'
             ],
             [
                 'nama' => 'Erwin K, S.Th.I, M.Pd',
-                'keterangan' => 'Agama Islam'
+                'keterangan' => 'Agama Islam',
+                'nip' => '17219920510006'
             ],
             [
                 'nama' => 'Cholid Fadil, S.Sos.I, M.Pd.I',
-                'keterangan' => 'Agama Islam'
+                'keterangan' => 'Agama Islam',
+                'nip' => '374100802651'
             ],
             [
                 'nama' => 'Drs. Sony Wiliams Ss, M.Hum',
@@ -134,14 +145,36 @@ class DatabaseSeeder extends Seeder
             "detail" => '<div>Jadwal matakuliah Bahasa Indonesia</div>'
         ]);
         $indonesia->listDosen()->createMany([
-            ['nama' => 'Adelia S, S.Hum, M.Hum'],
-            ['nama' => 'Ahmad Suyuti, S.Pd, M.A'],
-            ['nama' => 'Dewi Puspa A, S.Pd, M.Pd'],
-            ['nama' => 'Endang S, Dr. S.Pd, M.Pd'],
-            ['nama' => 'Siti Ning Farida, Dra. M.Si'],
-            ['nama' => 'Ilmatus S, S.Pd., M.Hum'],
-            ['nama' => 'Dra. Peni Cahya Cartika, M.Si'],
-            ['nama' => 'Dr. Eko Hardianto, M.Pd'],
+            [
+                'nama' => 'Adelia S, S.Hum, M.Hum',
+                'nip' => '20219920404240'
+            ],
+            [
+                'nama' => 'Ahmad Suyuti, S.Pd, M.A',
+                'nip' => '20119920302241'
+            ],
+            [
+                'nama' => 'Dewi Puspa A, S.Pd, M.Pd',
+                'nip' => '1719890624026'
+            ],
+            [
+                'nama' => 'Endang S, Dr. S.Pd, M.Pd',
+                'nip' => '17219860506024'
+            ],
+            [
+                'nama' => 'Siti Ning Farida, Dra. M.Si',
+                'nip' => '196407291990032000'
+            ],
+            [
+                'nama' => 'Ilmatus S, S.Pd., M.Hum',
+                'nip' => '20219930130239'
+            ],
+            [
+                'nama' => 'Dra. Peni Cahya Cartika, M.Si'
+            ],
+            [
+                'nama' => 'Dr. Eko Hardianto, M.Pd'
+            ],
         ]);
         $indonesia->file_support()->create([
             'path' => 'file-support/bahasa-indonesia.pdf',
@@ -154,16 +187,75 @@ class DatabaseSeeder extends Seeder
             "detail" => '<div>Jadwal matakuliah Bahasa Inggris</div>'
         ]);
         $inggris->listDosen()->createMany([
-            ['nama' => 'Dr. Rosida, S.Tp, M.P'],
-            ['nama' => 'Dr. Zainal Abidin Achmad, S.Sos, M.Si'],
-            ['nama' => 'Laksmi Diana, S.S, M.Pd'],
-            ['nama' => 'Kinanti Resmi Hayati, S.Hum, M.A'],
-            ['nama' => 'Navisatul Izzah, S.Pd, M.Tesol'],
-            ['nama' => 'Wahyu Kyestiati Sumarno, S.Pd, M.Ed, M.Pd'],
-            ['nama' => 'Dwi Wahyuningtyas, S.Pd, M.A'],
-            ['nama' => 'Drs. Suprapto, M.Hum'],
-            ['nama' => 'Dr.Drs. Sukirmiyadi, M.Pd'],
-            ['nama' => 'Hendra Sudarso S.Pd, M.Pd'],
+            [
+                'nama' => 'Dr. Rosida, S.Tp, M.P',
+                'nip' => '371029500441'
+            ],
+            [
+                'nama' => 'Dr. Zainal Abidin Achmad, S.Sos, M.Si',
+                'nip' => '37305997301701'
+            ],
+            [
+                'nama' => 'Laksmi Diana, S.S, M.Pd',
+                'nip' => ''
+            ],
+            [
+                'nama' => 'Kinanti Resmi Hayati, S.Hum, M.A',
+                'nip' => ''
+            ],
+            [
+                'nama' => 'Navisatul Izzah, S.Pd, M.Tesol',
+                'nip' => '20219950330243'
+            ],
+            [
+                'nama' => 'Wahyu Kyestiati Sumarno, S.Pd, M.Ed, M.Pd',
+                'nip' => '20219890807242'
+            ],
+            [
+                'nama' => 'Dwi Wahyuningtyas, S.Pd, M.A',
+                'nip' => '20219910528244'
+            ],
+            [
+                'nama' => 'Drs. Suprapto, M.Hum',
+                'nip' => '573031404660007'
+            ],
+            [
+                'nama' => 'Dr.Drs. Sukirmiyadi, M.Pd',
+                'nip' => '196106011993091000'
+            ],
+            [
+                'nama' => 'Hendra Sudarso S.Pd, M.Pd',
+                'nip' => '0727048701'
+            ],
+            [
+                'nama' => 'Linda Mayasari,  S.Pd.M.Pd',
+                'nip' => '0718928401'
+            ],
+            [
+                'nama' => 'Ari Setyorini, Ss., Ma',
+            ],
+            [
+                'nama' => 'Diah Astuty Ss.,M.Pd,',
+                'nip' => '0714127401'
+            ],
+            [
+                'nama' => 'Dr.Drs Kani Sulam Taufik M.Pd',
+                'nip' => '0725105101'
+            ],
+            [
+                'nama' => 'Sulton Dedi Wijaya S.Pd.,M.Pd,',
+                'nip' => '3515111512750004'
+            ],
+            [
+                'nama' => 'Davy budiono S.Pd.,Mhum',
+                'nip' => '0718097601'
+            ],
+            [
+                'nama' => 'Nuriah Mufidah Ss.,M.Pd'
+            ],
+            [
+                'nama' => 'Septaria S. Prihandini'
+            ],
         ]);
         $inggris->file_support()->create([
             'path' => 'file-support/bahasa-inggris.pdf',
@@ -276,19 +368,22 @@ class DatabaseSeeder extends Seeder
 
         $dosen3 = Dosen::create([
             'nama' => 'Dr. Fazlul Rahman, Lc.MA',
-            'keterangan' => 'Agama Islam'
+            'keterangan' => 'Agama Islam',
+            'nip' => '20119850913247'
         ]);
         $dosen3->matakuliah()->attach($agama->id);
         $dosen3->struktur()->create(['jabatan' => 'Koordinator MK Agama']);
 
         $dosen4 = Dosen::create([
-            'nama' => 'Drs. Kusnarto, M.Si'
+            'nama' => 'Drs. Kusnarto, M.Si',
+            'nip' => '195808011984021000'
         ]);
         $dosen2->matakuliah()->attach($indonesia->id);
         $dosen4->struktur()->create(['jabatan' => 'Koordinator MK Bahasa Indonesia']);
 
         $dosen5 = Dosen::create([
-            'nama' => 'Dr. Wulan Retno Wiganti, M.Pd'
+            'nama' => 'Dr. Wulan Retno Wiganti, M.Pd',
+            'nip' => '195808251991032001'
         ]);
         $dosen5->matakuliah()->attach($inggris->id);
         $dosen5->struktur()->create(['jabatan' => 'Koordinator MK Bahasa Inggris']);
