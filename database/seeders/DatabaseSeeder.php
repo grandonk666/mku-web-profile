@@ -505,7 +505,80 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Cholid Fadil, S.Sos.I, M.Pd.I'],
             ['nama' => 'Daisy Marthina Rosyanti, Se, Mm'],
             ['nama' => 'Dhian Satria Y K, S.Kom, M.Kom'],
-            ['nama' => 'Dr. Fazlul Rahman, Lc, Ma.Hum'],
+            ['nama' => 'Dr. Agus Widiyarta, S.Sos.,M.Si'],
+            ['nama' => 'Dr.Dra. Sutini, M.Pd'],
+            [
+                'nama' => 'Dr. I Gede Susrama Masdiyasa, S.T.,M.Kom',
+                'nip' => '370060602101'
+            ],
+            ['nama' => 'Dr. Ida Syamsu Roidah, S.P., Mma'],
+            ['nama' => 'Prof.Dr.Dra.Ec. Indrawati Yuhertiana, M.M.,Ak'],
+            [
+                'nama' => 'Dr.Ir. Ni Ketut Sari, M.T',
+                'nip' => '196507311992032001'
+            ],
+            ['nama' => 'Dr. Jojok Dwiridotjahjono, S.Sos,M.Si'],
+            ['nama' => 'Dr. Lukman Arif, M.Si'],
+            ['nama' => 'Dr. Sutrisno, S.H.,M.Hum'],
+            ['nama' => 'Dra.Ec. Niniek Imaningsih, M.P'],
+            ['nama' => 'Dra. Endang Iryanti, M.M'],
+            [
+                'nama' => 'Dra. Sri Wibawani, M.Si',
+                'nip' => '196704061994032001'
+            ],
+            ['nama' => 'Drh. Wiludjeng Widayati, M.P'],
+            [
+                'nama' => 'Drs.Ec. Hery Pudjoprastyono, M.M',
+                'nip' => '196203181988031002'
+            ],
+            ['nama' => 'Drs.Ec. Sjarief Hidajat, M.Si'],
+            [
+                'nama' => 'Drs. Zawawi, M.Pd',
+                'nip' => '370069600601'
+            ],
+            [
+                'nama' => 'Drs. Imam Ghozali, M.M',
+                'nip' => '19650910199331001'
+            ],
+            [
+                'nama' => 'Drs. Saifuddin Zuhri, M.Si',
+                'nip' => '370069400351'
+            ],
+            ['nama' => 'Eka Nanda Ravizki, S.H., Ll.M'],
+            ['nama' => 'Faisal Muttaqin, S.Kom., M.T'],
+            ['nama' => 'Iis Purnamawati, S.P., M.Si'],
+            ['nama' => 'Ir. Akmal Suryadi, M.T'],
+            ['nama' => 'Ir. Didik Utomo Pribadi, M.P'],
+            ['nama' => 'Ir. Guniarti, M.M'],
+            ['nama' => 'Ir. Mutasim Billah, M.S'],
+            ['nama' => 'Ir. Mulyanto, M.Si'],
+            ['nama' => 'Ir. Purwadi, M.P'],
+            ['nama' => 'Ir. Sutiyono, M.T'],
+            ['nama' => 'Ir. Yuliatin Ali Syamsiah, M.M'],
+            ['nama' => 'Kalvin Edo W, S.Sos., M.Kp'],
+            ['nama' => 'Kartika Maulida H, S.Kom, M.Kom'],
+            ['nama' => 'Kinanti Resmi Hayati S.Hum., M.A'],
+            ['nama' => 'Mohammad Idhom, S.P.,S.Kom.M.T'],
+            ['nama' => 'Muchammad Chasif Ascha, S.Sos., M.Si'],
+            ['nama' => 'Miko Aditiya Suharto, S.H., M.H'],
+            ['nama' => 'Mohamad Mirwan, St., Mt'],
+            ['nama' => 'Muhammad Indrawan J, S.Ip., M.A'],
+            ['nama' => 'Nurul Azizah, S.Ab, M.Ab'],
+            ['nama' => 'Oryza Tannar, S.Ak.,M.Acc'],
+            ['nama' => 'Panggung Handoko, S.Sos.,S.H.,M.M'],
+            ['nama' => 'Pardi Sampe Tola, S.Si., M.Si., Ph.D'],
+            ['nama' => 'Prihandono Wibowo, S.Hub.Int,M.Hub.Int'],
+            ['nama' => 'Prof.Dr.Drs.Ec. Syamsul Huda, M.T'],
+            ['nama' => 'Puji Lestari Tarigan, Sp., M.Sc'],
+            ['nama' => 'Putra Perdana, Se, M.Sc'],
+            ['nama' => 'Syahrul Munir, S.T., M.T'],
+            ['nama' => 'Tranggono, S.T., M.T'],
+            ['nama' => 'Tri Lathif Mardi S, S.Kom, Mt'],
+            ['nama' => 'Dra.Ec. Nurjanti Takarini, M.Si'],
+            ['nama' => 'Mirza Andrian Syah, S.P., M.P'],
+            ['nama' => 'Dr. Bambang Priyanto, Su'],
+            ['nama' => 'Dr. Ir. Sumartono, Su'],
+            ['nama' => 'Suprapto, Dr. M.Sc'],
         ]);
         $belaNegara->file_support()->create([
             'path' => 'file-support/pendidikan-bela-negara.pdf',
@@ -528,6 +601,36 @@ class DatabaseSeeder extends Seeder
             ['nama' => 'Ir. Setyo Budi Santoso, M.P'],
             ['nama' => 'Ir. Purwadi, M.P'],
             ['nama' => 'Ir. Eko Priyanto, M.P'],
+            ['nama' => 'Anajeng Eem, Sh.Mhum'],
+            [
+                'nama' => 'Drs. Imam Ghozali, M.M.',
+                'nip' => '19650910199331001'
+            ],
+            ['nama' => 'Kinanti Resmi H, St,Mt'],
+            ['nama' => 'Dr. Hervina Puspitosari, S.H.,M.H'],
+            ['nama' => 'Nurul Azizah, S.Ab, M.Ab'],
+            ['nama' => 'Laksmi Diana S.S., M.Pd'],
+            ['nama' => 'Drh. Wiludjeng Widayati, M.P'],
+            ['nama' => 'Eka Prakarsa Mandyartha, S.T.,M.Kom'],
+            ['nama' => 'Fawwaz Ali Akbar, S.Kom,M.Kom'],
+            ['nama' => 'Dewi Puspa Arum, Spd, Mpd'],
+            ['nama' => 'Rachmad Ramadhan Y., S.T.,M.T'],
+            ['nama' => 'Saefurrohman, S.P., M.Sc'],
+            ['nama' => 'Fitri Wijayanti, Sp.,Mp'],
+            ['nama' => 'Iis Purnamawati, Sp.,M.Si'],
+            ['nama' => 'Puji Lestari Tarigan, S.P., M.Sc'],
+            ['nama' => 'Safira Rizka Lestari, Sp.,Mp'],
+            ['nama' => 'Tranggono, St.,Mt'],
+            ['nama' => 'Ir. Rr. Djarwatiningsih Pogki Soedjarwo, M.P'],
+            ['nama' => 'Dr.Dra. Sutini, M.Pd'],
+            ['nama' => 'Dr. Noor Rizkiyah, S.P., M.P'],
+            ['nama' => 'Dr. Dona Wahyuning Laily, S.P., M.P'],
+            ['nama' => 'Dr. Ida Syamsu Roidah, S.P., Mma'],
+            ['nama' => 'Prof.Dr.Ir. Moch. Sodiq'],
+            ['nama' => 'Ir. Sutoyo, Mm'],
+            ['nama' => 'Drs. Pailan, Mpd'],
+            ['nama' => 'Dr. Maslichah Mafruchati, Drh., M.Si'],
+            ['nama' => 'Drs. Sumarno, M.Hum'],
         ]);
         $pancasila->file_support()->create([
             'path' => 'file-support/pendidikan-pancasila.pdf',
@@ -537,7 +640,7 @@ class DatabaseSeeder extends Seeder
 
 
         $dosen1 = Dosen::create([
-            'nama' => 'Dr.Ir. Sri Mulijani, MT'
+            'nama' => 'Dr.Ir. Srie Mulijani, MT'
         ]);
         $dosen1->struktur()->createMany([
             ['jabatan' => 'Ketua Program MKU'],
