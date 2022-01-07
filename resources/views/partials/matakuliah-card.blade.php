@@ -1,5 +1,5 @@
 <a href="{{ $route }}"
-  class="block w-full md:w-[45%] px-4 pt-3 pb-2 bg-white rounded shadow-md relative hover:shadow-lg transition-all group">
+  class="block w-full md:w-[48%] px-4 pt-3 pb-2 bg-white rounded shadow-md relative hover:shadow-lg transition-all group">
   <span
     class="w-16 h-16 rounded-full absolute right-6 -top-8 bg-white flex justify-center items-center border-8 border-gray-100 text-2xl text-gray-700 group-hover:scale-110 transition-all">
     <i class="fas {{ $icon }}"></i>
