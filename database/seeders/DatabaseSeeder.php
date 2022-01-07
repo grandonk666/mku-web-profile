@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder
         $agama = Matakuliah::create([
             "nama" => "Pendidikan Agama",
             "slug" => "pendidikan-agama",
-            "detail" => '<div>Jadwal matakuliah Pendidikan Agama</div>'
+            "detail" => '<div>Matakuliah Pendidikan Agama</div>'
         ]);
         $agama->listDosen()->createMany([
             [
@@ -142,7 +142,7 @@ class DatabaseSeeder extends Seeder
         $indonesia = Matakuliah::create([
             "nama" => "Bahasa Indonesia",
             "slug" => "bahasa-indonesia",
-            "detail" => '<div>Jadwal matakuliah Bahasa Indonesia</div>'
+            "detail" => '<div>Matakuliah Bahasa Indonesia</div>'
         ]);
         $indonesia->listDosen()->createMany([
             [
@@ -184,7 +184,7 @@ class DatabaseSeeder extends Seeder
         $inggris = Matakuliah::create([
             "nama" => "Bahasa Inggris",
             "slug" => "bahasa-inggris",
-            "detail" => '<div>Jadwal matakuliah Bahasa Inggris</div>'
+            "detail" => '<div>Matakuliah Bahasa Inggris</div>'
         ]);
         $inggris->listDosen()->createMany([
             [
@@ -265,7 +265,7 @@ class DatabaseSeeder extends Seeder
         $kepemimpinan = Matakuliah::create([
             "nama" => "Kepemimpinan",
             "slug" => "kepemimpinan",
-            "detail" => '<div>Jadwal matakuliah Kepemimpinan</div>'
+            "detail" => '<div>Matakuliah Kepemimpinan</div>'
         ]);
         $kepemimpinan->listDosen()->createMany([
             [
@@ -370,7 +370,7 @@ class DatabaseSeeder extends Seeder
         $kewirausahaan = Matakuliah::create([
             "nama" => "Kewirausahaan",
             "slug" => "kewirausahaan",
-            "detail" => '<div>Jadwal matakuliah Kewirausahaan</div>'
+            "detail" => '<div>Matakuliah Kewirausahaan</div>'
         ]);
         $kewirausahaan->listDosen()->createMany([
             [
@@ -493,7 +493,7 @@ class DatabaseSeeder extends Seeder
         $belaNegara = Matakuliah::create([
             "nama" => "Pendidikan Bela Negara",
             "slug" => "pendidikan-bela-negara",
-            "detail" => '<div>Jadwal matakuliah Pendidikan Bela Negara</div>'
+            "detail" => '<div>Matakuliah Pendidikan Bela Negara</div>'
         ]);
         $belaNegara->listDosen()->createMany([
             ['nama' => 'A. Muammar Alawi, S.Pd.I, M.Pd.I'],
@@ -588,7 +588,7 @@ class DatabaseSeeder extends Seeder
         $pancasila = Matakuliah::create([
             "nama" => "Pendidikan Pancasila",
             "slug" => "pendidikan-pancasila",
-            "detail" => '<div>Jadwal matakuliah Pendidikan Pancasila</div>'
+            "detail" => '<div>Matakuliah Pendidikan Pancasila</div>'
         ]);
         $pancasila->listDosen()->createMany([
             ['nama' => 'Ir. Mutasim Billah, M.S'],
@@ -635,6 +635,195 @@ class DatabaseSeeder extends Seeder
         $pancasila->file_support()->create([
             'path' => 'file-support/pendidikan-pancasila.pdf',
             'filename' => 'Jadwal matakuliah Pendidikan Pancasila'
+        ]);
+
+        $kewarganegaraan = Matakuliah::create([
+            "nama" => "Kewarganegaraan",
+            "slug" => "kewarganegaraan",
+            "detail" => '<div>Matakuliah Kewarganegaraan</div>'
+        ]);
+        $kewarganegaraan->listDosen()->createMany([
+            [
+                'nama' => 'Dr. Ir. R.A. Nora Agustien, MP',
+            ],
+            [
+                'nama' => 'Alfian Candra Ayuswantana, ST, M.Ds',
+            ],
+            [
+                'nama' => 'Anajeng Esri Edhi Mahanani, SH, MH',
+            ],
+            [
+                'nama' => 'Asif Faroqi, S.Kom, M.Kom',
+            ],
+            [
+                'nama' => 'Aulia Ulfah Farahdiba, ST, M.Sc',
+            ],
+            [
+                'nama' => 'Azkia Avenzoar, ST, MT',
+            ],
+            [
+                'nama' => 'Cholid Fadil, S.Sos.I, M.Pd.I',
+            ],
+            [
+                'nama' => 'Chrystia Aji Putra, S.Kom, MT',
+            ],
+            [
+                'nama' => 'Dewi Puspa Arum',
+            ],
+            [
+                'nama' => 'Diana Aqidatun Nisa, ST, M.Ds',
+            ],
+            [
+                'nama' => 'Djarwatiningsih Pongki S',
+            ],
+            [
+                'nama' => 'Dona Wahyuning Laily',
+            ],
+            [
+                'nama' => 'Dr. Dra. Wiwik Handayani, MM',
+            ],
+            [
+                'nama' => 'Dr. Jojok Dwiridho Tjahyono, M.Si',
+            ],
+            [
+                'nama' => 'Dr. Lukman Arif, M.Si',
+            ],
+            [
+                'nama' => 'Dr. Moch. Ali Mashuri, S.Sos., M.Si',
+            ],
+            [
+                'nama' => 'Dra. Ec. Niniek Imaningsih, M.P.',
+            ],
+            [
+                'nama' => 'Dra. Endang Iriyanti, MM',
+            ],
+            [
+                'nama' => 'Dra. Sri Wibawani, M.Si',
+            ],
+            [
+                'nama' => 'Drh, Wilujeng Widajati, MP',
+            ],
+            [
+                'nama' => 'Drs. A. Zawawi, M.Pd, MM',
+            ],
+            [
+                'nama' => 'Drs. Ec. Munari, MM',
+            ],
+            [
+                'nama' => 'Drs. Ec. R. Sjarief Hidajat , M.Si',
+            ],
+            [
+                'nama' => 'Drs. Imam Ghazali, MM',
+            ],
+            [
+                'nama' => 'Drs. Saifuddin Zuhri, M.Si',
+            ],
+            [
+                'nama' => 'Eka Prakarsa Mandyartha, ST, M.Kom',
+            ],
+            [
+                'nama' => 'Fairuz Mutia, ST, MT',
+            ],
+            [
+                'nama' => 'Fawwaz Ali Akbar, S.Kom, M.Kom',
+            ],
+            [
+                'nama' => 'Fithri Estikhamah, ST, MT',
+            ],
+            [
+                'nama' => 'Fitri Wijayanti',
+            ],
+            [
+                'nama' => 'Haryo Sulistyantoro, SH, MM',
+            ],
+            [
+                'nama' => 'Ida Syamsu Roidah',
+            ],
+            [
+                'nama' => 'Iis Purnamawati',
+            ],
+            [
+                'nama' => 'Ir. Mulyanto, M.Si',
+            ],
+            [
+                'nama' => 'Ir. Purwadi, MP',
+            ],
+            [
+                'nama' => 'Ir. Setyo Budi Santoso, MP',
+            ],
+            [
+                'nama' => 'Ir. Sigit Dwi Nugroho, M.Si',
+            ],
+            [
+                'nama' => 'Kalvin Edo W., S.Sos, M.Kp',
+            ],
+            [
+                'nama' => 'Kinanti Resmi Hayati, S.Hum. MA.',
+            ],
+            [
+                'nama' => 'Laksmi Diana, S.S., M.Pd',
+            ],
+            [
+                'nama' => 'Lilik Suprianti, ST., MSc',
+            ],
+            [
+                'nama' => 'Luqman Agung Wicaksono, S.TP., M.P',
+            ],
+            [
+                'nama' => "Mu'tasim Billah",
+            ],
+            [
+                'nama' => 'Noor Rizkiyah',
+            ],
+            [
+                'nama' => 'Panggung Handoko, S.Sos, SH, MM',
+            ],
+            [
+                'nama' => 'Prasmita Dian Wijayati',
+            ],
+            [
+                'nama' => 'Prihandono, S.Hub.Int, M.Hub.Int',
+            ],
+            [
+                'nama' => 'Prof. Dr. Drs. Ec. Syamsul Huda, MT',
+            ],
+            [
+                'nama' => 'Prof. Dr. Ir. H. Syarif Imam Hidayat, MM',
+            ],
+            [
+                'nama' => 'Prof. Dr. Ir. Sri Redjeki, MS',
+            ],
+            [
+                'nama' => 'Puji Lestari Tarigan',
+            ],
+            [
+                'nama' => 'Rachmad Ramadhan Yogaswara, S.T, M.T',
+            ],
+            [
+                'nama' => 'Raden Kokoh, ST, MT',
+            ],
+            [
+                'nama' => 'Reiga Ritomeia Ariescy, SE,MM',
+            ],
+            [
+                'nama' => 'Riko Setya Wijaya, S.E.,M.M.',
+            ],
+            [
+                'nama' => 'Saefurrohman',
+            ],
+            [
+                'nama' => 'Safira Rizka Lestari',
+            ],
+            [
+                'nama' => 'Sutini',
+            ],
+            [
+                'nama' => 'Tranggono, ST, MT',
+            ],
+            [
+                'nama' => 'Tri Lathif Mardi Suryanto, S.Kom, M.T',
+            ],
+            
         ]);
 
 
