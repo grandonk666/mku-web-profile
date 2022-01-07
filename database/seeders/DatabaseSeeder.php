@@ -268,16 +268,99 @@ class DatabaseSeeder extends Seeder
             "detail" => '<div>Jadwal matakuliah Kepemimpinan</div>'
         ]);
         $kepemimpinan->listDosen()->createMany([
-            ['nama' => 'Ario Bimo Utomo, S.Ip, M.I.R'],
-            ['nama' => 'Budi Prabowo, S.Sos, Mm'],
-            ['nama' => 'Dr. I Gede Susrama Masdiyasa, S.T, M.Kom'],
-            ['nama' => 'Ir. Minto Waluyo, Dr. Mmt'],
-            ['nama' => 'Dra. Ety Dwi Susanti, M.Si'],
-            ['nama' => 'Dra. Sri Wibawani, M.Si'],
-            ['nama' => 'Dr.Dra. Ertien Rining Nawangsari, M.Si'],
-            ['nama' => 'Dra. Herlina Suksmawati, M.Si'],
-            ['nama' => 'Ir. Bambang Wahyudi, M.S'],
-            ['nama' => 'Praja Firdaus Nuryananda, S.Hub.Int, M.Hub.Int'],
+            [
+                'nama' => 'Ario Bimo Utomo, S.Ip, M.I.R'
+            ],
+            [
+                'nama' => 'Budi Prabowo, S.Sos, Mm'
+            ],
+            [
+                'nama' => 'Dr. I Gede Susrama Masdiyasa, S.T, M.Kom',
+                'nip' => '370060602101'
+            ],
+            [
+                'nama' => 'Ir. Minto Waluyo, Dr. Mmt',
+                'nip' => '196111301990031001'
+            ],
+            [
+                'nama' => 'Dra. Ety Dwi Susanti, M.Si',
+                'nip' => '196805011994032001'
+            ],
+            [
+                'nama' => 'Dra. Sri Wibawani, M.Si',
+                'nip' => '196704061994032001'
+            ],
+            [
+                'nama' => 'Dra. Herlina Suksmawati, M.Si',
+                'nip' => '196412251993092001'
+            ],
+            [
+                'nama' => 'Ir. Bambang Wahyudi, M.S'
+            ],
+            [
+                'nama' => 'Praja Firdaus Nuryananda, S.Hub.Int, M.Hub.Int',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Artimuri Krisbowo, S.I.P., M.Si.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Dandi Darmadi, S.Ip., M.A.P.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Drh. Wiludjeng Widayati, M.P.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Made Bambang Adnyana, M.Par.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Dra.Ec. Nurjanti Takarini, M.Si.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Drs.Ec. Hery Pudjoprastyono, M.M.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'IR. Naniek Ratni Juliardi A.R., M.Kes.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Dhian Satria Yudha Kartika, S.Kom., M.Kom.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Dra. Endang Iryanti, M.M.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Dr.Ir. Penta Suryaminarsih, M.P.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Dr.Ir. Hery Nirwanto, M.P.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Dra. Suparwati, M.Si.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Dr. Sutrisno. SH.M.Hum.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Dr. Ir. Ni Ketut Sari. MT.',
+                'nip' => '388071303601'
+            ],
+            [
+                'nama' => 'Dr.Ir.Hamidah Hendrarini,M.Si.',
+                'nip' => '388071303601'
+            ],
         ]);
         $kepemimpinan->file_support()->create([
             'path' => 'file-support/kepemimpinan.pdf',
@@ -290,16 +373,117 @@ class DatabaseSeeder extends Seeder
             "detail" => '<div>Jadwal matakuliah Kewirausahaan</div>'
         ]);
         $kewirausahaan->listDosen()->createMany([
-            ['nama' => 'Adibah N.Y, St, Bbe, Msc'],
-            ['nama' => 'Aileena S, C.E.C, St, M.Ds'],
-            ['nama' => 'Aloysia K, St, M.Ds'],
-            ['nama' => 'Ardika Nurmawati, St, Mt'],
-            ['nama' => 'Arief Budiman, S.Ab.M.Ab'],
-            ['nama' => 'Arista Pratama, S.Kom, M.Kom'],
-            ['nama' => 'Dra. Diana Amalia, M.Si'],
-            ['nama' => 'Dr.Ir. Hamidah Hendrarini, M.Si'],
-            ['nama' => 'Dr.Ir. Pawana Nur Indah, M.Si'],
-            ['nama' => 'Dr. Nur Aini Fauziyah, S.Pd, M.Si'],
+            [
+                'nama' => 'Adibah N.Y, St, Bbe, Msc'
+            ],
+            [
+                'nama' => 'Aileena S, C.E.C, St, M.Ds'
+            ],
+            [
+                'nama' => 'Aloysia K, St, M.Ds'
+            ],
+            [
+                'nama' => 'Ardika Nurmawati, St, Mt'
+            ],
+            [
+                'nama' => 'Arief Budiman, S.Ab.M.Ab'
+            ],
+            [
+                'nama' => 'Arista Pratama, S.Kom, M.Kom'
+            ],
+            [
+                'nama' => 'Dra. Diana Amalia, M.Si'
+            ],
+            [
+                'nama' => 'Dr.Ir. Hamidah Hendrarini, M.Si'
+            ],
+            [
+                'nama' => 'Dr. Renny Oktafia, S.E., M.E.I'
+            ],
+            [
+                'nama' => 'Dra. Anna Rumintag Nauli, M.T.'
+            ],
+            [
+                'nama' => 'Dra.Ec. Nurjanti Takarini, M.Si.'
+            ],
+            [
+                'nama' => 'Dra.Ec. Niniel Imaningsih, M.P.'
+            ],
+            [
+                'nama' => 'Dra.Ec. Tituk D.Widajantie, M.Aks.'
+            ],
+            [
+                'nama' => 'Drs.Ec. Muslimin M.Si.'
+            ],
+            [
+                'nama' => 'Drs.Ec. Hery Pudjoprastyono, M.M.'
+            ],
+            [
+                'nama' => 'Dyan Agustin,  St, Mt'
+            ],
+            [
+                'nama' => 'Egan Evanzha Y,  Smn., Mm.'
+            ],
+            [
+                'nama' => 'Fauzatul Laily Nisa,  Se, Me'
+            ],
+            [
+                'nama' => 'Henni Endah W,  S.Kom, M.Kom'
+            ],
+            [
+                'nama' => 'Ika Nawang P,  St.Mt'
+            ],
+            [
+                'nama' => 'Ir. Bambang Wahyudi, M.S.'
+            ],
+            [
+                'nama' => 'Ir. Eendang Pudji Widjajati, M.Mt.'
+            ],
+            [
+                'nama' => 'Ir. Handoyo, M.T.'
+            ],
+            [
+                'nama' => 'Ir. Setyo Parsudi, M.P.'
+            ],
+            [
+                'nama' => 'Muhammad Ilham Naufal, S.A., Mba.'
+            ],
+            [
+                'nama' => 'Ratna Andriani,  St., Mds'
+            ],
+            [
+                'nama' => 'Renova Panjaitan,  St.M'
+            ],
+            [
+                'nama' => 'Reva Edra Nugraha,  Ssi'
+            ],
+            [
+                'nama' => 'Sugiarto,  S.Kom, M.Kom'
+            ],
+            [
+                'nama' => 'Tri Lathif Mardi Suryanto, S.Kom.,M.T.'
+            ],
+            [
+                'nama' => 'Widyasari,  St, Mt'
+            ],
+            [
+                'nama' => 'Wiwin Yulianingsih,  Sh., Mkn'
+            ],
+            [
+                'nama' => 'Dr. Yudiana Indriastuti, S.Sos.,M.Si.'
+            ],
+            [
+                'nama' => 'Zetta Rasullia K,  St,Mt., M.Sc'
+            ],
+            [
+                'nama' => 'Zuhda Mila F,  Sh., L.L.M'
+            ],
+            [
+                'nama' => 'Ika Sari Tondang, S.P., M.Sc.'
+            ],
+            [
+                'nama' => 'Risqi Firdaus Setiawan, S.P., M.P.'
+            ],
         ]);
         $kewirausahaan->file_support()->create([
             'path' => 'file-support/kewirausahaan.pdf',
