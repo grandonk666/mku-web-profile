@@ -62,7 +62,7 @@ class UserController extends Controller
         }
 
         $validatedData = $request->validate($rules);
-        if ($validatedData['password']) {
+        if (isset($validatedData['password'])) {
             $validatedData['password'] = bcrypt($validatedData['password']);
         } else {
             $validatedData['password'] = $user->password;
