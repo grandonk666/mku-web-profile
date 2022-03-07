@@ -59,5 +59,9 @@ Route::group(["prefix" => "admin", "as" => "admin.", "middleware" => "auth"], fu
     Route::group(['middleware' => 'admin'], function () {
         Route::resource("/user", App\Http\Controllers\Admin\UserController::class);
         Route::put("/user/role/{user}", [App\Http\Controllers\Admin\UserController::class, "update_role"])->name("user.role");
+
+        Route::get('/migrate', function () {
+            echo Artisan::call('migrate:fresh --seed');
+        });
     });
 });
