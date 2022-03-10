@@ -32,10 +32,7 @@ class StrukturController extends Controller
     {
         return view("admin.struktur.create", [
             "title" => "Tambah Jabatan",
-            "listDosen" => Dosen::all()->filter(function ($dosen)
-            {
-                return !$dosen->struktur;
-            })
+            "listDosen" => Dosen::all()
         ]);
     }
 
@@ -68,10 +65,7 @@ class StrukturController extends Controller
         return view("admin.struktur.edit", [
             "title" => "Data struktur",
             "struktur" => $struktur,
-            "listDosen" => Dosen::all()->filter(function ($dosen) use ($struktur)
-            {
-                return !$dosen->struktur || $dosen->struktur == $struktur;
-            })
+            "listDosen" => Dosen::all()
         ]);
     }
 
