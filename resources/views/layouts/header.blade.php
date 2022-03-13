@@ -1,5 +1,5 @@
 <header class="fixed w-full z-10">
-  <nav class="w-full h-16 bg-gray-600 flex justify-between items-center">
+  <nav class="w-full h-16 bg-gray-600 flex justify-between items-center shadow-lg">
     <a href="{{ route('home') }}" class="h-full hidden lg:flex justify-center">
       <div
         class="h-full bg-white py-2 pl-4 lg:pl-8 flex justify-center items-center gap-3">
@@ -26,7 +26,7 @@
     </a>
 
     <ul
-      class="hidden justify-between text-white uppercase text-sm pr-12 w-3/5 lg:flex h-full items-center">
+      class="hidden justify-between text-white uppercase text-sm pr-12 w-1/2 lg:flex h-full items-center">
       <li>
         <a href="{{ route('home') }}" class="hover:text-gray-200">Beranda</a>
       </li>
